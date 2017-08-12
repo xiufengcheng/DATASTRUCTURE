@@ -71,7 +71,7 @@
 ### [第一章 .NET与开发工具试用]
 
 
-### [第二章 线性表](./chapter_02_List)
+### [第二章 线性表](./chapter_02_Lists)
 
 ### [第三章 生产力工具: Rational Rose与UML](./CHAPTER03/README.MD)
 1. 面向对象程序设计介绍(类，对象，关系等)
