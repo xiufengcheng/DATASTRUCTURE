@@ -68,28 +68,10 @@
 
 ----
 # <p align ="center">课程大纲</p>
-### [第一章 .NET与开发工具试用](./CHAPTER01/README.MD)
-1. .net简介
-2. Microsoft. NET 战略
-3. .NET遵循的因特网协议
-4. .NET Framework(**重点掌握**)
-5. .NET可以用来做什么
-6. C#介绍
-7. ASP.NET Core介绍
-8. 学会查阅最新官方文档(**重点掌握**)
-9. 第一章特别部分：用VS Code + .NET Core运行第一个C#程序(**重点掌握**)
+### [第一章 .NET与开发工具试用]
 
-### [第二章 生产力工具：github与开源](./CHAPTER02/README.MD)
-1. github介绍
-2. 开一个github账户
-3. github淘金
-4. git bash 工具与命令(重点掌握)
-5. git desktop 工具(重点掌握)
-6. 集中式工作流(重点掌握)
-7. git flow工作流
-8. fork工作流
-9. 团队协作
 
+### [第二章 线性表](./chapter_02_List)
 
 ### [第三章 生产力工具: Rational Rose与UML](./CHAPTER03/README.MD)
 1. 面向对象程序设计介绍(类，对象，关系等)
