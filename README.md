@@ -78,7 +78,7 @@
 6. 生产力工具：Graphviz
 7. 其它语言描述数据结构（Java, Python, C#, JavaScript等等）
 
-### [第二章 线性表(List)](//Chapter_02_List/Readme.md)
+### [第二章 线性表(List)](/Chapter_02_List/README.md)
 1. 线性表(Linear List)
 2. 顺序表(Sequential List)
 3. 链表(Linked List)
