@@ -68,17 +68,17 @@
 
 ----
 # <p align ="center">课程大纲</p>
-### [第一章 绪论](./chapter_01_)
+### [第一章 绪论](/chapter_01_Introduction/readme.md)
 1. 一些定义
 2. 典型数据结构与算法介绍
-3. 复习：从C到C++
+3. 衔接：从C到C++
 3. 生产力工具：CFree, mingw
 4. 生产力工具：Visual Studio
 5. 生产力工具：VSCode
 6. 生产力工具：Graphviz
 7. 其它语言描述数据结构（Java, Python, C#, JavaScript等等）
 
-### [第二章 线性表(Lists)](./chapter_02_Lists/README.MD)
+### [第二章 线性表(Lists)](/chapter_02_Lists/README.MD)
 1. 线性表(Linear List)
 2. 顺序表(Sequential List)
 3. 链表(Linked List)
@@ -158,4 +158,4 @@
 [数据结构与算法JavaScript描述]:(http://product.dangdang.com/23543139.html)
 [Data Structure and Programming Design in C++]:(http://download.csdn.net/download/frankshong/8626531)
 [Problem Solving with Algorithms and Data Structures using Python]:(http://interactivepython.org/courselib/static/pythonds/index.html)
-[[Graphviz]:(http://www.graphviz.org/)]
+[Graphviz]:(http://www.graphviz.org/)]
