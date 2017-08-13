@@ -68,91 +68,85 @@
 
 ----
 # <p align ="center">课程大纲</p>
-### [第一章 .NET与开发工具试用]
+### [第一章 绪论](./chapter_01_)
+1. 一些定义
+2. 典型数据结构与算法介绍
+3. 复习：从C到C++
+3. 生产力工具：CFree, mingw
+4. 生产力工具：Visual Studio
+5. 生产力工具：VSCode
+6. 生产力工具：Graphviz
+7. 其它语言描述数据结构（Java, Python, C#, JavaScript等等）
+
+### [第二章 线性表(Lists)](./chapter_02_Lists/README.MD)
+1. 线性表(Linear List)
+2. 顺序表(Sequential List)
+3. 链表(Linked List)
+4. 顺序表与链表的综合比较
+5. 线性表应用举例
+
+### [第三章 堆栈与队列(Stacks & Queues)](./CHAPTER03/README.MD)
+1. 堆栈(Stack)
+2. 堆栈应用举例
+3. 队列(Queue)
+4. 队列应用举例
+
+### [第四章 串(Strings)](./CHAPTER04/README.MD)
+1. 串(String)
+2. 串的应用举例
 
 
-### [第二章 线性表](./chapter_02_Lists)
+### [第五章 数组和广义表(Arrarys)](./CHAPTER05/README.MD)
+1. 数组(Array)
+2. 数组应用举例
+3. 矩阵的压缩与存储
+4. 广义表
 
-### [第三章 生产力工具: Rational Rose与UML](./CHAPTER03/README.MD)
-1. 面向对象程序设计介绍(类，对象，关系等)
-2. 
+### [第六章 树和二叉树(Trees)](./CHAPTER06/README.MD)
+1. 树(Tree)
+2. 二叉树(Binary Tree)
+3. 哈夫曼树(Haffman Tree)
+4. 树、森林(Forest)和二叉树的转换
+5. 树的应用举例
 
-### [第四章 C#小白阶段](./CHAPTER04/README.MD)
-1. 变量，常量和数据类型(code demo)
-2. 运算符(code demo)
-3. 流程控制(code demo)
-4. 方法(code demo)
-5. 类与对象的C#表示(code demo)
+### [第七章 查找 Indexing](./CHAPTER04/README.MD)
+1. 静态查找(Static Search)
+2. 动态查找(Dynamic Search)
+3. 哈希表查找(Harsh Search)
 
-### [第五章 C#小工阶段](./CHAPTER05/README.MD)
+### [第八章 排序(Sorting)](./CHAPTER04/README.MD)
+1. 插入排序(Insertion Sort)
+2. 选择排序(Selection Sort)
+3. 冒泡排序(Bubble Sort)
+4. 快速排序(Quick Sort)
+5. 归并排序(Merge Sort)
+6. 基数排序(Radix Sort)
+7. *计数排序(Counting Sort)
+8. *桶排序(Bucket Sort)
+9. *堆排序(Heap Sort)
 
-1. 你逮到异常了吗？
-2. 你修复异常了吗？
-3. 接口是个好东西
-4. 稍微复杂一点的东西：委托和事件
+### [*第九章 图(Graphs)]
+1. 图
+2. 最小生成树(Prim&Krusal)
+3. 最短路径
+4. 图的算法应用举例
 
-### [第六章 C#蓝领阶段](./CHAPTER06/README.MD)
-1. 连上Accsss数据库
-2. 连上SQL数据库
-3. ADO.NET中各种命令
-4. LINQ 
-5. 文件操作(.txt, .xml...)
+### [*第十章 文件(Files)]
+1. 顺序文件
+2. 索引文件
+3. 哈希文件
 
-### [第七章 C#白领阶段](./CHAPTER04/README.MD)
-1. C#数组
-2. C#集合
-3. C#枚举
-4. C#结构体
-5. 用C#搞点数据结构与算法
-### [第八章 C#程序猿阶段](./CHAPTER04/README.MD)
-1. 创建Web网站(ASP.NET)
-2. ASP.NET控件
-3. ASP.NET 内置对象
-4. 引用前端框架AngularJS
+### [*第十一章 其它经典算法]
+1. 回归问题(Recursion)
+2. 马踏棋盘问题 
+3. KMP算法
+4. K-means算法
+5. BA无标度网络模型构造算法 
+6. 分词算法
+7. ER随机图构造算法
+8. NP问题
 
-### [第九章 小神级：前端那些事]
-1. 不得不说的JavaScript
-2. 不得不说的CSS
-3. 不得不说的AngularJS
-4. 结合JS
 
-###### [第十章 深度程序猿级：云]
-1. Web和云
-2. 在Azure上部署服务
-3. 在Azure上创建数据库
-4. 畅游Azure
-5. 
-### [第十一章 大神级:跨平台开发]
-1. 微软大法
-2. 深入理解.NET Core
-3. 移动app开发：Xamarin(重点掌握)
-4. 游戏开发：Unity
-4. 跨平台开发: Linux
-5. .NET与科学计算(R, Python, F#等等)
-
-### [第十二章 一些小玩意]
-1. 模拟ATM
-2. 相册
-3. 聊天室系统
-4. 留言板
-
-### [第十三章 团队开发注意事项]
-1. 需求分析文档
-2. 主体设计文档
-3. XX文档
-
-### [第十四章 团队开发项目：学籍管理系统(Winform)]
-1. 需求分析
-2. 功能设计(包括，类、接口、封装包等)
-3. 数据库设计
-4. UI设计
-5. 服务配置及云服务
-6. 发布与维护
-### [第十五章 团队开发项目：卖葡萄酒的电子商务网站(ASP.NET)]
-
-### [第十六章 团队开发项目：类似于携程的售票网站(ASP.NET)]
-
-### [第十七章 团队开发项目：帮帮棒棒：移动帮扶app(Xamarin)]
 
 
 
