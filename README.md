@@ -78,18 +78,18 @@
 6. 生产力工具：Graphviz
 7. 其它语言描述数据结构（Java, Python, C#, JavaScript等等）
 
-### [第二章 线性表(List)](/chapter_02_Lists/README.MD)
+### [第二章 线性表(List)](/chapter_02_List/README.MD)
 1. 线性表(Linear List)
 2. 顺序表(Sequential List)
 3. 链表(Linked List)
 4. 顺序表与链表的综合比较
 5. 线性表应用举例
 
-### [第三章 堆栈与队列(Stack)](./CHAPTER03/README.MD)
+### [第三章 堆栈与队列(Stack)](/CHAPTER_03_Stack/README.MD)
 1. 堆栈(Stack)
 2. 堆栈应用举例
 
-### [第四章 堆栈与队列(Queue)](./CHAPTER03/README.MD)
+### [第四章 堆栈与队列(Queue)](/CHAPTER_04_Queue/README.MD)
 1. 队列(Queue)
 2. 队列应用举例
 
