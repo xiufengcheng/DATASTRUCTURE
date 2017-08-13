@@ -78,43 +78,44 @@
 6. 生产力工具：Graphviz
 7. 其它语言描述数据结构（Java, Python, C#, JavaScript等等）
 
-### [第二章 线性表(Lists)](/chapter_02_Lists/README.MD)
+### [第二章 线性表(List)](/chapter_02_Lists/README.MD)
 1. 线性表(Linear List)
 2. 顺序表(Sequential List)
 3. 链表(Linked List)
 4. 顺序表与链表的综合比较
 5. 线性表应用举例
 
-### [第三章 堆栈与队列(Stacks & Queues)](./CHAPTER03/README.MD)
+### [第三章 堆栈与队列(Stack)](./CHAPTER03/README.MD)
 1. 堆栈(Stack)
 2. 堆栈应用举例
-3. 队列(Queue)
-4. 队列应用举例
 
-### [第四章 串(Strings)](./CHAPTER04/README.MD)
+### [第四章 堆栈与队列(Queue)](./CHAPTER03/README.MD)
+1. 队列(Queue)
+2. 队列应用举例
+
+### [第五章 串(String)](./CHAPTER04/README.MD)
 1. 串(String)
 2. 串的应用举例
 
-
-### [第五章 数组和广义表(Arrarys)](./CHAPTER05/README.MD)
+### [第六章 数组和广义表(Arrary)](./CHAPTER05/README.MD)
 1. 数组(Array)
 2. 数组应用举例
 3. 矩阵的压缩与存储
 4. 广义表
 
-### [第六章 树和二叉树(Trees)](./CHAPTER06/README.MD)
+### [第七章 树和二叉树(Tree)](./CHAPTER06/README.MD)
 1. 树(Tree)
 2. 二叉树(Binary Tree)
 3. 哈夫曼树(Haffman Tree)
 4. 树、森林(Forest)和二叉树的转换
 5. 树的应用举例
 
-### [第七章 查找 Indexing](./CHAPTER04/README.MD)
+### [第八章 查找 Indexing](./CHAPTER04/README.MD)
 1. 静态查找(Static Search)
 2. 动态查找(Dynamic Search)
 3. 哈希表查找(Harsh Search)
 
-### [第八章 排序(Sorting)](./CHAPTER04/README.MD)
+### [第九章 排序(Sorting)](./CHAPTER04/README.MD)
 1. 插入排序(Insertion Sort)
 2. 选择排序(Selection Sort)
 3. 冒泡排序(Bubble Sort)
@@ -125,18 +126,18 @@
 8. *桶排序(Bucket Sort)
 9. *堆排序(Heap Sort)
 
-### [*第九章 图(Graphs)]
+### [*第十章 图(Graph)]
 1. 图
 2. 最小生成树(Prim&Krusal)
 3. 最短路径
 4. 图的算法应用举例
 
-### [*第十章 文件(Files)]
+### [*第十一章 文件(File)]
 1. 顺序文件
 2. 索引文件
 3. 哈希文件
 
-### [*第十一章 其它经典算法]
+### [*第十二章 其它经典算法]
 1. 回归问题(Recursion)
 2. 马踏棋盘问题 
 3. KMP算法
