@@ -67,7 +67,7 @@ typedef struct {
     int length;                        //线性表的当前长度
 } SqList;
 ```
-------------------
+
 ### 顺序表动态存储数据结构
 ```C
 [in SqList.h]
@@ -80,7 +80,7 @@ typedef struct {
 } SqList;
 ```
 
-------------------
+
 ### 顺序表初始化操作
 ```C
 [in SqList.h]
@@ -93,7 +93,7 @@ void InitList_Sq( SqList &L, int maxsize=LIST_INIT_SIZE, int incresize=LISTINCRE
       L.incrementsize=incresize;     // 需要时可扩容incresize个元素空间
 }// InitList_Sq
 ```
-------------------
+
 ### 顺序表求表长操作
 ```C
 [in SqList.h]
@@ -102,7 +102,7 @@ int ListLength_Sq(SqList L)
     return L.length;
 }// ListLength_Sq
 ```
-------------------
+
 ### 判断顺序表是否为空
 ```C
 [in SqList.h]
@@ -113,7 +113,7 @@ bool ListEmpty_Sq(SqList L)
     else return false;
 }
 ```
-------------------
+
 ### 顺序表定位元素(返回与e值相等的元素下标)
 ```C
 [in SqList.h]
@@ -125,7 +125,6 @@ int LocateElem_Sq( SqList L, ElemType e)
  }//LocateElem_Sq
 ```
 
-------------------
 ### 顺序表前插
 在顺序表L的第i个元素之**前**插入新的元素e，若表中当前容量不足，则按预定义的增量扩容
 ```C
@@ -148,18 +147,17 @@ bool ListInsert_Sq(SqList &L, int i, ElemType e)
     return true;   
 }// ListInsert_Sq
 ```
-------------------
+
 ### 顺序表后插
 在顺序表L的第i个元素之**后**插入新的元素e，若表中当前容量不足，则按预定义的增量扩容
 
 
-------------------
+
 ### 顺序表尾插
 在顺序表L的最后一个元素之**后**插入新的元素e，若表中当前容量不足，则按预定义的增量扩容
 
 
 
-------------------
 ### 顺序表查插
 在递增有序顺序表L中查找插入新的元素e，首先需要找到在哪插
 ```C
@@ -182,7 +180,7 @@ bool ListInsert_Sq_1(SqList &L, ElemType e)
 }// ListInsert_Sq
 ```
 
-------------------
+
 ### 顺序表删除元素操作
 在顺序表L中删除第i个元素，并用e返回其值
 ```C++
@@ -200,7 +198,7 @@ if(L.length<=0)  return false;                // 表空无数据元素可删
 }// ListDelete_Sq
 ```
 
-------------------
+
 ### 顺序表取元素操作
 取出顺序表L中第i个元素，并用e返回其值。
 ```C++
@@ -213,7 +211,8 @@ e=L.elem[i];                                 // 被取元素的值赋给e
       return true;    
 }// GetElem_Sq  
 ```
-------------------
+
+
 ### 顺序表遍历输出各元素
 ```C++
 [in SqList.h]
@@ -225,7 +224,8 @@ for(i=0;i<L.length;i++)
 cout<<endl;
 }// ListTraverse_Sq
 ```
-------------------
+
+
 ### 删除顺序表
 ```C++
 [in SqList.h]
@@ -238,13 +238,38 @@ void DestroyList_Sq(SqList &L)
 }// DestroyList_Sq
 ```
 ------------------
+### 顺序表的可视化操作
+将这个顺序表(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变量
+```C++
+void visualization(SqList L, char* filename)
+{   int temp;
+	FILE *stream;  
+    if( NULL == (stream = fopen(filename, "w")) )  
+    {  
+	   printf("open file error");  exit(0);  
+    }  
+    fprintf(stream, "digraph\n{\nnode [shape = box];\n");  
+	for(int i=0;i<L.length;i++)
+	if(GetElem_Sq(L,i,temp))
+    {
+	    fprintf(stream, "box%d [label = \"%d\"];\n",i,temp);
+	}
+	fprintf(stream, "}"); 
+	fclose(stream);  
+	system("dot -Tpng showsqlist.dot -o showsqlist.png");
+	system("showsqlist.png");
+}
+```
+
 ### 顺序表测试
 ```C++
 [in SqListTest.cpp]
 typedef int ElemType;    // 顺序表中元素类型为int
+# include "stdio.h"      // 其实没有用
 # include "stdlib.h"     // 该文件包含malloc()、realloc()和free()等函数
 # include "iomanip.h"    // 该文件包含标准输入输出流cout和cin及控制符setw()等函数 
 # include "SqList.h"     // 该文件中包含链表数据对象的描述及相关操作
+
 
 int main()
 {
@@ -290,9 +315,13 @@ int main()
   {cout<<"删除失败!"<<endl; return 0;} 
   else cout<<"删除成功，删除后的顺序表为："<<endl;
   ListTraverse_Sq(mylist);
-   
+ 
+  //  visualization(mylist,"showsqlist.dot");
+ 
   cout<<endl<<"***现在执行撤销操作***"<<endl;
   DestroyList_Sq(mylist);
+  
+ 
   cout<<"***顺序表已经销毁！***"<<endl;
   return 0; 
  }
@@ -497,26 +526,5 @@ void DestroyList_L(LinkList &L )
     }// DestroyList_L
 ```
 ------------------
-### 可视化操作
-将这个顺序表(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变量
-```C++
-void visualization(SqList L, char* filename)
-{   int temp;
-	FILE *stream;  
-    if( NULL == (stream = fopen(filename, "w")) )  
-    {  
-	   printf("open file error");  exit(0);  
-    }  
-    fprintf(stream, "digraph\n{\nnode [shape = box];\n");  
-	for(int i=0;i<L.length;i++)
-	if(GetElem_Sq(L,i,temp))
-    {
-	    fprintf(stream, "box%d [label = \"%d\"];\n",i,temp);
-	}
-	fprintf(stream, "}"); 
-	fclose(stream);  
-	system("dot -Tpng showsqlist.dot -o showsqlist.png");
-	system("showsqlist.png");
-}
-```
-## [源文件下载](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_02_List/sourcecode)
+
+## [源代码下载](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_02_List/sourcecode)
