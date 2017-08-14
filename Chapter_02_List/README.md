@@ -24,7 +24,7 @@ ADT List
     Data:
     Operation:
         InitList(&L)
-        Create List(&L)
+        CreateList(&L)
         ListEmpty(L)
         ListLength(L)
         LocateElem(L,e)
