@@ -497,5 +497,26 @@ void DestroyList_L(LinkList &L )
     }// DestroyList_L
 ```
 ------------------
-
+### 可视化操作
+将这个顺序表(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变量
+```C++
+void visualization(SqList L, char* filename)
+{   int temp;
+	FILE *stream;  
+    if( NULL == (stream = fopen(filename, "w")) )  
+    {  
+	   printf("open file error");  exit(0);  
+    }  
+    fprintf(stream, "digraph\n{\nnode [shape = box];\n");  
+	for(int i=0;i<L.length;i++)
+	if(GetElem_Sq(L,i,temp))
+    {
+	    fprintf(stream, "box%d [label = \"%d\"];\n",i,temp);
+	}
+	fprintf(stream, "}"); 
+	fclose(stream);  
+	system("dot -Tpng showsqlist.dot -o showsqlist.png");
+	system("showsqlist.png");
+}
+```
 ## [源文件下载](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_02_List/sourcecode)

@@ -42,7 +42,7 @@ bool ListEmpty_Sq(SqList L)
 
 int LocateElem_Sq( SqList L, ElemType e) 
 {  
-   for(int i=0;i<L. length;i++)
+   for(int i=0;i<L.length;i++)
     if(L.elem[i]==e)  return i;   // 找到满足判定的数据元素为第 i 个元素
    return -1;                     // 该线性表中不存在满足判定的数据元素
  }//LocateElem_Sq
@@ -134,6 +134,25 @@ void DestroyList_Sq(SqList &L)
       L.length=0;
 }// DestroyList_Sq
 
+
+void visualization(SqList L, char* filename)
+{   int temp;
+	FILE *stream;  
+    if( NULL == (stream = fopen(filename, "w")) )  
+    {  
+	   printf("open file error");  exit(0);  
+    }  
+    fprintf(stream, "digraph\n{\nnode [shape = box];\n");  
+	for(int i=0;i<L.length;i++)
+	if(GetElem_Sq(L,i,temp))
+    {
+	    fprintf(stream, "box%d [label = \"%d\"];\n",i,temp);
+	}
+	fprintf(stream, "}"); 
+	fclose(stream);  
+	system("dot -Tpng showsqlist.dot -o showsqlist.png");
+	system("showsqlist.png");
+}
 
 
    

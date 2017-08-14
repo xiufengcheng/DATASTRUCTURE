@@ -1,4 +1,5 @@
 typedef int ElemType;    // 顺序表中元素类型为int
+# include "stdio.h"  
 # include "stdlib.h"     // 该文件包含malloc()、realloc()和free()等函数
 # include "iomanip.h"    // 该文件包含标准输入输出流cout和cin及控制符setw()等函数 
 # include "SqList.h"     // 该文件中包含链表数据对象的描述及相关操作
@@ -48,9 +49,13 @@ int main()
   {cout<<"删除失败!"<<endl; return 0;} 
   else cout<<"删除成功，删除后的顺序表为："<<endl;
   ListTraverse_Sq(mylist);
-   
+ 
+  //  visualization(mylist,"showsqlist.dot");
+ 
   cout<<endl<<"***现在执行撤销操作***"<<endl;
   DestroyList_Sq(mylist);
+  
+ 
   cout<<"***顺序表已经销毁！***"<<endl;
   return 0; 
  }
