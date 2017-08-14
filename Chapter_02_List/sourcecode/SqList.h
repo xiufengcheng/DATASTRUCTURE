@@ -108,8 +108,8 @@ if(L.length<=0)  return false;                // 表空无数据元素可删
 bool GetElem_Sq(SqList L,int i, ElemType &e)
 {     // 取出顺序表L中第i个元素，并用e返回其值。
      if(i<0||i>L.length) return false;            // i值不合法
-if(L.length<=0)  return false;               // 表空无数据元素可取
-e=L.elem[i];                                 // 被取元素的值赋给e
+      if(L.length<=0)  return false;               // 表空无数据元素可取
+      e=L.elem[i];                                 // 被取元素的值赋给e
       return true;    
 }// GetElem_Sq  
 
@@ -121,9 +121,8 @@ void ListTraverse_Sq(SqList L)
  int i;
  for(i=0;i<L.length;i++)
   cout<<setw(6)<<L.elem[i];
-cout<<endl;
+  cout<<endl;
 }// ListTraverse_Sq
-
 
 
 
