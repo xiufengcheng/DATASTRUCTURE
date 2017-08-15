@@ -53,11 +53,11 @@ ADT List
     - 每个元素占用k个存储单元，则<br>
     LOC(ai)= LOC(a1)+(i-1)*k   (1≤i ≤n)<br>
     LOC(ai+1)= LOC(ai)+k       (1≤i ≤n)<br>
-------------------
+
 ### 注意事项
 - 访问顺序表中任意元素的时间都相等，具有这一特点的存储结构称为**随机存取结构**。
 
-
+------------------
 ### 顺序表静态存储数据结构
 ```C
 [in SqList.h]
@@ -304,7 +304,7 @@ int main()
   cout<<"***插入到第几个位置？***"<<endl;
   cin>>temp;
   if(!ListInsert_Sq(mylist, temp-1, forInsert))
-  {cout<<"插入!"<<endl; return 0;} 
+  {cout<<"插入失败!"<<endl; return 0;} 
   else cout<<"插入成功，插入后的顺序表为："<<endl;
   ListTraverse_Sq(mylist);
   
@@ -336,20 +336,21 @@ int main()
 - 链式存储结构：用一组任意的存储单元存储**数据结构**（这里是线性表)里的各元素(这组存储单元可以是地址连续的，也可以是不连续的)，并且每个存储元素有一个数据域，一个（或多个）指针域，数据域用来存储元素内容，指针域用来反映元素的逻辑关系(前后位置关系)，这种存储方式成为链式存储（也叫非随机存取的存储结构）。
 - 链表：按照链式存储结构存储的线性表。
 - 单链表：各元素只有一个指针域的链表（只含有一个指针域）
-------------------
+
 ### 逻辑图示
 ![](/Chapter_02_List/img/2.jpg)
 
-- 头结点：单链表中第一个结点（上图中的a1之前的结点a0）
-- 表头指针：存放单链表中第一个结点的地址。（a0的指针）
-- 表尾结点：单链表中最后一个结点，表尾结点的指针域指针为空。（an）
-- 开始结点：存放线性表的第一个元素的结点。(a1)
+- **头结点**：单链表中第一个结点(上图中的a1之前的结点a0)
+- **表头指针**：存放单链表中第一个结点的地址。(a0的指针)
+- **开始结点**：存放线性表的第一个元素的结点。(a1)
+- **表尾结点**：单链表中最后一个结点，表尾结点的指针域指针为空。(an)
+
 
 ### 数学表示
 - 同线性表
 - 寻址
   一般用p,q等字母表示操作性指针，假设 p = &ai; ai = p->data = (*p).data, ai的下一个元素的地址 = p -> next = (*p).next
-------------------
+
 ### 注意事项
 - 链表的元素一般称为“结点”。
 - 头结点在链表中并不是必须的，仅仅是为了操作上的方便。 
@@ -366,7 +367,6 @@ typedef struct Node {
     struct  Node *next;   //指针域
 }LNode,*LinkList;                 // LinkList为结构体指针类型
 ```
-------------------
 
 ### 单链表的初始化
 ```C++
@@ -374,11 +374,11 @@ typedef struct Node {
 void InitList_L(LinkList &L)
     {  
 		L=(LNode *)malloc(sizeof(LNode));  // 申请存放一个结点数据所需要的内在空间
-		if(!L)   exit(1);                        // 存储分配失败
-        L->next=NULL;                            // 表头结点的指针域置空
+		if(!L)   exit(1);             // 存储分配失败
+        L->next=NULL;                // 表头结点的指针域置空
 	}// InitList_L
 ```
-------------------
+
 ### 求单链表的长度
 // L为带头结点的链表的头指针，函数返回L所指链表的长度
 ```C++
@@ -393,8 +393,8 @@ int ListLength_L( LinkList L )
          return k;
 	}// ListLength_L
 ```
-------------------
-### 单链表的查找操作
+
+### 单链表的定位操作
 在L所指的单链表中查找第一个值和e 相等的结点，若存在，则返回其指针；
 ```C++
 [in LinkList.h]
@@ -406,7 +406,20 @@ LNode *LocateElem_L( LinkList L,ElemType e)
   		 return p;
 	}// LocateElem_L
 ```
-------------------
+### 单链表的定位操作
+// 在L所指的单链表中查找第一个值和e相等的结点，若存在，则返回元素顺序(返回值+2为真实顺序),否则返回-1
+```C++
+[in LinkList.h]
+int LocateElem_L_2( LinkList L,ElemType e) 
+	{  ，否则返回-1
+ 		 int i=-1;
+         LinkList  p;                           
+ 		 p=L->next;                             // p指向链表中的第一个结点
+  		 while (p&&p->data!=e) {p=p->next;i++;} 
+  		 return i;
+	}// LocateElem_L_2
+```
+
 ### 单链表插入元素操作
  在带有头结点的单链表L中的第i个结点之前插入元素e
  ```C++
@@ -424,7 +437,8 @@ bool ListInsert_L( LinkList &L, int i, ElemType e)
   		return true;
  	}// ListInsert_L
 ```
-------------------
+
+
 ### 单链表删除元素操作
  ```C++
 [in LinkList.h]
@@ -442,7 +456,6 @@ bool ListDelete_L( LinkList &L, int i, ElemType &e)
  	}// ListDelete_L
 ```
 
-------------------
 ### 单链表取元素操作
  ```C++
 [in LinkList.h]
@@ -458,7 +471,7 @@ bool GetElem_L(LinkList L,int i, ElemType &e)
  		 return true;
     }// GetElem_L
 ```
-------------------
+
 ### 创建单链表（尾插）
 已知一维数组A[n]中存有线性表的数据元素，利用尾插法创建单链表L
  ```C++
@@ -477,7 +490,7 @@ void CreateList_L_Rear(LinkList &L,ElemType a[],int n )
    		q->next=NULL;                                    // 表尾结点next域置空
      }// CreateList_L_Rear
 ```
-------------------
+
 ### 创建单链表（头插）
 已知一维数组A[n]中存有线性表的数据元素，利用头插法创建单链表L
  ```C++
@@ -495,7 +508,7 @@ void CreateList_L_Front(LinkList &L,ElemType a[],int n )
         }
 	}// CreateList_L_Front
  ```
-------------------
+
 ### 遍历输出单链表各元素数据
  ```C++
 [in LinkList.h]
@@ -508,9 +521,9 @@ void CreateList_L_Front(LinkList &L,ElemType a[],int n )
       }
 		cout<<endl;
 	}// ListTraverse_L
-------------------
+
 ```
-### 删除单链表
+### 销毁单链表
  ```C++
 [in LinkList.h]
 void DestroyList_L(LinkList &L )
@@ -525,6 +538,87 @@ void DestroyList_L(LinkList &L )
   			 L=NULL;
     }// DestroyList_L
 ```
-------------------
+
+### 单链表的可视化
+ ```C++
+[in LinkList.h]
+void DestroyList_L(LinkList &L )
+	{
+  		LinkList p,p1;
+ 		 p=L;
+  		while(p) 
+  		{   p1=p;
+    		p=p->next;
+    		free(p1);
+        }
+  			 L=NULL;
+    }// DestroyList_L
+```
+---------------
+### 单链表测试
+ ```C++
+[in LinkList.h]
+typedef  int ElemType;
+# include "stdlib.h"     
+# include "iostream.h"   
+# include "iomanip.h"     
+# include "LinkList.h"
+
+int  main()
+{
+      LinkList mylist;
+      int i,j,temp,forLocate,forGet,forInsert,forDelete,a[]={6,8,16,2,34,56,7,10,22,45};
+      InitList_L(mylist);   
+      cout<<"我初始化了一个头结点。"<<endl;
+      CreateList_L_Front(mylist,a,10);          
+      cout<<"我创建了一个带头结点的单链表，表长为："<<ListLength_L(mylist)<<endl;
+      cout<<endl<<"表中的元素依次为："<<endl;
+      ListTraverse_L(mylist);
+      
+      cout<<endl<<"<====现在执行定位元素操作,您要找的元素值？"<<endl;
+      cout<<"请输入：";
+      cin>>forLocate;
+      j = LocateElem_L_2(mylist,forLocate);
+      if(j!=-1&&GetElem_L(mylist,1,temp)) 
+	  cout<<"找到了，它是第"<<j+2<<"个元素（其中，"<<temp<<"是第一个元素）====>"<<endl;
+      else cout<<"没找到这个元素！"<<endl;
+      
+      
+      cout<<endl<<"<====现在执行取元素操作,您要找第几个元素？"<<endl;
+      cout<<"请输入：";
+      cin>>forGet;
+      if(GetElem_L(mylist,forGet,temp)) 
+      cout<<"第"<<forGet<<"个元素的值是:"<<temp<<"====>"<<endl;
+      else cout<<"元素不存在！"<<endl;
+      
+      
+	  cout<<endl<<"<====现在执行插入操作,您要将什么元素插入顺序表？"<<endl;
+	  cout<<"请输入：";
+	  cin>>forInsert;
+	  cout<<"插入到第几个位置？"<<endl;
+	  cout<<"请输入：";
+	  cin>>temp;
+	  if(!ListInsert_L(mylist, temp, forInsert))
+	  {cout<<"插入失败!"<<endl; return 0;} 
+	  else cout<<"==>插入成功，插入后的链表为：====>"<<endl;
+	  ListTraverse_L(mylist);
+	  
+	  
+	  cout<<endl<<"<====现在执行删除操作,您要删除第几个元素？"<<endl;
+	  cout<<"请输入：";
+	  cin>>forDelete;
+	  if(!ListDelete_L(mylist,forDelete,temp)) 
+      {cout<<"删除失败!"<<endl; return 0;} 
+	  else cout<<"删除成功，删除后的链表为：====>"<<endl;
+	  ListTraverse_L(mylist);
+	  
+      //ListVisualization_L(mylist,"showlinklist.dot");
+      
+      cout<<endl<<"<====现在执行销毁操作***"<<endl;
+      DestroyList_L(mylist);
+      cout<<"销毁成功====>"<<endl;
+  }
+```
+
 
 ## [源代码下载](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_02_List/sourcecode)
