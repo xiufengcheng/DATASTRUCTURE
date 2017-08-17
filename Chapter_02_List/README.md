@@ -1,4 +1,4 @@
-# 第二章 目录
+## 第二章目录
 * <font size = 8 color = blue>[线性表](#线性表)</font>
 * <font size = 8 color = blue>[顺序表](#顺序表)</font>
 * <font size = 8 color = blue>[单链表](#单链表)</font>
