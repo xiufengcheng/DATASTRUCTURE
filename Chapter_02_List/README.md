@@ -4,11 +4,10 @@
 * <font size = 8 color = blue>[单链表](#单链表)</font>
 * <font size = 8 color = blue>[双(向)链表](#双向链表)</font>
 * <font size = 8 color = blue>[单(向)循环链表](#循环链表)</font>
-* <font size = 8 color = blue>[双(向)循环链表](#双循环链表)</font>
+* <font size = 8 color = blue>[双(向)循环链表](#循环链表)</font>
 -----------------------------
 -----------------------------
 # 线性表(linear list，简称list)
-
 
 ### 定义
 - 是**n(n≥0)**个**相同类型**的**数据元素**构成的**有限**序列。
