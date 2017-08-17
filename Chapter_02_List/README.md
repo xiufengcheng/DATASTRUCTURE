@@ -540,19 +540,35 @@ void DestroyList_L(LinkList &L )
 ```
 
 ### 单链表的可视化
+将这个单链表(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变
  ```C++
 [in LinkList.h]
-void DestroyList_L(LinkList &L )
-	{
-  		LinkList p,p1;
- 		 p=L;
-  		while(p) 
-  		{   p1=p;
-    		p=p->next;
-    		free(p1);
-        }
-  			 L=NULL;
-    }// DestroyList_L
+void ListVisualization_L(LinkList L, char* filename)
+{   int temp=0;
+    LinkList p=L;
+	FILE *stream;  
+    if( NULL == (stream = fopen(filename, "w")) )  
+    {  printf("open file error");  cout<<"error!";  }  
+    else if(p&&!(p->next))
+    {
+		fprintf(stream, " digraph g {\n rankdir=LR;\n node [shape = \"record\" width = 0.5];\nnode0  [label = \"<data> //// | <next>  ^\"];\n\n");
+	}
+	else if(p&&(p->next))
+    {   fprintf(stream, "digraph g {\n rankdir=LR;\n node [shape = \"record\" width = 0.5];\nnode0  [label = \"<data> //// | <next>  \"];\n\n");
+       
+	   while(p->next)
+	   {
+	     fprintf(stream, 
+		 "node%d [label =\"<data> %d| <next>\"]\n  node%d:next -> node%d:data;\n\n",temp+1, p->next->data,temp,temp+1);
+		 p=p->next;
+		 temp++;
+	   }
+    }
+	fprintf(stream, "\n}"); 
+	fclose(stream);  
+	system("dot -Tpng showlinklist.dot -o showlinklist.png");
+	system("showlinklist.png");
+}
 ```
 ---------------
 ### 单链表测试
