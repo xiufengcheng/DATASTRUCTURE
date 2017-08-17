@@ -1,11 +1,12 @@
 # 第二章 目录
-* <font size = 5 color = blue>[线性表](#线性表)</font>
-* <font size = 5 color = blue>[顺序表](#顺序表)</font>
-* <font size = 5 color = blue>[单链表](#单链表)</font>
-* <font size = 5 color = blue>[双(向)链表](#双向链表)</font>
-* <font size = 5 color = blue>[单(向)循环链表](#循环链表)</font>
-* <font size = 5 color = blue>[双(向)循环链表](#双循环链表)</font>
-
+* <font size = 8 color = blue>[线性表](#线性表)</font>
+* <font size = 8 color = blue>[顺序表](#顺序表)</font>
+* <font size = 8 color = blue>[单链表](#单链表)</font>
+* <font size = 8 color = blue>[双(向)链表](#双向链表)</font>
+* <font size = 8 color = blue>[单(向)循环链表](#循环链表)</font>
+* <font size = 8 color = blue>[双(向)循环链表](#双循环链表)</font>
+-----------------------------
+-----------------------------
 # 线性表(linear list，简称list)
 
 
