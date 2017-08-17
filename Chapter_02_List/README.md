@@ -341,15 +341,23 @@ int main()
 ![](/Chapter_02_List/img/2.jpg)
 
 - **头结点**：单链表中第一个结点(上图中的a1之前的结点a0)
-- **表头指针**：存放单链表中第一个结点的地址。(a0的指针)
-- **开始结点**：存放线性表的第一个元素的结点。(a1)
+- **表头指针**：存放单链表中第一个结点的地址的指针。(指向a0的指针)
+- **开始结点**：存放单链表的第一个元素的结点。(a1)
 - **表尾结点**：单链表中最后一个结点，表尾结点的指针域指针为空。(an)
 
 
 ### 数学表示
 - 同线性表
 - 寻址
-  一般用p,q等字母表示操作性指针，假设 p = &ai; ai = p->data = (*p).data, ai的下一个元素的地址 = p -> next = (*p).next
+  一般用p,q等字母表示操作性指针，例如<br> 
+  如果 p = &a[i]，即 a[i] = p->data（或(*p).data）<br>
+  那么<br>
+   a[i]的下一个元素的地址是： p -> next （或 (*p).next）<br>
+   a[i]的下一个元素的值是： p->next->data 
+
+
+
+
 
 ### 注意事项
 - 链表的元素一般称为“结点”。
@@ -457,9 +465,9 @@ bool ListDelete_L( LinkList &L, int i, ElemType &e)
 ```
 
 ### 单链表取元素操作
+取出单链表L中第i个元素，并用e返回其值
  ```C++
 [in LinkList.h]
-取出单链表L中第i个元素，并用e返回其值
 bool GetElem_L(LinkList L,int i, ElemType &e)
 	{    // 取出单链表L中第i个元素，并用e返回其值
 		LinkList p;
@@ -635,6 +643,371 @@ int  main()
       cout<<"销毁成功====>"<<endl;
   }
 ```
+
+## 双向链表
+### 定义
+- 双（向）链表就是每个结点中含有两个指针域的链表，其中一个指针域存放其前趋结点的地址，另一个指针域存放其后继结点的地址。
+
+### 逻辑图示
+![](/Chapter_02_List/img/4.jpg)
+
+- **头结点**：双链表中第一个结点(上图中的a1之前的结点a0)
+- **表头指针**：存放双链表中第一个结点的地址的指针。(指向a0的指针)
+- **开始结点**：存放双链表的第一个元素的结点。(a1)
+- **表尾结点**：双链表中最后一个结点，表尾结点的指针域指针为空。(an)
+
+
+### 数学表示
+- 同线性表
+- 寻址
+  一般用p,q等字母表示操作性指针，可用前驱指针域prior和后继指针域next访问表中任意节点，例如： <br>
+  p = &a[i]（即a[i] = p->data）<br>
+  那么<br>
+  a[i]的上一个元素地址是 p -> prior , 上一个元素值是 p->prior->data<br>
+  a[i]的下一个元素地址是 p -> next , 下一个元素值是 p->next->data<br>
+  一般的，有<br>
+  p->next-prior = p = p->prior->next
+
+
+### 注意事项
+- 节点p的存储地址既存放在其前驱结点的后继指针域中，也存在其后继节点的前驱指针域中。因此可随意在其上向前或向后移动，使得操作更加容易。
+- 操作上比单链表更加便利，但存储开销增大。 
+- 双(向)链表是非循环的，有首尾节点，注意与双向循环链表区别开来
+
+### 双链表的数据结构
+```C++
+[in DuLinkList.h]
+typedef struct DuNode {
+    ElemType data;
+    struct  DuNode *prior; //前驱指针域
+    struct  DuNode *next;  //后继指针域
+}DuLNode,*DuLinkList; 
+```
+
+### 双链表的初始化
+```C++
+[in DuLinkList.h]
+void InitList_Dul(DuLinkList &L)
+{  
+    L=(DuLNode *)malloc(sizeof(DuLNode));
+    if(!L)   exit(1);  
+    L->next=NULL;     //后继指针置空 
+    L->prior=NULL;   //前驱指针置空
+}// InitList_Dul
+```
+
+### 求双链表的长度
+// DL为带头结点的链表的头指针，函数返回L所指链表的长度
+```C++
+[in DuLinkList.h]
+int ListLength_Dul(DuLinkList L ) 
+	{     
+  		DuLinkList  p;
+		int k=0;
+		p=L->next;                           
+ 		 while(p)             //当p所指向的结点还有值
+  		 { k++;  p=p->next; }            
+         return k;
+	}// ListLength_Dul
+```
+
+### 双链表的定位操作
+在dL所指的双链表中查找第一个值和e相等的结点，若存在，则返回其指针；
+```C++
+[in DuLinkList.h]
+int LocateElem_DL( LinkList DL,ElemType e) 
+{
+
+    
+}
+```
+
+### 双链表插入元素操作
+在带头结点的双向链表DL中第i个结点之前插入元素e
+ ```C++
+[in DuLinkList.h]
+bool ListInsert_DuL(DuLinkList &L,int i,ElemType e) 
+{
+   DuLinkList p,s,q;
+   int j;
+   q=L;  j=0;
+   while(q->next&&j<i-1)  { q=q->next; j++; }   // 寻找第i-1个结点,并让q指向此结点
+   if(j!=i-1)   return false;                   // i的位置不合理
+   s=(DuLNode *)malloc(sizeof(DuLNode));
+   if(!s)   exit(1);                            // 存储分配失败
+   s->data=e;  
+   if(q->next)                                   // 插入的位置不是表尾
+   { 
+	    p=q->next;                          // p指向待插入的位置
+	    s->prior=p->prior;                  // 修改指针
+        p->prior->next=s;      
+        s->next=p;
+        p->prior=s; 
+   }
+   else                                     // 插入的位置是表尾
+   { 
+        q->next=s;
+	    s->prior=q;
+	    s->next=NULL;
+   }
+   return true;
+}
+```
+
+### 双链表删除元素操作
+删除带有头结点的双向链表DL中的第i个结点，并让e返回其值
+ ```C++
+[in DuLinkList.h]
+bool ListDelete_Du(DuLinkList &L, int i, ElemType &e)
+{  int j = 0;
+   DuLinkList p=L;
+   while(p->next&&j<i){ p=p->next; j++; }   // 寻找第i个结点,并让p指向此结点
+   if(j!=i)   return false;                 // i的位置不合理
+   if(p->next)                              // 待删除的不是表尾结点
+     p->next->prior=p->prior;               // 结点p的前驱作为结点p的后继的前驱
+     p->prior->next=p->next;                // 结点p的后继作为结点p的前驱的后继                              
+     e=p->data;                     
+     free(p);                                    
+     return true;
+ }
+```
+
+### 双链表取元素操作
+取出双链表DL中第i个元素，并用e返回其值
+ ```C++
+[in DuLinkList.h]
+bool GetElem_DL(LinkList DL,int i, ElemType &e)
+{
+
+    
+}
+```
+
+### 创建双链表（尾插）
+已知一维数组A[n]中存有线性表的数据元素，利用尾插法创建双链表DL
+ ```C++
+[in DuLinkList.h]
+void CreateList_Du_Rear(LinkList &L,ElemType a[],int n ) 
+{
+
+    
+}
+```
+
+### 创建双链表（尾插）
+已知一维数组A[n]中存有线性表的数据元素，利用尾插法创建双链表DL
+ ```C++
+[in DuLinkList.h]
+void CreateList_Du_Front(LinkList &L,ElemType a[],int n ) 
+{
+
+    
+}
+```
+
+### 遍历输出双向链表各元素数据
+ ```C++
+[in DuLinkList.h]
+void ListTraverse_Du(LinkList DL)
+{
+
+    
+}
+```
+
+### 销毁双向链表
+ ```C++
+[in DuLinkList.h]
+void DestroyList_Du(LinkList &DL )
+{
+
+
+}
+```
+
+### 双向链表的可视化
+将这个单链表(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变
+ ```C++
+[in DuLinkList.h]
+void ListVisualization_Du(LinkList L, char* filename)
+{   
+
+}
+```
+### 双向链表测试
+[in DuLinkListTest.cpp]
+```C++   
+int main()
+{
+
+
+} 
+```
+
+## 循环链表
+### 定义
+- 即约瑟夫环，是另一种形式的链式存储结构，它的基本思想是利用结点的空指针域，在链尾和链头之间增加链接，形成环状数据结构。
+- 一般有两种形式的循环链表，即单向循环链表和双向循环链表。
+- 单向循环链表中，表尾结点的指针域不为空，回指第一个结点，整个链表形成一个环。
+- 在双向循环链表中，除了表尾结点的后继指针域回指第一个结点外，同时表头结点的前驱指针域回指表尾结点，这样在链表中构成了两个环。
+
+### 逻辑图示
+![](/Chapter_02_List/img/5.jpg)
+![](/Chapter_02_List/img/6.jpg)
+
+
+### 注意事项
+- 在初始化操作中，分别将语句L->next = NULL;L- prior = NULL 改成: L->next = L; L->prior = L;
+- 在其他操作中，循环控制条件不是判断p,p->next或p->next->next是否为空，二十判断他们是否等于头指针
+- 工作指针p的初值应该与循环控制条件相对应，也就是说，若赋值语句为"p=L"，则循环控制表达式为"p->next!=L"，若赋值语句为"p=L->next;";则循环控制表达式为"p!=L"。
+
+### 双向循环链表的数据结构
+同双向链表
+
+### 双向循环链表初始化
+初始化双向循环链表DL
+[in DuLinkList_C.h]
+void InitList_DuL_C(DuLinkList &L)
+{  
+  L=(DuLNode *)malloc(sizeof(DuLNode));    // 申请存放一个结点数据所需要的内在空间
+  if(!L)   exit(1);                        // 存储分配失败
+  L->next=L;                               // 表头结点作为表头结点的后继
+  L->prior=L;                              // 表头结点作为表头结点的前驱
+}
+
+### 双向循环链表的长度
+// DL为带头结点的链表的头指针，函数返回L所指链表的长度
+```C++
+[in DuLinkList_C.h]
+int ListLength_DuL_C(DuLinkList L ) 
+{     
+
+}
+```
+
+### 双向循环链表的定位操作
+在dL所指的双链表中查找第一个值和e相等的结点，若存在，则返回其指针；
+```C++
+[in DuLinkList_C.h]
+int LocateElem_DuL_C( LinkList DL,ElemType e) 
+{
+
+    
+}
+```
+
+### 双向循环链表的插入元素操作
+在带头结点的双向链表DL中第i个结点之前插入元素e
+ ```C++
+[in DuLinkList_C.h]
+bool ListInsert_DuL_C(DuLinkList &L,int i,ElemType e) 
+{
+   DuLinkList p,s;
+   int j;
+   p = L->next;j=1
+   while(p!= L&&j<1)  { p = p->next; j++; }   // 寻找第i-1个结点,并让p指向此结点
+   if(j!=i)   return false;                   // i的位置不合理
+   s=(DuLNode *)malloc(sizeof(DuLNode));
+   if(!s)   exit(1);                            // 存储分配失败
+   s->data=e;  
+   s->prior=p->prior;                  // 修改指针
+   p->prior->next=s;      
+   s->next=p; 
+   p->prior=s; 
+   return true;
+}
+```
+
+### 双向循环链表的删除元素操作
+删除带有头结点的双向链表DL中的第i个结点，并让e返回其值
+ ```C++
+[in DuLinkList_C.h]
+bool ListDelete_DuL_C(DuLinkList &L, int i, ElemType &e)
+{   DuLinkList p;
+    int j;
+    p->L->next;j=1
+    while(p->next!=L&&j<i){ p=p->next; j++; }   // 寻找第i个结点,并让p指向此结点
+    if(j!=i)   return false;                 // i的位置不合理
+    e = p->data;
+    p->prior->next = p->next;
+    p->next->prior = p->prior;
+    free(p);                     
+    return true;
+ }
+```
+
+### 双链表取元素操作
+取出双链表DL中第i个元素，并用e返回其值
+ ```C++
+[in DuLinkList_C.h]
+bool GetElem_DL_C(LinkList L,int i, ElemType &e)
+{
+
+    
+}
+```
+
+### 创建双链表（尾插）
+已知一维数组A[n]中存有线性表的数据元素，利用尾插法创建双链表DL
+ ```C++
+[in DuLinkList_C.h]
+void CreateList_Du_C_Rear(LinkList &L,ElemType a[],int n ) 
+{
+
+    
+}
+```
+
+### 创建双链表（尾插）
+已知一维数组A[n]中存有线性表的数据元素，利用尾插法创建双链表DL
+ ```C++
+[in DuLinkList_C.h]
+void CreateList_Du_C_Front(LinkList &L,ElemType a[],int n ) 
+{
+
+    
+}
+```
+
+### 遍历输出双向循环链表各元素数据
+ ```C++
+[in DuLinkList_C.h]
+void ListTraverse_Du_C(LinkList DL)
+{
+
+    
+}
+```
+
+### 销毁双向循环链表
+ ```C++
+[in DuLinkList_C.h]
+void DestroyList_Du_C(LinkList &DL )
+{
+
+
+}
+```
+
+### 单链表的可视化
+将这个双向循环链表(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变
+ ```C++
+[in DuLinkList_C.h]
+void ListVisualization_Du(LinkList L, char* filename)
+{   
+
+}
+```
+### 双向链表测试
+[in DuLinkList_CTest.cpp]
+```C++   
+int main()
+{
+
+
+} 
+```
+
 
 
 ## [源代码下载](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_02_List/sourcecode)
