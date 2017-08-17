@@ -1,6 +1,6 @@
 # 线性表(linear list，简称list)
 
-- <font size = 5 color = blue>![顺序表](/Chapter_02_List#顺序表)</font>
+- <font size = 5 color = blue>[顺序表](#顺序表)</font>
 - <font size = 5 color = blue>单链表</font>
 - <font size = 5 color = blue>双(向)链表</font>
 - <font size = 5 color = blue>单(向)循环链表</font>
