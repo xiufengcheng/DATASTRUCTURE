@@ -11,6 +11,9 @@
 ### 手机：15071337806
 ### 网站(建设中)：[www.showfeng.com](http://showfeng.com)
 ### 群号: 542805699
+### [<font color = red>课程大纲</font>](./OUTLINE.MD)
+### [<font color = red>学生考勤分数记录</font>](./SCORE.MD)
+
 ![](./imgs/1.jpg)
 
 ---
@@ -63,9 +66,6 @@
 - 期末考试%50
 
 ---
-## [<font color = red>课程大纲</font>](./OUTLINE.MD)
-
-## [<font color = red>学生考勤分数记录</font>](./SCORE.MD)
 
 ----
 
