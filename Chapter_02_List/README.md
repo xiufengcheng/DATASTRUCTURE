@@ -375,7 +375,7 @@ int main()
 - 结点ai指其数据域为ai的结点，而p结点则指指针p所指向的结点(即其存储位置存在放在p中的结点)
 - 单链表的操作
 
-<img  src="/Chapter_02_List/img/3.jpg"/>
+<img width="800"  src="/Chapter_02_List/img/3.jpg"/>
 
 ------------------
 #### 单链表的数据结构
