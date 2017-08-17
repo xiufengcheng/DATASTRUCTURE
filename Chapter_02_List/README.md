@@ -54,7 +54,7 @@ ADT List
 - 顺序表：按照顺序存储结构存储的线性表。
 
 #### 逻辑图示
-![img-w50](/Chapter_02_List/img/1.jpg)
+![img{w50}](/Chapter_02_List/img/1.jpg)
 
 #### 数学表示
 - 同线性表
