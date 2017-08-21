@@ -1,7 +1,7 @@
 ## 第三章（堆栈）目录
-> <font size = 8 color = blue>[堆栈](#堆栈)</font>
->> <font size = 8 color = blue>[顺序栈](#顺序栈)</font>
->> <font size = 8 color = blue>[链栈](#链栈)</font>
+>* <font size = 8 color = blue>[堆栈](#堆栈)</font>
+>>* <font size = 8 color = blue>[顺序栈](#顺序栈)</font>
+>>* <font size = 8 color = blue>[链栈](#链栈)</font>
 -----------------------------
 
 ## 堆栈(stack)
