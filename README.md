@@ -38,10 +38,12 @@
 
 ---
 ## 编程工具
-- 一般：CFree5.0(自带编译器MingGW)
+- 一般：[CFree5.0](http://www.programarts.com/)
+    - CFree是自带C/C++编译器MingGW的
     - 演示
-- 高级：[Visual Studio Code]+插件+[编译器MingGW]
-    - 演示
+- 高级：[Visual Studio Code]
+    - [演示](https://code.visualstudio.com/docs/languages/)
+    - 推荐用VSCode编辑Python,C#,JavaScript，Java等程序的数据结构
 - 可视化工具：[Graphviz](http://www.graphviz.org/)
 ##网络知识点链接(持续更新)
 
