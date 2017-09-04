@@ -153,12 +153,12 @@ cout<<hello world<<endl;
 ### include "SqList.h"     
 - 自定义的头文件，包括对自定义的数据结构的操作定义及操作。这是顺序表的头文件。
 
-<img width="600"  src="/img/3.jpg"/>
+<img width="600"  src="/Chapter_01_Introduction/img/3.jpg"/>
 
 ------------------
 ## 生产力工具之CFree
 - [下载地址](http://download.csdn.net/download/u014234937/8561575)
-<img width="400"  src="./imgs/2.jpg"/>
+<img width="400"  src="/Chapter_01_Introduction/img/2.jpg"/>
 
 ------------------
 
