@@ -181,3 +181,7 @@ cout<<hello world<<endl;
 - VSCode中编写Python
 - VSCode中编写C#
 - VsCode中编写Js
+
+## 作业
+1. 安装CFree,下载顺序表的两个源代码SqList.h和SqListTest.cpp, 建立工程，运行程序
+2. 看书，第一章，并做课后练习，写在书上，不需要提交。
