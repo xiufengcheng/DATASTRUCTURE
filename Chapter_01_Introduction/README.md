@@ -1,7 +1,7 @@
 ## 第一章目录
 >* <font size = 8 color = blue>[一些定义](#一些定义)</font>
 >* <font size = 8 color = blue>[典型数据结构与算法介绍](#典型数据结构与算法介绍)</font>
->* <font size = 8 color = blue>[衔接：从C到C++](#衔接：从C到C++)</font>
+>* <font size = 8 color = blue>[衔接：从C到C++](#从C到C++)</font>
 >* <font size = 8 color = blue>[生产力工具1:CFree](#生产力工具之CFree)</font>
 >* <font size = 8 color = blue>[生产力工具2:Visual Studio Code](#生产力工具之VSCode)</font>
 >* <font size = 8 color = blue>[生产力工具3:Github](#生产力工具之github)</font>
@@ -127,7 +127,7 @@ ADT List
 ## 典型数据结构与算法介绍
 - [我们看一个网页即可](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_01_Introduction/Demo)
 
-## 衔接：从C到C++
+## 从C到C++
 
 ### 头文件.h 中，通常包含数据结构与ADT的定义
 ### 源文件.cpp 中，通常包含对具体数据结构的使用操作

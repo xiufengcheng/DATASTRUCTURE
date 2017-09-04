@@ -2,10 +2,10 @@
 ### [第一章 绪论](/Chapter_01_Introduction/README.md)
 1. 一些定义
 2. 典型数据结构与算法介绍
-3. 衔接：从C到C++
+3. 从C到C++
 3. 生产力工具：CFree, mingw
-4. 生产力工具：Visual Studio
-5. 生产力工具：VSCode
+4. 生产力工具：VSCode
+5. 生产力工具：GitHub
 6. 生产力工具：Graphviz
 7. 其它语言描述数据结构（Java, Python, C#, JavaScript等等）
 
