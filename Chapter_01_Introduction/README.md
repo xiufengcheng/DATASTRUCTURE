@@ -5,7 +5,7 @@
 >>* <font size = 8 color = blue>[生产力工具1](#生产力工具：CFree, mingw)</font>
 >>* <font size = 8 color = blue>[生产力工具2](#生产力工具：VSCode)</font>
 >>* <font size = 8 color = blue>[生产力工具3](#生产力工具：Graphviz)</font>
->>>>* <font size = 8 color = blue>[其它语言描述数据结构](#其它语言描述数据结构: Java, Python, C#, JavaScript等等)</font>
+>* <font size = 8 color = blue>[其它语言描述数据结构](#其它语言描述数据结构: Java, Python, C#, JavaScript等等)</font>
 
 -----------------------------
 
