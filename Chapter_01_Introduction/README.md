@@ -69,7 +69,7 @@ r={<Beijing,Shanghai>,<Shanghai,Wuhan>,<Wuhan,Xian>,<Xian,Nanjing>}
 typedef struct Node{         //定义一个结构体Node,表示该结构体中每一个数据元素的"结构".
     ElemType  data;          //表示每个数据元素(也就是结点)中的数据部分(数据域) 
     struct Node *next;       //表示每个数据元素(也就是结点)中的指针部分(指针域), 注意，这是一个指向另一个结点的指针
-} LNode, * LinkList        //定义了两个结构体变量，LNode表示一个结点，*LinkList表示指向这类结点的一个指针
+} LNode, * LinkList            //定义了两个结构体变量，LNode表示一个结点，*LinkList表示指向这类结点的一个指针
 ```
 ------------------
 ### [例：如何使用以上数据结构]
@@ -130,7 +130,7 @@ ADT List
 ## 从C到C++
 - 头文件.h 中，通常包含数据结构与ADT的定义
 - 源文件.cpp 中，通常包含对具体数据结构的使用操作
-- 例如：顺序表的头文件[SqList.h](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/Chapter_02_List/sourcecodeSqList.h)与源文件[LinkListTest.cpp](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/Chapter_02_List/sourcecode/SqListTest.cpp)
+- 例如：顺序表的头文件[SqList.h](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/Chapter_02_List/sourcecode/SqList.h)与源文件[SqListTest.cpp](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/Chapter_02_List/sourcecode/SqListTest.cpp)
 
 ### include "stdio.h"
 - c语言标准输入输出流。该文件包含printf()等函数，数据结构课程中一般不用，而用iostream或iomap代替
@@ -153,7 +153,7 @@ cout<<hello world<<endl;
 ### include "SqList.h"     
 - 自定义的头文件，包括对自定义的数据结构的操作定义及操作。这是顺序表的头文件。
 
-<font size = 4 color = red>工欲善其事，必先利其器</font>
+<font size = 14 color = red>工欲善其事，必先利其器</font>
 
 ------------------
 ## 生产力工具之CFree
