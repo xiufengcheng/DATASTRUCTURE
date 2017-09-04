@@ -132,7 +132,7 @@ ADT List
 - 源文件.cpp 中，通常包含对具体数据结构的使用操作
 - 例如：顺序表的头文件[SqList.h](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/Chapter_02_List/sourcecodeSqList.h)与源文件[LinkListTest.cpp](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/Chapter_02_List/sourcecode/SqListTest.cpp)
 
-### #include "stdio.h"
+### include "stdio.h"
 - c语言标准输入输出流。该文件包含printf()等函数，数据结构课程中一般不用，而用iostream或iomap代替
 
 - # #include "stdlib.h"   
