@@ -40,14 +40,15 @@
 ## 编程工具
 - 一般：[CFree5.0](http://www.programarts.com/)
     - CFree是自带C/C++编译器MingGW的
-    - 演示
-- 高级：Visual Studio Code
-    - [演示](https://code.visualstudio.com/)
+- 高级：[Visual Studio Code](https://code.visualstudio.com/)
     - 推荐用VSCode编辑Python,C#,JavaScript，Java等程序的数据结构
 - 可视化工具：[Graphviz](http://www.graphviz.org/)
-##网络知识点链接(持续更新)
+---
+## 网络知识点链接(持续更新，有待同学们一起发现)
 
 ---
+## 可视化
+- [经典算法flash](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_01_Introduction/Demo)
 - [可视化演示(JS)](http://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 - [很酷的排序演示](http://sorting.at/)
 - [很有创意的舞蹈演示](http://top.jobbole.com/1539/)
