@@ -158,6 +158,7 @@ cout<<hello world<<endl;
 ------------------
 ## 生产力工具之CFree
 - [下载地址](http://www.programarts.com/cfree_ch/download.htm)
+<img width="400"  src="./imgs/2.jpg"/>
 ------------------
 ## 生产力工具之VSCode
 - [下载与演示地址](https://code.visualstudio.com/)
