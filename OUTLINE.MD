@@ -1,5 +1,5 @@
 # <p align ="center">课程大纲</p>
-### [第一章 绪论](/chapter_01_Introduction/readme.md)
+### [第一章 绪论](/Chapter_01_Introduction/README.md)
 1. 一些定义
 2. 典型数据结构与算法介绍
 3. 衔接：从C到C++
