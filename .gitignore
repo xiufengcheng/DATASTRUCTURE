@@ -1,4 +1,7 @@
 # ignorewhat
 OUTLINE.*
 SCORE.*
-img/
+imgs/
+software/
+OUTLINE.MD
+SCORE.MD

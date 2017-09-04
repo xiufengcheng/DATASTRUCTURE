@@ -124,4 +124,4 @@ ADT List
 - 数据结构影响算的选择和实现效率
 
 ## 典型数据结构与算法介绍
-- [我们看一个网页即可](/Demo)
+- [我们看一个网页即可](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_01_Introduction/Demo)
