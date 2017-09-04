@@ -128,15 +128,14 @@ ADT List
 - [我们看一个网页即可](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_01_Introduction/Demo)
 ------------------
 ## 从C到C++
-
-### 头文件.h 中，通常包含数据结构与ADT的定义
-### 源文件.cpp 中，通常包含对具体数据结构的使用操作
-### 例如：顺序表的头文件[SqList.h](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/Chapter_02_List/sourcecodeSqList.h)与源文件[LinkListTest.cpp](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/Chapter_02_List/sourcecode/SqListTest.cpp)
+- 头文件.h 中，通常包含数据结构与ADT的定义
+- 源文件.cpp 中，通常包含对具体数据结构的使用操作
+- 例如：顺序表的头文件[SqList.h](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/Chapter_02_List/sourcecodeSqList.h)与源文件[LinkListTest.cpp](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/Chapter_02_List/sourcecode/SqListTest.cpp)
 
 ### #include "stdio.h"
 - c语言标准输入输出流。该文件包含printf()等函数，数据结构课程中一般不用，而用iostream或iomap代替
 
-### #include "stdlib.h"   
+- # #include "stdlib.h"   
 - c语言标准库。该文件包含malloc()、realloc()和free()等函数
 
 ### include "iostream.h"
