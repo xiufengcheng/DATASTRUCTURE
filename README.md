@@ -38,11 +38,12 @@
 
 ---
 ## 编程工具
-- 一般：[CFree5.0](http://download.csdn.net/download/u014234937/8561575)
+- 一般：[CFree5.0](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/tools_download/C-Free%205%20CJY%E7%89%88.zip)
     - CFree是自带C/C++编译器MingGW的
 - 高级：[Visual Studio Code](https://code.visualstudio.com/)
     - 推荐用VSCode编辑Python,C#,JavaScript，Java等程序的数据结构
 - 可视化工具：[Graphviz](http://www.graphviz.org/)
+- 所有工具均可在[这里下载](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/tools_download/)
 ---
 ## 网络知识点链接(持续更新，有待同学们一起发现)
 
