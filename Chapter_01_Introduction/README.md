@@ -123,10 +123,10 @@ ADT List
 ### 数据结构与算法的关系
 - 算法依赖于数据结构
 - 数据结构影响算的选择和实现效率
-
+------------------
 ## 典型数据结构与算法介绍
 - [我们看一个网页即可](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_01_Introduction/Demo)
-
+------------------
 ## 从C到C++
 
 ### 头文件.h 中，通常包含数据结构与ADT的定义
@@ -156,22 +156,23 @@ cout<<hello world<<endl;
 
 <font size = 4 color = red>工欲善其事，必先利其器</font>
 
+------------------
 ## 生产力工具之CFree
 - [下载地址](http://www.programarts.com/cfree_ch/download.htm)
-
+------------------
 ## 生产力工具之VSCode
 - [下载与演示地址](https://code.visualstudio.com/)
-
+------------------
 ## 生产力工具之github
 - [gitbash](https://git-scm.com/downloads)
 - [gitdesktop](https://desktop.github.com/) 
 - [推荐王鼎老师的教学视频](http://edu.51cto.com/course/7845.html)
 - 这样，我们就可以在github上实现项目的文档开放共享，团队开发等等业务了
-
+------------------
 ## 生产力工具之Graphviz
 - [Graphviz](http://www.graphviz.org/)
 - 有兴趣的同学可以参与我的项目
-
+------------------
 
 ## 其它语言描述数据结构
 - [这些语言的coding都可以在vscode中搞定](https://code.visualstudio.com/docs)
