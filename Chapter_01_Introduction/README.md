@@ -135,7 +135,7 @@ ADT List
 ### include "stdio.h"
 - c语言标准输入输出流。该文件包含printf()等函数，数据结构课程中一般不用，而用iostream或iomap代替
 
-- # #include "stdlib.h"   
+### include "stdlib.h"   
 - c语言标准库。该文件包含malloc()、realloc()和free()等函数
 
 ### include "iostream.h"
