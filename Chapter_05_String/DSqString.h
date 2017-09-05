@@ -1,7 +1,3 @@
-#pragma once
-#include<stdlib.h>
-#include<iostream>
-using namespace std;
 typedef struct {
 	char *str;
 	int length;
