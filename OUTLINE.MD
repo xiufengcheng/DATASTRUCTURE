@@ -26,7 +26,7 @@
 
 ### [第五章 串(String)](./CHAPTER04/README.MD)
 1. 串(String)
-2. 串的应用举例
+2. 串的应用举例举例
 
 ### [第六章 数组和广义表(Arrary)](./CHAPTER05/README.MD)
 1. 数组(Array)
