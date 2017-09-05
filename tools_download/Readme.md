@@ -10,6 +10,8 @@
 - 使用方法1
 - 使用方法2
 
+# 如何向我发起pull request
+
 # 如何使用VSCode
 
 # 如何使用Graphivz
