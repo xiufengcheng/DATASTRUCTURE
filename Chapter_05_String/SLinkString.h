@@ -219,13 +219,17 @@ void visualization(SLinkString S, char* filename)
     }  
     fprintf(stream, "digraph\n{\n node [shape = record] \n ");  
     int i=1;
-    fprintf(stream, "S%d[label=\"<L>%c|<R>*\"];\n  ->S%d:L[label=\"head\"] \n; ",i,p->str,i);
+    fprintf(stream, "S[label=\"\Í·½Úµã\"]; S%d[label=\"<L>%c|<R>*\"];\n  S->S%d:L[label=\"head\"] \n; ",i,p->str,i);
 		i++;
 		p=p->next;
 	while(p){
 		fprintf(stream, "S%d[label=\"<L>%c|<R>*\"];\n S%d:R->S%d:L \n; ",i,p->str,i-1,i,p->str);
 		i++;
 		p=p->next;
+		if(p&&!p->next){
+			fprintf(stream, "S%d[label=\"<L>%c|<R>NULL\"];\n S%d:R->S%d:L \n; ",i,p->str,i-1,i,p->str);
+			p=p->next;
+		}
 	}
 	fprintf(stream, "}"); 
 	fclose(stream);  
