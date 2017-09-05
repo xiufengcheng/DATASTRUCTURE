@@ -187,5 +187,6 @@ cout<<hello world<<endl;
 - VsCode中编写Js
 
 ## 作业
-1. 安装CFree,下载顺序表的两个源代码SqList.h和SqListTest.cpp, 建立工程，运行程序
-2. 看书，第一章，并做课后练习，写在书上，不需要提交。
+1. 注册github账号，并fork我的[本门课程的仓库](https://github.com/xiufengcheng/DATASTRUCTURE)
+2. 下载安装CFree,在[这里](/Chapter_02_List/sourcecode)下载顺序表的两个源代码SqList.h和SqListTest.cpp, 建立工程，运行程序
+3. 看书第一章，并做课后练习，写在书上，不需要提交。
