@@ -163,7 +163,7 @@ void DestroyString_Sq(DSqString &S) {
 	S.length = 0;
 }
 
-void visualization(DSqString S, char* filename)//链式结构由于指针，不存在值传递 
+void visualization(DSqString S, char* filename)
 {   int temp;
 	FILE *stream;  
     if( NULL == (stream = fopen(filename, "w")) )  
