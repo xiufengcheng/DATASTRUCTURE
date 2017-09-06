@@ -46,7 +46,7 @@
 - 所有工具均可在[这里下载](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/tools_download/)
 ---
 ## 网络知识点链接(持续更新，有待同学们一起发现)
-- [如何使用Github](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/tools_download)
+- [如何使用Github](/tools_download/github教程/)
 ---
 ## 可视化
 - [经典算法flash](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_01_Introduction/Demo)
