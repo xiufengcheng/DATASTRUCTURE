@@ -152,6 +152,123 @@ cout<<hello world<<endl;
 
 ### include "SqList.h"     
 - 自定义的头文件，包括对自定义的数据结构的操作定义及操作。这是顺序表的头文件。
+
+### 函数(分为)
+```C++
+int add (int x, const int y, const int &z)    //值参数，常值参数，常值引用参数, 返回值
+{
+   return x+y+z;
+}
+
+void main  //返回值为空
+{  int t=6;
+   add(4,5,t);
+}
+```
+
+### 重载
+```
+# include "iostream.h"                 // 该文件包含标准输入输出流cout和cin
+int max(int a,int b)                    // 函数1
+{
+    return(a>b?a:b);
+}
+float max(float a,float b,float c)       // 函数2
+{ 
+    float t=a;
+    if(t<b) t=b;
+    if(t<c) t=c;
+    return t;
+}
+
+void main( )
+{
+    cout<<"max(2,3)="<<max(2,3)<<endl;
+    cout<<"max(2.3,5.6,3.1)="<<max(2.3,5.6,3.1)<<endl;
+}
+``` 
+### 类
+```
+# include "stdio.h"
+public class student        //定义类
+{
+   private:
+   int num;
+   char name[10];
+   char sex;
+   public:
+   student()
+   {
+       num =10010;
+       strcyp(name,"wanglin");
+       sex = 'F';
+   }
+   ~student()
+   {}
+
+   void display()       //定义函数
+   {
+      cout<<"num:"<<num<<endl;
+      cout<<"name:"<<name<<endl;
+      cout<<"sex:"<<sex<<endl;
+   }
+}
+```
+### 变量的引用类型
+```C
+# include "stdio.h"
+void swap(int &p1,int &p2)
+{int temp;
+temp=p1;
+p1=p2;
+p2=temp;}
+
+void main( )
+{
+ int a=5,b=9;
+  if(a<b) swap(a,b);
+printf("\na=%d,b=%d\n",a,b);
+}
+```
+### 运算符的重载
+
+```C
+# include "iostream.h"                 // 该文件包含标准输入输出流cout和cin
+struct complex {
+int real;
+int imag;
+  complex&operator+(complex &s)   //重载"+"，函数直接写在结构体内！
+{
+    complex c;
+    c.real=real+s.real;
+    c.imag=imag+s.imag;
+    return c;
+   }
+complex&operator+=(complex &s); //重载"+="，函数在结构体外部！
+friend ostream&operator<<(ostream &output,complex &s); //以友元函数方式重载
+};
+complex &complex::operator+=(complex &s)
+{
+real+=s.real;
+imag+=s.imag;
+return *this;
+}
+ostream&operator<<(ostream &output,complex &s)
+{
+output<<" a.real="<<s.real<<"  a.imag="<<s.imag<<endl;
+return output;
+}
+void main()
+{
+complex c={0,0},a,b={1,5};
+a=b+b;
+c+=b;
+cout<<a;
+cout<<" c.real="<<c.real<<"  c.imag="<<c.imag<<endl;
+cout<<" b.real="<<b.real<<"  b.imag="<<b.imag<<endl;
+}
+```
+
 ------------------
 
 <img width="600"  src="/Chapter_01_Introduction/img/3.jpg"/>
