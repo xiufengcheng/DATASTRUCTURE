@@ -167,7 +167,7 @@ void main  //返回值为空
 ```
 
 ### 重载
-```
+```c++
 # include "iostream.h"                 // 该文件包含标准输入输出流cout和cin
 int max(int a,int b)                    // 函数1
 {
@@ -188,7 +188,7 @@ void main( )
 }
 ``` 
 ### 类
-```
+```c++
 # include "stdio.h"
 public class student        //定义类
 {
@@ -215,7 +215,7 @@ public class student        //定义类
 }
 ```
 ### 变量的引用类型
-```C
+```c++
 # include "stdio.h"
 void swap(int &p1,int &p2)
 {int temp;
@@ -229,10 +229,11 @@ void main( )
   if(a<b) swap(a,b);
 printf("\na=%d,b=%d\n",a,b);
 }
-```
+`````````
+
 ### 运算符的重载
 
-```C
+```c++
 # include "iostream.h"                 // 该文件包含标准输入输出流cout和cin
 struct complex {
 int real;
@@ -268,7 +269,20 @@ cout<<" c.real="<<c.real<<"  c.imag="<<c.imag<<endl;
 cout<<" b.real="<<b.real<<"  b.imag="<<b.imag<<endl;
 }
 ```
+### 友元
+```c++
+class A
+       {
+              …
+       public:
+              friend class B;
+              …
+       };
 
+```
+
+### 作用域分辨符号
+参考'Homework8'中的完整c++代码
 ------------------
 
 <img width="600"  src="/Chapter_01_Introduction/img/3.jpg"/>
