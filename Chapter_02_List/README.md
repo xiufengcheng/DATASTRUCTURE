@@ -494,7 +494,7 @@ bool ListInsert_L( LinkList &L, int i, ElemType e)
   		return true;
  	}// ListInsert_L
 ```
-<img width="800"  src="/Chapter_02_List/img/insert.png"/>
+<img width="600"  src="/Chapter_02_List/img/insert.png"/>
 -----------------------------
 
 #### 单链表删除元素操作
@@ -513,6 +513,7 @@ bool ListDelete_L( LinkList &L, int i, ElemType &e)
   		return true;
  	}// ListDelete_L
 ```
+<img width="600"  src="/Chapter_02_List/img/delete.png"/>
 -----------------------------
 #### 单链表取元素操作
 取出单链表L中第i个元素，并用e返回其值
