@@ -494,6 +494,7 @@ bool ListInsert_L( LinkList &L, int i, ElemType e)
   		return true;
  	}// ListInsert_L
 ```
+<img width="800"  src="/Chapter_02_List/img/insert.png"/>
 -----------------------------
 
 #### 单链表删除元素操作
