@@ -514,6 +514,7 @@ bool ListDelete_L( LinkList &L, int i, ElemType &e)
  	}// ListDelete_L
 ```
 <img width="600"  src="/Chapter_02_List/img/delete.png"/>
+
 -----------------------------
 #### 单链表取元素操作
 取出单链表L中第i个元素，并用e返回其值
