@@ -25,7 +25,7 @@ bool ListInsert_Sq_2_1(SqList &L, ElemType e)
 ```
 ### 2.2 
 ```C
-void InverseList(SqList &L)
+void ListReverse(SqList &L)
  {
      int i=0;
      for (i=0; i<L.length/2; ++i)
@@ -44,7 +44,7 @@ void InverseList(SqList &L)
 
 ### 2.5
 ```C
-void InverseList_L(LinkList &L)  
+void ListReverse_L(LinkList &L)  
 {   
     LNode* p=L->next->next;
     L->next->next=NULL;
