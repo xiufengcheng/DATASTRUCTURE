@@ -2,18 +2,19 @@
 抢答要求，参考[如何使用git](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/tools_download/GitHub%20%E6%95%99%E7%A8%8B),提交pull request. 老师择机合并你的答案。
 
 ### 2.1
+```C
 bool ListInsert_Sq_2_1(SqList &L, ElemType e)
 {  
 	int i,j;
 	if(L.length>=L.listsize)  
-{                  
-	L.elem=(ElemType *)realloc(L.elem,(L.listsize+L.incrementsize)*sizeof(ElemType));
-	if(!L.elem) exit(1);                  
-	L.listsize+=L.incrementsize;           
+	{                  
+		L.elem=(ElemType *)realloc(L.elem,(L.listsize+L.incrementsize)*sizeof(ElemType));
+		if(!L.elem) exit(1);                  
+		L.listsize+=L.incrementsize;           
 }
 	i = 0;
 	while(L.elem[i]<e)          
-	i++;
+		i++;
 	for(i=0;i<L.length&&e>L.elem[i];i++); 
 	for(j=L.length;j>i;j--)               
 		L.elem[j]=L.elem[j-1];
@@ -21,7 +22,9 @@ bool ListInsert_Sq_2_1(SqList &L, ElemType e)
 	L.length++;                           
 	return true;   
 }
+```
 ### 2.2 
+```C
 void InverseList(SqList &L)
  {
      int i=0;
@@ -32,6 +35,7 @@ void InverseList(SqList &L)
          L.elem[i] = L.elem[i] - L.elem[L.length-i-1];
      }
 }
+```
 ### 2.3
 
 
@@ -39,6 +43,7 @@ void InverseList(SqList &L)
 
 
 ### 2.5
+```C
 void InverseList_L(LinkList &L)  
 {   
     LNode* p=L->next->next;
@@ -51,10 +56,12 @@ void InverseList_L(LinkList &L)
         p=q;
     }  
 }  
+```
 ### 2.6
 
 
 ### 2.7
+```C
 bool ListInsert_L_2_7(LinkList &L,int i,ElemType e)
  { 
      int j=1; 
@@ -97,20 +104,21 @@ bool ListDelete_L_2_7(LinkList &L,int i,ElemType &e)
      }
      else
      { 
-     while(p->next&&j<i-1) 
-     { 
-         j++; 
-         p=p->next; 
-     }
-     if(!p->next||j>i-1) 
-         return false; 
-     q=p->next; 
-     p->next=q->next; 
-     e=q->data; 
-     free(q); 
-   }
+	 	while(p->next&&j<i-1) 
+		{ 
+			j++; 
+			p=p->next; 
+		 }
+		 if(!p->next||j>i-1) 
+		 return false; 
+		 q=p->next; 
+		 p->next=q->next; 
+		 e=q->data; 
+		 free(q);
+	 }
    return true; 
  }
+ ```
 ### 2.8
 
 
