@@ -1,7 +1,8 @@
 ## 第二章程序设计题
 抢答要求，参考[如何使用git](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/tools_download/GitHub%20%E6%95%99%E7%A8%8B),提交pull request. 老师择机合并你的答案。
 
-### 2.1
+
+## 算法设计题2.1
 ```C
 bool ListInsert_Sq_2_1(SqList &L, ElemType e)
 {  
@@ -23,7 +24,13 @@ bool ListInsert_Sq_2_1(SqList &L, ElemType e)
     return true;   
 }
 ```
-### 2.2 
+提交者:张孜铭
+
+----------------
+
+
+
+## 算法设计题2.2
 ```C
 void ListReverse(SqList &L)
  {
@@ -36,13 +43,29 @@ void ListReverse(SqList &L)
      }
 }
 ```
-### 2.3
+提交者:张孜铭
+
+----------------
 
 
-### 2.4
+
+## 算法设计题2.3
+
+提交者:
+
+----------------
 
 
-### 2.5
+
+## 算法设计题2.4
+
+提交者:
+
+----------------
+
+
+
+## 算法设计题2.5
 ```C
 void ListReverse_L(LinkList &L)  
 {   
@@ -57,10 +80,21 @@ void ListReverse_L(LinkList &L)
     }  
 }  
 ```
-### 2.6
+提交者:张孜铭
+
+----------------
 
 
-### 2.7
+
+## 算法设计题2.6
+
+提交者:
+
+----------------
+
+
+
+## 算法设计题2.7
 ```C
 bool ListInsert_L_2_7(LinkList &L,int i,ElemType e)
  { 
@@ -89,8 +123,8 @@ bool ListInsert_L_2_7(LinkList &L,int i,ElemType e)
    }
    return true; 
  }
-
-bool ListDelete_L_2_7(LinkList &L,int i,ElemType &e)
+ 
+ bool ListDelete_L_2_7(LinkList &L,int i,ElemType &e)
  { 
      int j=1; 
      LinkList q,p=L; 
@@ -119,13 +153,70 @@ bool ListDelete_L_2_7(LinkList &L,int i,ElemType &e)
    return true; 
  }
  ```
-### 2.8
+提交者:张孜铭
+
+----------------
 
 
-### 2.9
+
+## 算法设计题2.8
+
+提交者:
+
+----------------
 
 
-### 2.10
+
+## 算法设计题2.9
+
+提交者:
+
+----------------
 
 
-### 2.11
+
+## 算法设计题2.10
+
+提交者:
+
+----------------
+
+
+
+## 算法设计题2.11
+
+提交者:
+
+----------------
+
+
+
+## 算法设计题2.12
+
+提交者:
+
+----------------
+
+
+
+## 算法设计题2.13
+
+提交者:
+
+----------------
+
+
+
+## 算法设计题2.14
+
+提交者:
+
+----------------
+
+
+
+## 算法设计题2.15
+
+提交者:
+
+----------------
