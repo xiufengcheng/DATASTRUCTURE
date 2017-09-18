@@ -575,7 +575,7 @@ void CreateList_L_Front(LinkList &L,ElemType a[],int n )
  void ListTraverse_L(LinkList L)
 	{
 		 LinkList p=L->next;
- 		 while(p)
+ 		 while(p)               //遍历完整个单链表
   	  {  cout<< setw(6)<<p->data;
          p=p->next;
       }
@@ -590,7 +590,7 @@ void DestroyList_L(LinkList &L )
 	{
   		LinkList p,p1;
  		 p=L;
-  		while(p) 
+  		while(p)           //遍历完整个单链表
   		{   p1=p;
     		p=p->next;
     		free(p1);
@@ -780,6 +780,8 @@ int LocateElem_DL(DuLinkList L,ElemType e)
 ```
 -----------------------------
 #### 双链表插入元素操作
+<img width="600" src="/Chapter_02_List/img/duinsert.png"/>
+
 在带头结点的双向链表DL中第i个结点之前插入元素e
  ```C++
 [in DuLinkList.h]
@@ -810,9 +812,11 @@ bool ListInsert_DuL(DuLinkList &L,int i,ElemType e)
    return true;
 }
 ```
+* 注意，这里的语句4不能换到语句1之前，另外还要区分是不是插到末尾。
 -----------------------------
 #### 双链表删除元素操作
 删除带有头结点的双向链表DL中的第i个结点，并让e返回其值
+<img width="600" src="/Chapter_02_List/img/dudelete.png"/>
  ```C++
 [in DuLinkList.h]
 bool ListDelete_Du(DuLinkList &L, int i, ElemType &e)
@@ -884,7 +888,7 @@ void ListTraverse_Du(LinkList DL)
 void DestroyList_Du(LinkList &DL )
 {
 
-
+     
 }
 ```
 -----------------------------
@@ -927,9 +931,12 @@ int main()
 
 #### 双向循环链表的数据结构
 同双向链表
+
 -----------------------------
 #### 双向循环链表初始化
+
 初始化双向循环链表DL
+```
 [in DuLinkList_C.h]
 void InitList_DuL_C(DuLinkList &L)
 {  
@@ -938,7 +945,9 @@ void InitList_DuL_C(DuLinkList &L)
   L->next=L;                               // 表头结点作为表头结点的后继
   L->prior=L;                              // 表头结点作为表头结点的前驱
 }
+```
 -----------------------------
+
 #### 双向循环链表的长度
 // DL为带头结点的链表的头指针，函数返回L所指链表的长度
 ```C++
@@ -1083,16 +1092,16 @@ int main()
 2. 依该数据元素的值在线性表La中进行查查访；
 3. 若线性表La中不存在和其值相同的元素，则将从Lb中删除的数据元素插入La中；重复以上操作直到遍历完Lb表为止。
 ```C
-void union(List &La,List Lb)
+void Union(SqList &La, SqList Lb, ElemType &e)
 {
-    La_len = ListLength(La)   //求线性表La的长度
-    while(!ListEmpty(Lb))     //Lb表的元素尚未处未处理完
+    int La_len = ListLength_Sq(La);   //求线性表La的长度
+    while(!ListEmpty_Sq(Lb))     //Lb表的元素尚未处未处理完
     {
-        ListDelete(Lb,1,e);    //从Lb中删除第一个数据元素赋值给e
-        if(!LocateElem(La,e))     //若La中不存在值和e相等的数据元素
-           ListInsert(La,++La_len,e);   //则将它插入在La中最后一个数据元素之后
+        ListDelete_Sq(Lb,1,e);    //从Lb中删除第一个数据元素赋值给e
+        if(!LocateElem_Sq(La,e))     //若La中不存在值和e相等的数据元素
+           ListInsert_Sq(La,++La_len,e);   //则将它插入在La中最后一个数据元素之后
     }
-    DestroyList(Lb); //撤销线性表
+    DestroyList_Sq(Lb); //撤销线性表
 }
 ```
 
@@ -1105,7 +1114,7 @@ void union(List &La,List Lb)
 4. 如果La中不存在和其值相同的元素，则将从Lb中删除该元素并插入到线性表La中。
 5. 重复2至4步直至Lb空为止。
 ```C
-void purge(List &La,List Lb)
+void Purge(List &La,List Lb)
 {
     InitList(La);          //初始化La,即创建一个新的，空的线性表La
     while(!ListEmpty(Lb))     //Lb表的元素尚未处未处理完

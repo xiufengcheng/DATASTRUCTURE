@@ -50,10 +50,13 @@
 ---
 ## 可视化
 - [经典算法flash](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_01_Introduction/Demo)
-- [可视化演示(JS)](http://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+- [旧金山大学David Galles可视化演示(JS)](http://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 - [很酷的排序演示](http://sorting.at/)
 - [很有创意的舞蹈演示](http://top.jobbole.com/1539/)
-
+- [Sorting Algorithm Animations](https://www.toptal.com/developers/sorting-algorithms/)
+- [Python可视化显示](https://coolshell.cn/articles/536.html)
+- [一个日本的可视化排序](http://jsdo.it/norahiko/oxIy/fullscreen)
+- [Wiki排序算法比较](https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms)
 ---
 ## 课堂形式
 ### 课堂上
