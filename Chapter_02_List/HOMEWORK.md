@@ -11,7 +11,7 @@ bool ListInsert_Sq_2_1(SqList &L, ElemType e)
 		L.elem=(ElemType *)realloc(L.elem,(L.listsize+L.incrementsize)*sizeof(ElemType));
 		if(!L.elem) exit(1);                  
 		L.listsize+=L.incrementsize;           
-}
+	}
 	i = 0;
 	while(L.elem[i]<e)          
 		i++;
@@ -21,7 +21,7 @@ bool ListInsert_Sq_2_1(SqList &L, ElemType e)
 	L.elem[i]=e;                           
 	L.length++;                           
 	return true;   
-}
+	}
 ```
 ### 2.2 
 ```C
