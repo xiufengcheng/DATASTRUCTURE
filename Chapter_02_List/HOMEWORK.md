@@ -4,22 +4,22 @@
 ### 2.1
 bool ListInsert_Sq_2_1(SqList &L, ElemType e)
 {  
-    int i,j;
-    if(L.length>=L.listsize)  
-    {                  
-        L.elem=(ElemType *)realloc(L.elem,(L.listsize+L.incrementsize)*sizeof(ElemType));
-        if(!L.elem) exit(1);                  
-        L.listsize+=L.incrementsize;           
-    }
-    i = 0;
-    while(L.elem[i]<e)          
-    i++;
-    for(i=0;i<L.length&&e>L.elem[i];i++); 
-    for(j=L.length;j>i;j--)               
-        L.elem[j]=L.elem[j-1];
-    L.elem[i]=e;                           
-    L.length++;                           
-    return true;   
+	int i,j;
+	if(L.length>=L.listsize)  
+{                  
+	L.elem=(ElemType *)realloc(L.elem,(L.listsize+L.incrementsize)*sizeof(ElemType));
+	if(!L.elem) exit(1);                  
+	L.listsize+=L.incrementsize;           
+}
+	i = 0;
+	while(L.elem[i]<e)          
+	i++;
+	for(i=0;i<L.length&&e>L.elem[i];i++); 
+	for(j=L.length;j>i;j--)               
+		L.elem[j]=L.elem[j-1];
+	L.elem[i]=e;                           
+	L.length++;                           
+	return true;   
 }
 ### 2.2 
 void InverseList(SqList &L)
