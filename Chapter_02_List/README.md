@@ -386,13 +386,14 @@ int main()
 - 链表：按照链式存储结构存储的线性表。
 - 单链表：各元素只有一个指针域的链表（只含有一个指针域）
 
-#### 逻辑图示
+#### 逻辑图示(带头结点的单链表)
 <img width="600"  src="/Chapter_02_List/img/2.jpg"/>
 
-- **头结点**：单链表中第一个结点(上图中的a1之前的结点a0)
-- **表头指针**：存放单链表中第一个结点的地址的指针。(指向a0的指针)
-- **开始结点**：存放单链表的第一个元素的结点。(a1)
-- **表尾结点**：单链表中最后一个结点，表尾结点的指针域指针为空。(an)
+- **表头指针**：存放单链表中第一个结点的地址的指针。【指向a0(带头结点时)或指向a1(不带头结点时)的指针，上图中的L】
+- **头结点**：带头结点的单链表中L【上图中的a1之前的结点a0】
+- **开始结点**：，又称首节点，存放单链表的第一个存放元素的结点。【a1】
+- **表尾结点**：单链表中最后一个结点，表尾结点的指针域指针为空。【an】
+
 -----------------------------
 
 #### 数学表示
@@ -409,7 +410,8 @@ int main()
 #### 注意事项
 - 链表的元素一般称为“结点”。
 - 头结点在链表中并不是必须的，仅仅是为了操作上的方便。 
-- 结点ai指其数据域为ai的结点，而p结点则指指针p所指向的结点(即其存储位置存在放在p中的结点)
+- 结点ai指其数据域为ai的结点，而p则是指向ai的指针，俗称"p结点"。
+- 链表有带头结点的链表和不带头结点的链表之分，带头结点的链表第一个元素为头结点a0，L指向a0; 不带头结点的链表第一个元素为头结点a1，L指向a1。
 - 单链表的操作
 
 <img width="800"  src="/Chapter_02_List/img/3.jpg"/>
@@ -495,6 +497,19 @@ bool ListInsert_L( LinkList &L, int i, ElemType e)
  	}// ListInsert_L
 ```
 <img width="600"  src="/Chapter_02_List/img/insert.png"/>
+
+#### 注意. while(p)和while(p->next)的区别：
+我们在操作链表的时候通常会用到
+```
+while(p)
+{p=p->next;}
+和
+while(p->next)
+{p=p->next;}
+```
+- 前者是让工作指针p访问完整个链表，循环结束时，p并没有指向最后一个元素an，而是超出了控制范围，
+- 后者是让工作指针p访问完除最后一个元素之外的所有元素，循环结束时，p指向最后一个元素an。
+
 -----------------------------
 
 #### 单链表删除元素操作
@@ -1082,164 +1097,6 @@ int main()
 } 
 ```
 -----------------------------
-
-
-## 书中例子
-### 【例2.1】 假设利用两个线性表La和Lb分别表示两个集合A和B（线性表中的数据元素即为集合中的成员），求一个新的集合A=A∪B。<br>
-**分析**：这个问题相当于对线性表La做如下操作：把线性表Lb的元素依次插入到La表中。并且需要有一个判断La中是否已经存在Lb中某数据的操作<br>
-**算法思想**：
-1. 从线性表Lb中取得一个数据元素；
-2. 依该数据元素的值在线性表La中进行查查访；
-3. 若线性表La中不存在和其值相同的元素，则将从Lb中删除的数据元素插入La中；重复以上操作直到遍历完Lb表为止。
-```C
-void Union(SqList &La, SqList Lb, ElemType &e)
-{
-    int La_len = ListLength_Sq(La);   //求线性表La的长度
-    while(!ListEmpty_Sq(Lb))     //Lb表的元素尚未处未处理完
-    {
-        ListDelete_Sq(Lb,1,e);    //从Lb中删除第一个数据元素赋值给e
-        if(!LocateElem_Sq(La,e))     //若La中不存在值和e相等的数据元素
-           ListInsert_Sq(La,++La_len,e);   //则将它插入在La中最后一个数据元素之后
-    }
-    DestroyList_Sq(Lb); //撤销线性表
-}
-```
-
-### 【例2.2】已知一个非纯集合B（即集合B中可能有相同元素），试构造一个纯集合A，使A中只包含B中所有值各不相同的成员。<br>
-**分析**：与上例不同的是，此例中A先不存在，则第一步需要构造一个集合A<br>
-**算法思想**:
-1. 构造一个空的线性表La，代表集合A;
-2. 从线性表Lb中取得一个数据元素;
-3. 依该数据元素的值在La中进行遍历；
-4. 如果La中不存在和其值相同的元素，则将从Lb中删除该元素并插入到线性表La中。
-5. 重复2至4步直至Lb空为止。
-```C
-void Purge(List &La,List Lb)
-{
-    InitList(La);          //初始化La,即创建一个新的，空的线性表La
-    while(!ListEmpty(Lb))     //Lb表的元素尚未处未处理完
-    {
-        ListDelete(Lb,1,e);    //从Lb中删除第一个数据元素赋值给e
-        if(!LocateElem(La,e))     //若La中不存在值和e相等的数据元素
-           ListInsert(La,++La_len,e);   //则将它插入在La中最后一个数据元素之后
-    }
-    DestroyList(Lb); //撤销线性表
-}
-```
-**仔细比对例2.1和例2.2看区别语句在哪**
-
-### 【例2.3】判别两个**纯**集合A和B是否相等。
-**分析**两个集合相等，指的是这两个集合的元素在**值**上具有**仅仅包含**的关系。顺序上不一定具有一一对应的关系。因此，一旦找到一个元素，它存在于A,但不存在于B，或者相反，那么则可以立即判定AB不相等<br>
-**算法思想**
-1. 构造一个和La相同的线性表Lc;
-2. 对Lb中的每一个数据元素，在Lc中进行查询；
-3. 如果找到了该元素，则从Lc中删除该元素;
-4. 遍历完Lb时检查Lc,若Lc为空，则两个集合相等，否则不等。
-```C
-bool isequal(List La, List Lb)
-{
-   La_len = ListLength(La);    //求表长 
-   Lb_len - ListLength(Lb);    //求表长
-   if(La_len! = Lb_len) return false;
-   else
-   {
-        InitList(Lc);           //初始化Lc
-        for(k=1;k<=La_len;k++)  //生成La的复制品Lc
-        {
-            GetElem(Lb,k,e);
-            ListInsert(Lc,k,e);
-        }
-    found = true;
-    for(k=1;k<=Lb_len,found;k++)
-    {
-        GetElem(Lb,k,e);        //取Lb中第k个数据元素
-        i = LocateElem(Lc,e);   //在Lc中进行查询
-        if(i==0) found = false; //La中不存在和该数据元素相同的元素
-        else ListDelete(Lc,i,e); //从Lc中删除该数据元素
-    }
-    if(found&&ListEmpty(Lc))   return true;
-    else return false;
-    DestroyList(Lc);
-   }
-}//isequal
-```
-
-### 【例2.4】顺序表的归并。已知顺序表La和Lb中的数据元素按值非递减有序排列，现要求将La和Lb归并为一个新的顺序表Lc，且Lc中的数据元素仍按值非递减有序排列。
-**分析** 将La和Lb中的元素进行比较后插入Lc
-**算法思想** 
-1. 设三个工作指针i,j,k分别指向La,Lb和Lc中的表头位置。
-2. 比较i,j当前所指元素，若i当前所指的元素小于等于j当前所指的元素，则将i当前所指的元素插入到Lc中区，i和k后移一个元素的位置；否则，将j当前所指元素插入到Lc中，j和k后移一个元素的位置。若i和j都未到达各自的表尾，重复此操作。
-3. 若i未到达La的表尾，则将La中剩余的元素依次插入到Lc中。
-4. 若j未到达Lb的表尾，则将Lb中剩余的元素依次插入到Lc中。
-```C
-typedef int ElemType;      // 顺序表中元素类型为int
-# include "stdlib.h"       // 该文件包含malloc()、realloc()和free()等函数
-# include "iomanip.h"      // 该文件包含标准输入输出流cout和cin及控制符setw()
-# include "SqList.h"       // 该文件中包含顺序表数据对象的描述及相关操作
-
-void MergeList_Sq(SqList La, SqList Lb,SqList &Lc) 
-{    
-    int i=0,j=0,k=0;                               // i,j,k分别指向各自的表头
-    InitList_Sq(Lc, La.length+Lb.length,10);       // 创建一个空的顺序表Lc
-    while(i<La.length&&j<Lb.length)                // 归并
-	    if(La.elem[i]<=Lb.elem[j]) 
-    Lc.elem[k++]=La.elem[i++]; 
-    else Lc.elem[k++]=Lb.elem[j++]; 
-    while(i<La.length)  Lc.elem[k++]=La.elem[i++];
-    while(j<Lb.length)  Lc.elem[k++]=Lb.elem[j++];
-    Lc.length=La.length+Lb.length;
-}// MergeList_Sq
-
-void main()
-{ 
-    SqList La,Lb,Lc;
-    ElemType a[]={2,6,9,13,45};
-    ElemType b[]={1,6,19,25,45,60};
-    InitList_Sq(La, 50,10);                  // 初始化顺序表La
-    for(int i=0;i<5;i++)                     // 创建顺序表La
-    if(!ListInsert_Sq(La,i,a[i]))           
-    { 
-        cout<<"插入失败！"<<endl;
-        return;
-    }
-    cout<<"顺序表La：";
-    ListTraverse_Sq(La);                  // 显示顺序表La
-    InitList_Sq(Lb, 50,10);                // 初始化顺序表Lb
-    for(i=0;i<6;i++)                       // 创建顺序表Lb
-    if(!ListInsert_Sq(Lb,i,b[i]))
-    {
-        cout<<"插入失败！"<<endl;
-        return;
-    }
-   cout<<"顺序表Lb：";
-   ListTraverse_Sq(Lb);                   // 显示顺序表Lb
-   MergeList_Sq(La,Lb,Lc) ;               // 归并La和Lb为Lc
-   cout<<"归并后的顺序表Lc：";
-   ListTraverse_Sq(Lc);                   // 显示顺序表Lc
- }	
-```
-### 【例2.5】用顺序表完成例2.2的操作
-```
-void purge_Sq(SqList &A, SqList &B)
-{
-   ElemType e;
-   A.elem[0] = B.elem[0];
-   A.length = 1;
-   for(i=1;i<B.length;i++)
-   {
-       e=B.elem[i];
-       j=0;
-       while(j<A.length&&A.elem[j]!=e) ++j;
-       if(j==A.length)
-       {
-           A.elem[A.length]=e;
-           A.length++;
-       }
-   }
-   delete[B.elem]; B.listsize = 0;
-}//purge_Sq
-```
-
 
 
 
