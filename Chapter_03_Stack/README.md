@@ -8,11 +8,11 @@
 
 ### 定义
 - 是一种特殊的线性表，这种表只能在固定的一端进行插入与删除操作。
-- 固定插入的一端叫**栈顶(top)**，而另一端称为**栈底(bottom)**。位于栈顶和栈底的元素分别称为顶元和底元。当表中无元素时，称为空栈
+- 固定插入的一端叫**栈顶(top)**，而另一端称为**栈底(bottom)**。位于栈顶和栈底的元素分别称为**顶元**和**底元**。当表中无元素时，称为空栈
 
 -------------
 #### 图示
-<img width="600"  src="/Chapter_02_Stack/img/delete.png"/>
+<img width="700"  src="/Chapter_02_Stack/img/0.jpg.png"/>
 
 #### 注意事项
 - 堆栈也叫做后进先出表 (LIFO)，如图中进栈顺序为:ABC,而出栈顺序为CBA
@@ -42,28 +42,31 @@ ADT List
 ## 顺序栈
 
 #### 定义
-- 堆栈的顺序存储结构，利用一组地址连续的存储单元依次存放自栈底到栈顶之间的数据元素。
+- **顺序栈**:堆栈的顺序存储结构，利用一组地址连续的存储单元依次存放自栈底到栈顶之间的数据元素。
 
 
 #### 逻辑图示
-<img width="300"  src="/Chapter_03_Stack/img/1.jpg"/>
+<img width="300"  src="/Chapter_03_Stack/img/1.png"/>
 
 -----------------------------
 #### 注意事项
-- 实质上是顺序表的简化
-- 唯一的约束条件是顺序表的表头(a[0])的一端作为栈底base(base一般数据结构省略掉)，附设top表示栈顶元素，top称为栈顶指针
-- top=-1表示空栈
-- top=n表示栈中有n+1个元素(n>=0)
+- 实质上是顺序表的简化。
+- 唯一的约束条件是顺序表的表头(a[0])的一端作为栈底base(base一般数据结构省略掉)，附设top表示**栈顶元素**，top称为**栈顶指针**。
+- top = -1表示空栈。
+- top = n表示栈中有n+1个元素(n>=0)
 - 在顺序栈中，top起到指示栈顶元素的作用，它的值是数组中的下标，因此top是一个相对指针
 
 #### 上溢与下溢
 - **上溢(overflow)** : 栈满的情况下还入栈。
 - **下溢(underflow)**: 栈空的情况下还出栈。
-- 【例】设STACK_INT_SIZE = m,top=m-1时，栈满，此时入栈，则上溢。
--  top = -1时，栈空，此时出栈，则下溢。
-<img width="600"  src="/Chapter_03_Stack/img/2.jpg"/>
+
+<img width="600"  src="/Chapter_03_Stack/img/2.jpg.png"/>
+
 - 因此，在对顺序栈进行插入元素之前，需要判断是否“栈满”，否则上溢；
 - 对顺序栈进行删除元素之前，需要判断是否“栈空”，否则下溢。
+
+- <font size="3" color="red">也就是说：设STACK_INT_SIZE = m,top=m-1时，栈满，此时入栈，则上溢。top = -1时，栈空，此时出栈，则下溢。</font>
+
 ------------------
 #### 顺序栈的数据结构
 ```C
@@ -71,10 +74,11 @@ ADT List
 # define STACK_INIT_SIZE  100      // 顺序栈 (默认的)的初始分配最大容量
 # define STACKINCREMENT  10        // (默认的)增补空间量
 typedef struct {
-ElemType  *stack;                  // 存储数据元素的一维数组
-  int top;                         // 栈顶指针
-  int stacksize;                   // 当前分配的数组容量（以ElemType为单位）
-  int incrementsize;	           // 增补空间量（以ElemType为单位）
+     ElemType  *stack;                  // 存储数据元素的一维数组
+     int top;                         // 栈顶指针(然而并非真正意义上的指针,只是一个计数器)，
+     //注意，这里对于顺序表的差别只是将length换成了top
+     int stacksize;                   // 当前分配的数组容量（以ElemType为单位）
+     int incrementsize;	           // 增补空间量（以ElemType为单位）
 }SqStack;
 ```
 
@@ -231,6 +235,55 @@ int main()
 
 ```
 -----------------------------
+
+### 多栈共享邻接空间
+- 定义：即两个栈栈底位置为两端，两个栈顶在中间不断变化，由两边往中间延伸。动态变化（想象把两个花瓶口对口连起来）。
+- 目的：若多个栈同时使用，可能出现一个栈的空间被占满而其它栈空间还有大量剩余，因此采用这个方法。
+- 特点：设有top1和top2两个指针，top1 = -1表示左栈为空，top2 >= StackSize表示右栈为空; top1 + 1 >= top2时表示栈满。
+<img width="500"  src="/Chapter_03_Stack/img/3.png"/>
+
+#### 多站共享数据结构
+```
+# define StackSize 100         //顺序栈最大容量
+typedef struct
+{
+  ElemType stack[StackSize];            //
+  int top1,top2;
+}SqStack_Du;
+```
+#### 多栈共享初始化
+```
+void InitStack_DuSq(SqStack_Du&S)
+{
+   S.top1 = -1;
+   S.top2 = StackSize;
+}//InitStack_DuSq
+```
+#### 多栈共享入栈
+```
+book Push_DuSq(SqStack_Du & S, char WhichStack,ElemType e)
+{
+   if(S.top1 >= S.top2 -1)
+   {
+     cout<<"栈已满!"<<endl;
+     return false;
+   }
+   if(WhichStack != 'L' && WhichStack != 'R')
+   {
+     cout<<"参数错误"<<endl;
+     return false; 
+   }
+   if(WhichStack == 'L' S.stack[++S.top1])=e;    //左栈进栈
+   else S.stack[--S.top2] = e;
+   return true;
+}//Push_DuSq
+```
+#### 多栈共享出栈
+bool Pop_DuSq()
+
+
+#### 多栈共享测试
+
 
 ## 链栈
 

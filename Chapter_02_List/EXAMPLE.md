@@ -7,16 +7,16 @@
 2. 依该数据元素的值在线性表La中进行查查访；
 3. 若线性表La中不存在和其值相同的元素，则将从Lb中删除的数据元素插入La中；重复以上操作直到遍历完Lb表为止。
 ```c
-void Union(SqList &La, SqList Lb, ElemType &e)
+void union(List &La, List Lb, ElemType &e)
 {
-    int La_len = ListLength_Sq(La);   //求线性表La的长度
-    while(!ListEmpty_Sq(Lb))     //Lb表的元素尚未处未处理完
+    int La_len = ListLength(La);   //求线性表La的长度
+    while(!ListEmpty(Lb))     //Lb表的元素尚未处未处理完
     {
-        ListDelete_Sq(Lb,1,e);    //从Lb中删除第一个数据元素赋值给e
-        if(!LocateElem_Sq(La,e))     //若La中不存在值和e相等的数据元素
-           ListInsert_Sq(La,++La_len,e);   //则将它插入在La中最后一个数据元素之后
+        ListDelete(Lb,1,e);    //从Lb中删除第一个数据元素赋值给e
+        if(!LocateElem(La,e))     //若La中不存在值和e相等的数据元素
+           ListInsert(La,++La_len,e);   //则将它插入在La中最后一个数据元素之后
     }
-    DestroyList_Sq(Lb); //撤销线性表
+    DestroyList(Lb); //撤销线性表
 }
 ```
 提交者:
@@ -34,16 +34,16 @@ void Union(SqList &La, SqList Lb, ElemType &e)
 4. 如果La中不存在和其值相同的元素，则将从Lb中删除该元素并插入到线性表La中。
 5. 重复2至4步直至Lb空为止。
 ```c++
-void Purge(List &La,List Lb)
+void purge(List &La,List Lb)
 {
-    InitList_Sq(La);          //初始化La,即创建一个新的，空的线性表La,这个放到外面写
-    while(!ListEmpty_Sq(Lb))     //Lb表的元素尚未处未处理完
+    InitList(La);          //初始化La,即创建一个新的，空的线性表La,这个放到外面写
+    while(!ListEmpty(Lb))     //Lb表的元素尚未处未处理完
     {
-        ListDelete_Sq(Lb,1,e);    //从Lb中删除第一个数据元素赋值给e
-        if(!LocateElem_Sq(La,e))     //若La中不存在值和e相等的数据元素
-           ListInsert_Sq(La,++La_len,e);   //则将它插入在La中最后一个数据元素之后
+        ListDelete(Lb,1,e);    //从Lb中删除第一个数据元素赋值给e
+        if(!LocateElem(La,e))     //若La中不存在值和e相等的数据元素
+           ListInsert(La,++La_len,e);   //则将它插入在La中最后一个数据元素之后
     }
-    DestroyList_Sq(Lb); //撤销线性表
+    DestroyList(Lb); //撤销线性表
 }
 ```
 仔细比对例2.1和例2.2看区别语句在哪
@@ -63,28 +63,28 @@ void Purge(List &La,List Lb)
 ```C
 bool Isequal(List La, List Lb)
 {
-   La_len = ListLength_Sq(La);    //求表长 
-   Lb_len - ListLength_Sq(Lb);    //求表长
+   La_len = ListLength(La);    //求表长 
+   Lb_len = ListLength(Lb);    //求表长
    if(La_len! = Lb_len) return false;
    else
    {
-        InitList_Sq(Lc);           //初始化Lc
+        InitList(Lc);           //初始化Lc
         for(k=1;k<=La_len;k++)  //生成La的复制品Lc
         {
-            GetElem_(Lb,k,e);
+            GetElem_(La,k,e);
             ListInsert(Lc,k,e);
         }
     found = true;
     for(k=1;k<=Lb_len,found;k++)
     {
-        GetElem_Sq(Lb,k,e);        //取Lb中第k个数据元素
-        i = LocateElem_Sq(Lc,e);   //在Lc中进行查询
+        GetElem(Lb,k,e);        //取Lb中第k个数据元素
+        i = LocateElem(Lc,e);   //在Lc中进行查询
         if(i==0) found = false; //La中不存在和该数据元素相同的元素
-        else ListDelete_Sq(Lc,i,e); //从Lc中删除该数据元素
+        else ListDelete(Lc,i,e); //从Lc中删除该数据元素
     }
     if(found&&ListEmpty(Lc))   return true;
     else return false;
-    DestroyList_Sq(Lc);
+    DestroyList(Lc);
    }
 }//isequal
 ```
