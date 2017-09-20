@@ -14,10 +14,9 @@ bool ListInsert_Sq_2_1(SqList &L, ElemType e)
 	if(!L.elem) exit(1);                  
 	L.listsize+=L.incrementsize;           
     }
-    i = 0;
-    while(L.elem[i]<e)          
+    i=0;
+    while(i<L.length&&L.elem[i]<e)          
 	i++;
-    for(i=0;i<L.length&&e>L.elem[i];i++); 
     for(j=L.length;j>i;j--)               
 	L.elem[j]=L.elem[j-1];
     L.elem[i]=e;                           
@@ -39,9 +38,9 @@ void ListReverse(SqList &L)
      int i,temp;
      for (i=0; i<L.length/2; ++i)
      {
-         temp = L.elem[i];
-         L.elem[i] = L.elem[L.length-i-1];
-         L.elem[L.length-i-1] = L.elem[i];
+         temp=L.elem[i];
+         L.elem[i]=L.elem[L.length-i-1];
+         L.elem[L.length-i-1]=L.elem[i];
      }
 }
 ```
@@ -73,11 +72,12 @@ void ListReverse(SqList &L)
 ```C
 void ListReverse_L(LinkList &L)  
 {   
-    LNode* p=L->next->next;
+    LNode* p,q;
+    p=L->next->next;
     L->next->next=NULL;
     while(p)  
     {  
-        LNode* q=p->next;  
+        q=p->next;  
         p->next=L->next;  
         L->next=p;  
         p=q;
@@ -104,18 +104,18 @@ void ListReverse_L(LinkList &L)
 ```C
 bool ListInsert_L_2_7(LinkList &L,int i,ElemType e)
  { 
-     LinkList p,s;
+     LinkList p,q;
      int j; 
      p=L;
      j=1;
      if(i<1) 
          return false;
-     s=(LinkList)malloc(sizeof(LNode)); 
-     s->data=e; 
-     if(i==1)
+     q=(LinkList)malloc(sizeof(LNode)); 
+     q->data=e; 
+     else if(i==1)
      { 
-         s->next=L; 
-         L=s; 
+         q->next=L; 
+         L=q; 
      }
      else
      { 
@@ -126,8 +126,8 @@ bool ListInsert_L_2_7(LinkList &L,int i,ElemType e)
          }
      if(!p) 
          return false; 
-     s->next=p->next;
-     p->next=s; 
+     q->next=p->next;
+     p->next=q; 
    }
    return true; 
  }
@@ -140,7 +140,7 @@ bool ListInsert_L_2_7(LinkList &L,int i,ElemType e)
      p=L;
      j=1;
      if(!L) 
-     return false; 
+         return false; 
      else if(i==1) 
      { 
          L=p->next; 
@@ -155,7 +155,7 @@ bool ListInsert_L_2_7(LinkList &L,int i,ElemType e)
 		p=p->next; 
 	}
 	 if(!p->next||j>i-1) 
-	 return false; 
+	     return false; 
 	 q=p->next; 
 	 p->next=q->next; 
 	 e=q->data; 
