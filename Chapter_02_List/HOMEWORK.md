@@ -36,12 +36,12 @@ bool ListInsert_Sq_2_1(SqList &L, ElemType e)
 ```C
 void ListReverse(SqList &L)
  {
-     int i=0;
+     int i，temp;
      for (i=0; i<L.length/2; ++i)
      {
-         L.elem[i] = L.elem[i] + L.elem[L.length-i-1];
-         L.elem[L.length-i-1] = L.elem[i] - L.elem[L.length-i-1];
-         L.elem[i] = L.elem[i] - L.elem[L.length-i-1];
+         temp = L.elem[i];
+         L.elem[i] = L.elem[L.length-i-1];
+         L.elem[L.length-i-1] = L.elem[i];
      }
 }
 ```
@@ -104,8 +104,10 @@ void ListReverse_L(LinkList &L)
 ```C
 bool ListInsert_L_2_7(LinkList &L,int i,ElemType e)
  { 
-     int j=1; 
-     LinkList s,p=L; 
+     LinkList p,s;
+     int j; 
+     p=L;
+     j=1;
      if(i<1) 
          return false;
      s=(LinkList)malloc(sizeof(LNode)); 
@@ -133,8 +135,10 @@ bool ListInsert_L_2_7(LinkList &L,int i,ElemType e)
 
  bool ListDelete_L_2_7(LinkList &L,int i,ElemType &e)
  { 
+     LinkList p,q;
      int j=1; 
-     LinkList q,p=L; 
+     p=L;
+     j=1;
      if(!L) 
      return false; 
      else if(i==1) 
