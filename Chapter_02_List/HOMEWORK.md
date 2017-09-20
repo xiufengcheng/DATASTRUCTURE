@@ -136,7 +136,7 @@ bool ListInsert_L_2_7(LinkList &L,int i,ElemType e)
  bool ListDelete_L_2_7(LinkList &L,int i,ElemType &e)
  { 
      LinkList p,q;
-     int j=1; 
+     int j; 
      p=L;
      j=1;
      if(!L) 
