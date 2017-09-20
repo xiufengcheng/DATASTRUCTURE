@@ -12,7 +12,7 @@
 
 -------------
 #### 图示
-<img width="700"  src="/Chapter_03_Stack/img/0.jpg"/>
+<img width="600"  src="/Chapter_02_Stack/img/delete.png"/>
 
 #### 注意事项
 - 堆栈也叫做后进先出表 (LIFO)，如图中进栈顺序为:ABC,而出栈顺序为CBA
