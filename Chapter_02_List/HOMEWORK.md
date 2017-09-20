@@ -36,7 +36,7 @@ bool ListInsert_Sq_2_1(SqList &L, ElemType e)
 ```C
 void ListReverse(SqList &L)
  {
-     int i，temp;
+     int i,temp;
      for (i=0; i<L.length/2; ++i)
      {
          temp = L.elem[i];
