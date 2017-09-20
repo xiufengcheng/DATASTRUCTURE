@@ -12,7 +12,7 @@
 
 -------------
 #### 图示
-<img width="700"  src="/Chapter_02_Stack/img/0.jpg.png"/>
+<img width="700"  src="/Chapter_03_Stack/img/0.jpg.png"/>
 
 #### 注意事项
 - 堆栈也叫做后进先出表 (LIFO)，如图中进栈顺序为:ABC,而出栈顺序为CBA
@@ -46,7 +46,7 @@ ADT List
 
 
 #### 逻辑图示
-<img width="300"  src="/Chapter_03_Stack/img/1.png"/>
+<img width="100"  src="/Chapter_03_Stack/img/1.png"/>
 
 -----------------------------
 #### 注意事项
@@ -60,7 +60,7 @@ ADT List
 - **上溢(overflow)** : 栈满的情况下还入栈。
 - **下溢(underflow)**: 栈空的情况下还出栈。
 
-<img width="600"  src="/Chapter_03_Stack/img/2.jpg.png"/>
+<img width="100"  src="/Chapter_03_Stack/img/2.jpg.png"/>
 
 - 因此，在对顺序栈进行插入元素之前，需要判断是否“栈满”，否则上溢；
 - 对顺序栈进行删除元素之前，需要判断是否“栈空”，否则下溢。
