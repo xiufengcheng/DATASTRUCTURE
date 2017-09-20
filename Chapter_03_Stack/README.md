@@ -60,7 +60,7 @@ ADT List
 - **上溢(overflow)** : 栈满的情况下还入栈。
 - **下溢(underflow)**: 栈空的情况下还出栈。
 
-<img width="200"  src="/Chapter_03_Stack/img/2.jpg.png"/>
+<img width="400"  src="/Chapter_03_Stack/img/2.jpg.png"/>
 
 - 因此，在对顺序栈进行插入元素之前，需要判断是否“栈满”，否则上溢；
 - 对顺序栈进行删除元素之前，需要判断是否“栈空”，否则下溢。
@@ -240,7 +240,7 @@ int main()
 - 定义：即两个栈栈底位置为两端，两个栈顶在中间不断变化，由两边往中间延伸。动态变化（想象把两个花瓶口对口连起来）。
 - 目的：若多个栈同时使用，可能出现一个栈的空间被占满而其它栈空间还有大量剩余，因此采用这个方法。
 - 特点：设有top1和top2两个指针，top1 = -1表示左栈为空，top2 >= StackSize表示右栈为空; top1 + 1 >= top2时表示栈满。
-<img width="500"  src="/Chapter_03_Stack/img/3.png"/>
+<img width="600"  src="/Chapter_03_Stack/img/3.png"/>
 
 #### 多站共享数据结构
 ```
