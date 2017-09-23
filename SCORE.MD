@@ -49,7 +49,7 @@
 | RATSIMBA, HARIMALALA |      |  :broken_heart:    |      |      |      |      |      |      |      |      |
 |          周京          |      |      |      |      |      |      |      |      |      |      |
 |         雒婧焜          |      | :broken_heart:     |      |      |      |      |      |      |      |      |
-|         杲国培          |      | :broken_heart:     |      |      |      |      |      |      |      |      |
+|         杲国培          |      |     |      |      |      |      |      |      |      |      |
 
 ***
 # <p align="center">考勤分数表（小班）</p>
