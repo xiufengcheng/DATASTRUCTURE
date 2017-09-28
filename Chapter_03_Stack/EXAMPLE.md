@@ -41,12 +41,13 @@ cout<<"转换后的"<<dec<<"进制数为：";
 
 #### 【例3.2】表达式求值
 
-分析：中缀表达式是人能读懂的<br>后缀表达式是计算机读懂的
+分析：中缀表达式是人能读懂的， 后缀表达式是计算机读懂的
 1. **中缀规则**：先乘除后加减、先括号内再括号外、同级别时先左后右
 2. **后缀规则**：没有括号，不必考虑优先关系，从左到右依次扫描、读到一个运算符即计算前面两个操作数
 3. **中缀转后缀**：首先编写一个优先级函数char Process(char x1, char x2)，用于比较x1和x2的优先级
-<img width="500"  src="/Chapter_03_Stack/img/3.2.jpg"/>
-```c#
+<img width="400"  src="/Chapter_03_Stack/img/3.2.jpg"/>
+
+```c++
 [例3.2.cpp]
 char Proceed(char x1,char x2)
 {           
@@ -64,6 +65,7 @@ char Proceed(char x1,char x2)
    return Result;
 }// Proceed
 ```
+
 4. 然后编写一个算法，包括创建两个数组Post_Expression和Pre_Expression,分别存放后缀表达式和前缀表达式，再设置一个堆栈装填运算符，算法如下：<br>
    - 依次从左到右扫描中缀表达式
    - 若输入为操作数，则直接输入到后缀表达式，并接着读下一个单词；
@@ -74,8 +76,9 @@ char Proceed(char x1,char x2)
             - x1=(,x2=)，则弹出x1，然后继续下一个单词
             - x1 =x2 = #，则算法结束
 
-<img width="500"  src="/Chapter_03_Stack/img/3.3.3.jpg"/>
-```c#
+<img width="600"  src="/Chapter_03_Stack/img/3.3.3.jpg"/>
+
+`````c++
 [例3.3.cpp]
 bool Postfix(char *Mid_Expression,char *Post_Expression)
 {   // 将中缀表达式mid_Expression转换为后缀表达式Post_Expression
@@ -117,16 +120,15 @@ bool Postfix(char *Mid_Expression,char *Post_Expression)
        return false;	
 }// Postfix
 ```
-<img width="500"  src="/Chapter_03_Stack/img/3.2.4.jpg"/>
-<img width="600"  src="/Chapter_03_Stack/img/3.2.5.jpg"/>
+<img width="850"  src="/Chapter_03_Stack/img/3.2.5.jpg"/>
 
 ----------------
 
 5. 后缀表达式的求值
 - 算法思想：设置一个堆栈，从左到右依次扫描后缀表达式，每读到一个操作数，就将其压入堆栈；每读到一个运算符，就从栈顶去除两个操作数施以该运算符所代表的操作，并把计算结果作为一个新的操作数压如堆栈。
-<img width="300"  src="/Chapter_03_Stack/img/表达式求值6.png"/>
+<img width="600"  src="/Chapter_03_Stack/img/表达式求值6.png"/>
 
 
 #### 【例3.3】背包问题
-<img width="700"  src="/Chapter_03_Stack/img/背包问题1.jpg"/>
-<img width="700"  src="/Chapter_03_Stack/img/背包问题2.jpg"/>
+<img width="850"  src="/Chapter_03_Stack/img/背包问题1.jpg"/>
+<img width="850"  src="/Chapter_03_Stack/img/背包问题2.jpg"/>
