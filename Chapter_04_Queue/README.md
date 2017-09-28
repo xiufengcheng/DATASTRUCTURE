@@ -1,4 +1,483 @@
-﻿# DATASTRUCTURE
+﻿## 第四章（队列）目录
+>* <font size = 8 color = blue>[堆栈](#堆栈)</font>
+>>* <font size = 8 color = blue>[顺序栈](#顺序栈)</font>
+>>* <font size = 8 color = blue>[链栈](#链栈)</font>
+-----------------------------
+
+## 队列(Queue)
+
+### 定义
+- 与堆栈一样，也是一种特殊的线性表，这种表的删除操作在一端进行，而插入操作则限定在表的另一端进行。
+- 允许插入的一端叫**队尾(rear)**，允许删除的一端称为**对首(front)**。位于对首和队尾的元素分别称为**队首元素**和**队尾元素**。当表中无元素时，称为**空队列**。
+
+-------------
+#### 图示
+<img width="700"  src="/Chapter_04_Queue/img/1.png"/>
+
+#### 注意事项
+- 队列的插入称为进队，队列的删除称为出队。
+- 数据元素从队尾（上方）进入，从队首（下方）出来，即队尾rear插入，队首front删除。
+- 后进入队列的元素比先进入的元素后出队列，即队列是一个先进先出(FIFO)表。
+- 队列为空时，front = rear = 0;
+- 进队时，先把元素插入到rear的指示位置，然后rear++
+- 出队时，先把front++，然后释放原队首元素。
+
+------------------
+#### 抽象数据类型ADT
+```C
+ADT Queue{
+   Data：数据元素相同数据类型，相邻元素具有前驱和后继的关系。
+   Operation：
+        InitQueue(&Q，maxsize，incresize)
+           操作结果：构造一个容量为maxsize的空队列Q。
+        ClearQueue(&Q)
+           初始条件：队列Q已存在。
+           操作结果：将Q清为空队列。
+        QueueLength(Q)
+           初始条件：队列Q已存在。
+           操作结果：返回Q的元素个数，即队列的长度。
+        EnQueue(&Q，e)
+           初始条件：队列Q已存在。
+           操作结果：插入元素e为Q的新的队尾元素。
+        DeQueue(&Q，&e)
+            初始条件：Q为非空队列。
+            操作结果：删除Q的队首元素，并用e返回其值。
+        GetHead(Q，&e)
+            初始条件：Q为非空队列。
+            操作结果：用e返回Q的队头元素。
+        QueueTraverse(Q)
+            初始条件：队列Q已存在且非空。
+            操作结果：从队头到队尾依次输出Q中各个数据元素。
+        QueueEmpty(Q)
+            初始条件：队列Q已存在。
+            操作结果：若Q为空队列，则返回true；否则返回false。
+        DestroyQueue(&Q)
+           初始条件：队列Q已存在。
+            操作结果：队列Ｑ被撤销，不再存在。
+}ADT Queue	
+
+```
+------------------
+## 假溢出
+#### 定义
+- 当元素被插入到数组中下标最大的位置上之后，队列的空间耗尽，即使此时数组的底端还有空闲空间，但如果这是还有元素入队，就会发生“溢出”现象，显然这种溢出并不是真正的溢出，而是“假溢出”。
+- 相当于，上面满了，下面还有空间但是不能塞到下面去。
+- 假溢出的判断条件是： rear >= maxsize && front > 0。
+- 假溢出只存在于**非循环顺序队列**中。
+<img width="300"  src="/Chapter_04_Queue/img/3.png"/>
+
+#### 解决方法
+1. 修改出队算法，使每次出队列后都把队列中剩余的元素向front方向移动一个位置。O(n)
+2. 修改进队算法，使得当真溢出时返回false; 当假溢出时，把队列中的所有元素向front方向移动一个位置。O(n)
+3. 顺序循环队列
+
+------------------
+## 顺序循环队列
+
+#### 定义
+- **顺序循环队列**: 把顺序队列改造成一个头尾相连的循环表。
+- 顺序循环队列可以解决**假溢出**问题，因为如果maxsiza-1个位置被占用后，只要队列的前端还有可用空间，那么就可以将新的元素加入队列的下标为0的位置。
+- 下次进队列位置为(rear+1) % maxsize = 0
+- 例如，若maxsize = 6，原对尾指针rear = 5, 则下次进队的位置为0，因为(rear+1)%6 = 0
+
+#### 循环队列三种状态
+<img width="700"  src="/Chapter_04_Queue/img/4.png"/>
+
+#### 第一种状态：队列中有元素（既非空，也非满）
+rear ! = front
+
+#### 第二种状态：队满
+rear = front && (rear+1) % maxsize == front;
+
+#### 第三种状态：对空
+rear = front 
+
+#### 如何求循环队列里面有多少元素
+元素个数 N = (rear-front+maxsize) mod maxsize
+
+------------------
+#### 循环队列的数据结构
+```C++
+[in SqQueue.h]
+typedef struct {
+ElemType  *queue;                      // 存储数据元素的一维数组
+  int front;                             // 队首指针，指向队首元素
+  int rear;                              // 队尾指针，指向队尾元素的下一个位置
+  int queuesize;                         // 循环队列当前的最大容量
+  int incrementsize;	                 // 增补空间量
+} SqQueue;
+```
+
+#### 循环队列的初始化
+```C++
+[in SqQueue.h]
+void InitQueue_Sq(SqQueue &Q, int maxsize=QUEUE_INIT_SIZE,
+                                 int incresize=QUEUEINCREMENT  ) 
+{      // 构造一个空循环队列
+    Q.queue=(ElemType *)malloc(maxsize*sizeof(ElemType));  // 为循环队列分配空间
+    if(!Q.queue)  exit(1); 
+     Q.front=Q.rear=0; 
+     Q.queuesize=maxsize; 
+     Q.incrementsize=incresize; 
+}// InitQueue_Sq
+```
+-----------------------------
+
+#### 求循环队列长度
+```C
+[in SqQueue.h]
+int QueueLength_Sq(SqQueue Q)
+{
+	return (Q.rear-Q.front+Q.queuesize) % Q.queuesize;
+}// QueueLength_Sq
+```
+-----------------------------
+
+#### 进对操作
+插入元素e到队尾，成功插入返回true，否则返回false
+```C
+[in SqStack.h]
+bool EnQueue_Sq(SqQueue &Q,ElemType e)
+{    
+  if((Q.rear+1)%Q.queuesize==Q.front)   // 队满，给循环队列增补空间
+  { Q.queue=(ElemType *)realloc(Q.queue,
+(Q.queuesize+Q.incrementsize)*sizeof(ElemType));
+    if(!Q.queue)     return false;
+if(Q.front>Q.rear)    // 队尾指针在队首指针前面，重新确定队首指针的位置
+	 {  for(int i=Q.queuesize-1;i>=Q.front;i--)   
+// 将Q.front到queuesize-1之间的元素后移Q.incrementsize个位置
+          Q.queue[i+Q.incrementsize]=Q.queue[i];
+		 Q.front+=Q.incrementsize;      // 队首指针后移Q.incrementsize个位置
+	  }
+	    Q.queuesize+=Q.incrementsize;  // 队列容量增加Q.incrementsize
+    }
+    Q.queue[Q.rear]=e;                  // 元素e插入到队尾
+    Q.rear=(Q.rear+1) %Q.queuesize;     // 队尾指针顺时针移动一个位置
+    return true;
+}// EnQueue_Sq
+```
+-----------------------------
+#### 出队操作
+ // 删除顺序栈栈顶元素，并让e返回其值
+```C
+[in SqQueue.h]
+bool DeQueue_Sq(SqQueue &Q,ElemType &e)
+{    // 删除队尾元素，并用e返回其值，成功删除返回true;否则返回false
+  if(Q.front==Q.rear)   return false;    // 队空
+    e=Q.queue[Q.front];                  // 取出队首元素
+  Q.front=(Q.front+1) %Q.queuesize;      // 队首指针顺时针移动一个位置
+return true;
+}// DeQueue_Sq
+
+```
+-----------------------------
+#### 取队首元素
+```C#
+[in SqQueue.h]
+bool GetHead_Sq(SqQueue Q, ElemType &e)
+{ 
+  if(Q.front==Q.rear)   return false;   // 队空   
+  e=Q.queue[Q.front];            
+  return true;    
+}// GetHead_Sq
+```
+-----------------------------
+
+#### 判断队空
+```C#
+[in SqQueue.h]
+bool QueueEmpty_Sq(SqQueue Q)
+{     // 队空返回true，队满返回false
+   return Q.rear==Q.front;
+ }// QueueEmpty_Sq
+```
+
+-----------------------------
+#### 撤销队列
+```C++
+[in SqQueue.h]
+void DestroyQueue_Sq(SqQueue &Q )
+{
+    free(Q.queue);
+    Q.queue=NULL;
+    Q.queuesize=0;
+    Q.front=Q.rear=0;
+}// DestroyQueue_Sq
+```
+-----------------------------
+
+#### 顺序循环队列的可视化操作
+将这个顺序栈(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变量
+```C++
+void visualization(SqStack S, char* filename)
+{  
+}
+```
+-----------------------------
+#### 顺序循环队列的测试
+```C++
+[in SqQueueTest.cpp]
+typedef int ElemType;   
+# include "stdlib.h"
+# include "iostream.h"
+# include "iomanip.h"
+# include "SqQueue.h"
+
+void main()
+ {
+ SqQueue myqueue;
+  int i,x;
+  InitQueue_Sq(myqueue, 10,10);
+  for(i=0;i<15;i++)
+  if(!EnQueue_Sq(myqueue,i+1))
+     {
+       cout<<"错误!"<<endl;
+       return;
+     }
+	if(!GetHead_Sq(myqueue,x))
+    {
+      cout<<"错误!"<<endl;
+       return;
+     }
+	cout<<"当前队首数据元素是:"<<x<<endl;
+    cout<<"当前队列的长度是:"<<QueueLength_Sq(myqueue)<<endl;
+	cout<<"依次出队的数据元素序列为："<<endl;
+    while(!QueueEmpty_Sq(myqueue))
+	{
+		DeQueue_Sq(myqueue,x);
+		cout<<x<<' ';
+	}
+	cout<<endl;
+	cout<<"当前队列的长度是:"<<QueueLength_Sq(myqueue)<<endl;
+	cout<<"插入数据元素67"<<endl;
+	if(!EnQueue_Sq(myqueue,67))
+     {
+       cout<<"错误!"<<endl;
+       return;
+     }
+	if(!GetHead_Sq(myqueue,x))
+    {
+      cout<<"错误!"<<endl;
+       return;
+     }
+	cout<<"当前队首数据元素是:"<<x<<endl;
+	cout<<"当前队列的长度是:"<<QueueLength_Sq(myqueue)<<endl;
+	cout<<endl;
+	DestroyQueue_Sq(myqueue);
+  }
 
 
-加的内容
+```
+-----------------------------
+
+
+## 链队
+
+#### 定义
+- 队列的链式存储结构简称**链队**，链队中每一个数据元素用一个节点表示，实际上就是一个单链表(但是操作上有约束)。
+
+#### 逻辑图示
+<img width="500"  src="/Chapter_04_Queue/img/5.png"/>
+
+-----------------------------
+#### 注意事项
+- 实际上就是一个单链表(但是操作上有约束)
+- **链队有两个指针**，队首指针front和队尾指针rear
+- front指向队列的当前队首节点位置，rear指向队列的当前队尾节点位置
+- 链队也有带头结点的链队和不带头结点的链队
+
+------------------
+
+#### 链对的数据结构
+与单链表一样，**注意**:使用链队的时候，也需要包含相应的头文件[LinkQueue.h]
+```C++
+[in LinkQueue.h]
+typedef LinkList LinkStack;
+```
+或者
+```C++
+[in LinkQueue.h]
+typedef struct {
+   QueuePtr front;                  // 队首指针
+QueuePtr rear;                   // 队尾指针
+}LinkQueue;                         // 链队
+```
+<img width="500"  src="/Chapter_04_Queue/img/6.png"/>
+-----------------------------
+#### 链队的初始化
+```C++
+[in LinkQueue.h]
+void InitQueue_L(LinkQueue &Q)
+  {  
+     Q.front=Q.rear=NULL;             // 队首指针和队尾指针置空
+  }// InitQueue_L
+
+```
+-----------------------------
+#### 求链队的长度
+统计链队Q中数据元素的个数，并返回统计结果
+```C++
+[in LinkQueue.h]
+int QueueLength_L(LinkQueue Q)
+{
+  int k=0;
+  QueuePtr p=Q.front;
+	while(p)
+    { k++;
+      p=p->next;                     // 访问下一个结点
+    }
+   return k;
+}// QueueLength_L
+```
+-----------------------------
+#### 进链队操作
+插入元素e为链队Q中新的队尾元素
+```C++
+[in LinkQueue.h]
+bool EnQueue_L (LinkQueue &Q, ElemType e) 
+{     
+   QueuePtr s;
+  if((s=(LNode *)malloc(sizeof(LNode)))==NULL) return false;  // 存储分配失败
+   s->data = e;                             // 把e的值作为新结点的值域
+   s->next = NULL;                          // 新结点的指针域置空
+   if(Q.rear==NULL)             // 若链队为空,则新结点既是队首结点又是队尾结点
+	   Q.front=Q.rear=s;
+   else                       // 若链队非空，则新结点被链接到队尾并修改队尾指针
+     Q.rear=Q.rear->next=s;  
+ return true;
+}// EnQueue_L
+```
+<img width="600"  src="/Chapter_04_Queue/img/7.png"/>
+<img width="600"  src="/Chapter_04_Queue/img/8.png"/>
+
+-----------------------------
+#### 出链队操作
+删除Q的队头元素，并用e返回其值。成功删除返回true；否则返回false
+```C++
+[in LinkQueue.h]
+bool DeQueue_L(LinkQueue &Q, ElemType &e)
+{   
+   QueuePtr p;
+   if (Q.front==NULL)            // 若链队为空，则返回"假"
+      return false;
+   p=Q.front;                  // 暂存队首指针以便回收队首结点
+   e=p->data;                  // e返回队首元素的值
+   Q.front = p->next;            // 队首指针指向下一个结点
+   if (Q.front==NULL)            // 若删除后队列为空，则使队尾指针为空
+	  Q.rear = NULL;
+   free(p);                      // 回收原队首结点
+   return true;
+}// DeQueue_L
+```
+<img width="600"  src="/Chapter_04_Queue/img/9.png"/>
+<img width="600"  src="/Chapter_04_Queue/img/10.png"/>
+
+-----------------------------
+#### 取队首元素操作
+ ```C++
+[in LinkQueue.h]
+bool GetHead_L(LinkQueue Q,ElemType &e)
+{     // 取队首元素，并让e返回其值
+   if(Q.front)                    // 队非空
+  {  e=Q.front->data;         // 元素e返回其值
+	    return true;    
+}
+   else return false;      // 队空，取栈顶元素失败
+ }// GetHead_L
+
+bool QueueEmpty_L(LinkQueue Q)
+{
+  if(!Q.front) return true;
+  else return false;
+}// QueueEmpty_L
+```
+-----------------------------
+
+#### 链队判空
+判断链栈S是否为空，若为空则返回true,否则返回false
+ ```C++
+[in LinkQueue.h]
+bool QueueEmpty_L(LinkQueue Q)
+{
+ if(!Q.front) return true;
+ else return false;
+}// QueueEmpty_L
+```
+-----------------------------
+#### 撤销链栈操作
+释放链栈所占空间
+ ```C++
+[in LinkQueue.h]
+void DestroyQueue_L(LinkQueue &Q )
+{
+  QueuePtr p,p1;
+  p=Q.front;
+  while(p) 
+   {  p1=p;
+      p=p->next;
+      free(p1);
+   }
+   Q.front=Q.rear=NULL;
+}// DestroyQueue_L
+```
+-----------------------------
+#### 链队的可视化
+将这个链队(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变
+ ```C++
+[in LinkQueue.h]
+void ListVisualization_LS(LinkStack S, char* filename)
+{   
+
+}
+```
+-----------------------------
+#### 链队的测试
+ ```C++
+[in LinkQueueTest.cpp]
+typedef int ElemType;     // 链队元素类型为int
+# include "stdlib.h"      // 该文件包含malloc()、realloc()和free()等函数
+# include "iomanip.h"     // 该文件包含标准输入输出流cout、cin及控制符setw()
+# include "LinkQueue.h"   // 该文件包含链队数据对象的描述及相关操作
+	
+void main()
+ {
+ LinkQueue myqueue;
+  int i,x,a[]={6,8,16,2,34,56,7,10,22,45,62,88};
+  InitQueue_L(myqueue);              // 初始化链队
+  for(i=0;i<12;i++)
+  if(!EnQueue_L(myqueue,a[i]))       // a[i]依次进队
+     { cout<<"进队失败！"<<endl;
+       return;
+     }
+	if(!GetHead_L(myqueue,x))         // 队首元素并赋值给x
+    {  cout<<"取队首元素失败！"<<endl;
+       return;
+     }
+	cout<<"当前队首数据元素是："<<x<<endl;
+	cout<<"当前链队的长度是："<<QueueLength_L(myqueue)<<endl;
+	cout<<"依次出队的数据元素序列为：";
+    while(!QueueEmpty_L(myqueue))        // 判队列是否非空
+	{   if(!DeQueue_L(myqueue,x))         // 队首元素出队并赋值给x
+        {  cout<<"出队失败！"<<endl;
+           return;
+         }
+		cout<<x<<' ';
+	  }
+	 cout<<endl;
+	 cout<<"当前链队的长度是："<<QueueLength_L(myqueue)<<endl;
+	 cout<<endl;
+	 DestroyQueue_L(myqueue);              // 撤销链队
+   }
+
+```
+## 双端队列
+#### 定义
+- 所有的插入和删除操作都在线性表的两端进行，可以看成是底元连在一起的两个栈
+- 与两栈共享存储空间不同的是，两个栈的栈顶指针是望两端延伸的
+
+<img width="500"  src="/Chapter_04_Queue/img/11.png"/>
+
+## 优先级队列
+#### 定义
+带有优先级的队列
+## [源代码下载](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_03_Stack/sourcecode)
