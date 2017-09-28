@@ -370,7 +370,7 @@ bool DeQueue_L(LinkQueue &Q, ElemType &e)
 }// DeQueue_L
 ```
 <img width="600"  src="/Chapter_04_Queue/img/9.png"/>
-<img width="600"  src="/Chapter_04_Queue/img/10.png"/>
+<img width="400"  src="/Chapter_04_Queue/img/10.png"/>
 
 -----------------------------
 #### 取队首元素操作
