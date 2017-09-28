@@ -76,9 +76,9 @@ char Proceed(char x1,char x2)
             - x1=(,x2=)，则弹出x1，然后继续下一个单词
             - x1 =x2 = #，则算法结束
 
-<img width="600"  src="/Chapter_03_Stack/img/3.3.3.jpg"/>
+<img width="500"  src="/Chapter_03_Stack/img/3.3.3.jpg"/>
 
-`````c++
+```c++
 [例3.3.cpp]
 bool Postfix(char *Mid_Expression,char *Post_Expression)
 {   // 将中缀表达式mid_Expression转换为后缀表达式Post_Expression
@@ -122,7 +122,6 @@ bool Postfix(char *Mid_Expression,char *Post_Expression)
 ```
 <img width="850"  src="/Chapter_03_Stack/img/3.2.5.jpg"/>
 
-----------------
 
 5. 后缀表达式的求值
 - 算法思想：设置一个堆栈，从左到右依次扫描后缀表达式，每读到一个操作数，就将其压入堆栈；每读到一个运算符，就从栈顶去除两个操作数施以该运算符所代表的操作，并把计算结果作为一个新的操作数压如堆栈。
