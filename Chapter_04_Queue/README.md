@@ -1,26 +1,31 @@
 ﻿## 第四章（队列）目录
->* <font size = 8 color = blue>[堆栈](#堆栈)</font>
->>* <font size = 8 color = blue>[顺序栈](#顺序栈)</font>
->>* <font size = 8 color = blue>[链栈](#链栈)</font>
+>* <font size = 8 color = blue>[队列](#队列)</font>
+>>* <font size = 8 color = blue>[顺序队列](#顺序队列)</font>
+>>>* <font size = 8 color = blue>[顺序循环队列](#顺序循环队列)</font>
+>>* <font size = 8 color = blue>[链队](#链队)</font>
 -----------------------------
 
 ## 队列(Queue)
 
 ### 定义
-- 与堆栈一样，也是一种特殊的线性表，这种表的删除操作在一端进行，而插入操作则限定在表的另一端进行。
-- 允许插入的一端叫**队尾(rear)**，允许删除的一端称为**对首(front)**。位于对首和队尾的元素分别称为**队首元素**和**队尾元素**。当表中无元素时，称为**空队列**。
+- 与堆栈一样，**队列**也是一种特殊的线性表，这种表在一端进行插入操作，而在另一端进行删除操作
+- 允许插入的一端叫**队尾(rear)**，在下图的上方
+- 允许删除的一端叫**队首(front)**，在下图的下方
+- 位于队首和队尾的元素分别称为**队首元素**和**队尾元素**
+- 当表中无元素时，称为**空队**
 
 -------------
 #### 图示
 <img width="700"  src="/Chapter_04_Queue/img/1.png"/>
 
 #### 注意事项
-- 队列的插入称为进队，队列的删除称为出队。
-- 数据元素从队尾（上方）进入，从队首（下方）出来，即队尾rear插入，队首front删除。
-- 后进入队列的元素比先进入的元素后出队列，即队列是一个先进先出(FIFO)表。
-- 队列为空时，front = rear = 0;
-- 进队时，先把元素插入到rear的指示位置，然后rear++
-- 出队时，先把front++，然后释放原队首元素。
+- 队列的插入称为**进队**，队列的删除称为**出队**
+- 数据元素从**rear（队尾，上方）**进队，从**front（队首，下方）**出队
+- **先进入队列的元素比后进入队列的元素先出队列（后进入队列的元素比先进入的元素后出队列）**，即队列是一个先进先出(FIFO)表
+- 队列判空条件为：**front == rear**, 而front=rear=0是队列初始状态（本书约定）
+- 进队时，先把元素插入到rear所指示的位置，然后rear++(保证rear始终**指向队尾元素的后一位**)
+- 出队时，先取出front所指示的队首元素，然后front++(保证front始终**指向真正的队首元素**)
+- 如果存储队列长度为maxsize，则rear >= maxsize时，队满；当rear == front时，队空
 
 ------------------
 #### 抽象数据类型ADT
@@ -58,42 +63,79 @@ ADT Queue{
 
 ```
 ------------------
+
+## 顺序队列
+#### 定义
+- **顺序队列**就是队列以顺序存储结构存储
+- **顺序队列**包括**顺序非循环队列**和**顺序循环队列**
+- **顺序队列**与顺序栈一样，都是特殊的顺序表，只是顺序栈的插入操作在队尾进行，删除操作在队首进行
+
+#### 注意事项
+- 顺序队列中，front和rear的值其实都是数组下标（假指针）
+- 顺序队列的判空条件是： rear == front，当其都为0时，队列为初始状态
+-----------------
+
 ## 假溢出
 #### 定义
-- 当元素被插入到数组中下标最大的位置上之后，队列的空间耗尽，即使此时数组的底端还有空闲空间，但如果这是还有元素入队，就会发生“溢出”现象，显然这种溢出并不是真正的溢出，而是“假溢出”。
-- 相当于，上面满了，下面还有空间但是不能塞到下面去。
-- 假溢出的判断条件是： rear >= maxsize && front > 0。
-- 假溢出只存在于**非循环顺序队列**中。
+- 当元素被插入到数组中下标最大的位置上时，数组的底端还有空闲空间，此时如果还有元素入队，就会发生“溢出”现象，显然这种溢出并不是真正的溢出，而是**“假溢出”**。
+- 相当于：**“上面满了，下面还有空的“**。
+- **假溢出**的判断条件是： rear >= maxsize && front > 0。
+- **假溢出**是队满时候的一种情况，另一种是真溢出。
+- **假溢出**只存在于**非循环顺序队列**中。
 <img width="300"  src="/Chapter_04_Queue/img/3.png"/>
 
 #### 解决方法
-1. 修改出队算法，使每次出队列后都把队列中剩余的元素向front方向移动一个位置。O(n)
-2. 修改进队算法，使得当真溢出时返回false; 当假溢出时，把队列中的所有元素向front方向移动一个位置。O(n)
-3. 顺序循环队列
+1. 修改**出队**算法（事先避免假溢出），使每次出队列后都把队列中剩余的元素向front方向移动一个位置。O(n)
+2. 修改**进队**算法（假溢出发生时的解决方法），使得当真溢出时返回false; 当假溢出时，把队列中的所有元素向front方向移动一个位置。O(n)
+3. 顺序循环队列。
 
 ------------------
-## 顺序循环队列
+### 顺序循环队列
 
 #### 定义
-- **顺序循环队列**: 把顺序队列改造成一个头尾相连的循环表。
-- 顺序循环队列可以解决**假溢出**问题，因为如果maxsiza-1个位置被占用后，只要队列的前端还有可用空间，那么就可以将新的元素加入队列的下标为0的位置。
-- 下次进队列位置为(rear+1) % maxsize = 0
-- 例如，若maxsize = 6，原对尾指针rear = 5, 则下次进队的位置为0，因为(rear+1)%6 = 0
+- **顺序循环队列**就是把顺序队列改造成一个头尾相连的循环表
+- **顺序循环队列**初始状态为front = rear = 0
+- 入队时，把元素插到rear指示位置，然后rear++
+- 出队时，把front指示位置元素删除，然后front++
+- **顺序循环队列**可以解决**假溢出**问题，因为如果maxsiza-1个位置被占用后，只要前方还有空间，就可以将新的元素加入下标为0的位置。（如图3.13）
+- 判断下次进入的位置：[例]若maxsize = 6，rear = 5, 则下次进队的位置为0，因为(rear+1)%6 = 0
 
-#### 循环队列三种状态
+#### 状态图示
 <img width="700"  src="/Chapter_04_Queue/img/4.png"/>
 
-#### 第一种状态：队列中有元素（既非空，也非满）
-rear ! = front
+- 第一种状态：队列中有元素（既非空，也非满）<br>
+**rear != front**
 
-#### 第二种状态：队满
-rear = front && (rear+1) % maxsize == front;
+- 第二种状态：队满<br>
+**(rear == front)** && **front与rear所指示的位置有元素**
 
-#### 第三种状态：对空
-rear = front 
+- 第三种状态：队空<br>
+**(rear == front)** && **front与rear所指示的位置无元素**
+
+#### 注意事项
+- **顺序循环队列**可以解决”假溢出“问题，但是会带来”无法判空“的问题。
+- **顺序队列**判空条件是rear == front，而满足这个条件的**顺序循环队列**有可能为**空**，有可能为**满**。
+
+
+#### 如何解决”无法判空“问题？
+- **解决方案1：少用一个存储单元**(源代码所用方案)<br>
+即修改判满操作，使得插入操作时，首先判断rear所指示的下一个位置是否是front，如果是，则停止插入。（队尾留一个单元）<br>
+判满条件：**(rear+1) mod maxsize = front**<br>
+判空条件：**rear == front**
+<img width="700"  src="/Chapter_04_Queue/img/4.1.png"/>
+
+- **解决方案2：设置一个标志位**<br>
+即设置一个标志位tag=0,当进队成功时tag=1；当出队成功时tag=0<br>
+判满条件：**(rear==front) && (tag==1)**<br>
+判空条件：**(rear==front) && (tag==0)**<br>
+
+- **解决方案3：设置计数器
+即设置一个计数器count=0，当进队成功时count++；当出队成功时count--<br>
+判满条件：**(rear==front) && count>0**
+判空条件：**count == 0**
 
 #### 如何求循环队列里面有多少元素
-元素个数 N = (rear-front+maxsize) mod maxsize
+**元素个数N = (rear-front+maxsize) % maxsize**
 
 ------------------
 #### 循环队列的数据结构
@@ -113,8 +155,8 @@ ElemType  *queue;                      // 存储数据元素的一维数组
 [in SqQueue.h]
 void InitQueue_Sq(SqQueue &Q, int maxsize=QUEUE_INIT_SIZE,
                                  int incresize=QUEUEINCREMENT  ) 
-{      // 构造一个空循环队列
-    Q.queue=(ElemType *)malloc(maxsize*sizeof(ElemType));  // 为循环队列分配空间
+{      
+    Q.queue=(ElemType *)malloc(maxsize*sizeof(ElemType));
     if(!Q.queue)  exit(1); 
      Q.front=Q.rear=0; 
      Q.queuesize=maxsize; 
@@ -133,10 +175,10 @@ int QueueLength_Sq(SqQueue Q)
 ```
 -----------------------------
 
-#### 进对操作
+#### 进队操作
 插入元素e到队尾，成功插入返回true，否则返回false
-```C
-[in SqStack.h]
+```C++
+[in SqQueue.h]
 bool EnQueue_Sq(SqQueue &Q,ElemType e)
 {    
   if((Q.rear+1)%Q.queuesize==Q.front)   // 队满，给循环队列增补空间
@@ -158,11 +200,11 @@ if(Q.front>Q.rear)    // 队尾指针在队首指针前面，重新确定队首�
 ```
 -----------------------------
 #### 出队操作
- // 删除顺序栈栈顶元素，并让e返回其值
+删除队尾元素，并用e返回其值，成功删除返回true;否则返回false
 ```C
 [in SqQueue.h]
 bool DeQueue_Sq(SqQueue &Q,ElemType &e)
-{    // 删除队尾元素，并用e返回其值，成功删除返回true;否则返回false
+{    
   if(Q.front==Q.rear)   return false;    // 队空
     e=Q.queue[Q.front];                  // 取出队首元素
   Q.front=(Q.front+1) %Q.queuesize;      // 队首指针顺时针移动一个位置
@@ -207,9 +249,9 @@ void DestroyQueue_Sq(SqQueue &Q )
 -----------------------------
 
 #### 顺序循环队列的可视化操作
-将这个顺序栈(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变量
+将这个顺序循环队列(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变量
 ```C++
-void visualization(SqStack S, char* filename)
+void visualization(SqQueue S, char* filename)
 {  
 }
 ```
@@ -278,10 +320,10 @@ void main()
 
 #### 逻辑图示
 <img width="500"  src="/Chapter_04_Queue/img/5.png"/>
-
+- 此图为不带头结点的链队
 -----------------------------
 #### 注意事项
-- 实际上就是一个单链表(但是操作上有约束)
+- 实际上就是一个(带或不带头结点)单链表(但是操作上有约束)
 - **链队有两个指针**，队首指针front和队尾指针rear
 - front指向队列的当前队首节点位置，rear指向队列的当前队尾节点位置
 - 链队也有带头结点的链队和不带头结点的链队
@@ -291,15 +333,15 @@ void main()
 #### 链对的数据结构
 与单链表一样，**注意**:使用链队的时候，也需要包含相应的头文件[LinkQueue.h]
 ```C++
-[in LinkQueue.h]
-typedef LinkList LinkStack;
+typedef LinkList LinkQueue;
 ```
 或者
+
 ```C++
 [in LinkQueue.h]
 typedef struct {
    QueuePtr front;                  // 队首指针
-QueuePtr rear;                   // 队尾指针
+   QueuePtr rear;                   // 队尾指针
 }LinkQueue;                         // 链队
 ```
 <img width="500"  src="/Chapter_04_Queue/img/6.png"/>
@@ -425,7 +467,7 @@ void DestroyQueue_L(LinkQueue &Q )
 将这个链队(用一个png文件)可视化展示出来,前提是需要安装graphviz并配置系统环境变
  ```C++
 [in LinkQueue.h]
-void ListVisualization_LS(LinkStack S, char* filename)
+void ListVisualization_LS(LinkQueue S, char* filename)
 {   
 
 }
