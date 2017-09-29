@@ -345,6 +345,7 @@ typedef struct {
 }LinkQueue;                         // 链队
 ```
 <img width="500"  src="/Chapter_04_Queue/img/6.png"/>
+
 -----------------------------
 #### 链队的初始化
 ```C++
@@ -390,7 +391,7 @@ bool EnQueue_L (LinkQueue &Q, ElemType e)
 }// EnQueue_L
 ```
 <img width="600"  src="/Chapter_04_Queue/img/7.png"/>
-<img width="600"  src="/Chapter_04_Queue/img/8.png"/>
+<img width="630"  src="/Chapter_04_Queue/img/8.png"/>
 
 -----------------------------
 #### 出链队操作
@@ -412,7 +413,7 @@ bool DeQueue_L(LinkQueue &Q, ElemType &e)
 }// DeQueue_L
 ```
 <img width="650"  src="/Chapter_04_Queue/img/9.png"/>
-<img width="300"  src="/Chapter_04_Queue/img/10.png"/>
+<img width="350"  src="/Chapter_04_Queue/img/10.png"/>
 
 -----------------------------
 #### 取队首元素操作
