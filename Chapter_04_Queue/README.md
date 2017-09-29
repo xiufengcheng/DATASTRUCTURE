@@ -115,7 +115,7 @@ ADT Queue{
 #### 注意事项
 - **顺序循环队列**可以解决”假溢出“问题，但是会带来”无法判空“的问题。
 - **顺序队列**判空条件是rear == front，而满足这个条件的**顺序循环队列**有可能为**空**，有可能为**满**。
-
+----------------------------
 
 #### 如何解决”无法判空“问题？
 - **解决方案1：少用一个存储单元**(源代码所用方案)<br>
@@ -134,11 +134,11 @@ ADT Queue{
 判满条件：**(rear==front) && count>0**
 判空条件：**count == 0**
 
-#### 如何求循环队列里面有多少元素
+#### 如何求顺序循环队列里面有多少元素
 **元素个数N = (rear-front+maxsize) % maxsize**
 
 ------------------
-#### 循环队列的数据结构
+#### 顺序循环队列的数据结构
 ```C++
 [in SqQueue.h]
 typedef struct {
@@ -150,7 +150,7 @@ ElemType  *queue;                      // 存储数据元素的一维数组
 } SqQueue;
 ```
 
-#### 循环队列的初始化
+#### 顺序循环队列的初始化
 ```C++
 [in SqQueue.h]
 void InitQueue_Sq(SqQueue &Q, int maxsize=QUEUE_INIT_SIZE,
@@ -165,7 +165,7 @@ void InitQueue_Sq(SqQueue &Q, int maxsize=QUEUE_INIT_SIZE,
 ```
 -----------------------------
 
-#### 求循环队列长度
+#### 求顺序循环队列长度
 ```C
 [in SqQueue.h]
 int QueueLength_Sq(SqQueue Q)
@@ -175,7 +175,7 @@ int QueueLength_Sq(SqQueue Q)
 ```
 -----------------------------
 
-#### 进队操作
+#### 顺序循环队列进队
 插入元素e到队尾，成功插入返回true，否则返回false
 ```C++
 [in SqQueue.h]
@@ -199,7 +199,7 @@ if(Q.front>Q.rear)    // 队尾指针在队首指针前面，重新确定队首�
 }// EnQueue_Sq
 ```
 -----------------------------
-#### 出队操作
+#### 顺序循环队列出队
 删除队尾元素，并用e返回其值，成功删除返回true;否则返回false
 ```C
 [in SqQueue.h]
@@ -213,7 +213,7 @@ return true;
 
 ```
 -----------------------------
-#### 取队首元素
+#### 顺序循环队列取队首元素
 ```C#
 [in SqQueue.h]
 bool GetHead_Sq(SqQueue Q, ElemType &e)
@@ -225,7 +225,7 @@ bool GetHead_Sq(SqQueue Q, ElemType &e)
 ```
 -----------------------------
 
-#### 判断队空
+#### 顺序循环队列判断队空
 ```C#
 [in SqQueue.h]
 bool QueueEmpty_Sq(SqQueue Q)
@@ -235,7 +235,7 @@ bool QueueEmpty_Sq(SqQueue Q)
 ```
 
 -----------------------------
-#### 撤销队列
+#### 顺序循环队列撤销队列
 ```C++
 [in SqQueue.h]
 void DestroyQueue_Sq(SqQueue &Q )
