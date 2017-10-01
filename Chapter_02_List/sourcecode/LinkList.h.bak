@@ -30,15 +30,14 @@ LNode *LocateElem_L( LinkList L,ElemType e)
 	}// LocateElem_L
 
 int LocateElem_L_2( LinkList L,ElemType e) 
-	{  // 在L所指的单链表中查找第一个值和e相等的结点，若存在，则返回元素顺序(返回值+2为真实顺序)，否则返回0
- 		 int i=0;
+	{  // 在L所指的单链表中查找第一个值和e相等的结点，若存在，则返回元素顺序(返回值+2为真实顺序)，否则返回-1
+ 		 int i=-1;
          LinkList  p;                           
  		 p=L->next;                               // p指向链表中的第一个结点
   		 while (p&&p->data!=e) {p=p->next;i++;} 
   		 return i;
 	}// LocateElem_L_2
-
-
+	
 
 bool ListInsert_L( LinkList &L, int i, ElemType e) 
 	{    //在带有头结点的单链表L中的第i个结点之前插入元素e
