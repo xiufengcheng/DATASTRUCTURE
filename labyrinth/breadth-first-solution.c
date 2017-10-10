@@ -60,43 +60,47 @@ int main(void)
 	int front = 0, rear = 0;
 	queue[0][0] = 1;
 	queue[0][1] = 1;//enqueue starter
-	while (front <= rear)//bfs
+	visited[1][1] = 1;
+	while (front <= rear)//bfs			
 	{
-		int i = queue[front % (rowSize*lineSize)][0];
-		int j = queue[front % (rowSize*lineSize)][1];
+		int i = queue[front][0];
+		int j = queue[front][1];
 		front++;
-		visited[i][j] = 1;
 		if (!visited[i + 1][j])
 		{
 			rear++;
-			queue[rear % (rowSize*lineSize)][0] = i + 1;
-			queue[rear % (rowSize*lineSize)][1] = j;
+			queue[rear][0] = i + 1;
+			queue[rear][1] = j;
 			preV[i + 1][j][0] = i;
 			preV[i + 1][j][1] = j;
+			visited[i + 1][j] = 1;
 		}
 		if (!visited[i][j + 1])
 		{
 			rear++;
-			queue[rear % (rowSize*lineSize)][0] = i;
-			queue[rear % (rowSize*lineSize)][1] = j + 1;
+			queue[rear][0] = i;
+			queue[rear][1] = j + 1;
 			preV[i][j + 1][0] = i;
 			preV[i][j + 1][1] = j;
+			visited[i][j + 1] = 1;
 		}
 		if (!visited[i - 1][j])
 		{
 			rear++;
-			queue[rear % (rowSize*lineSize)][0] = i - 1;
-			queue[rear % (rowSize*lineSize)][1] = j;
+			queue[rear][0] = i - 1;
+			queue[rear][1] = j;
 			preV[i - 1][j][0] = i;
 			preV[i - 1][j][1] = j;
+			visited[i - 1][j] = 1;
 		}
 		if (!visited[i][j - 1])
 		{
 			rear++;
-			queue[rear % (rowSize*lineSize)][0] = i;
-			queue[rear % (rowSize*lineSize)][1] = j - 1;
+			queue[rear][0] = i;
+			queue[rear][1] = j - 1;
 			preV[i][j - 1][0] = i;
 			preV[i][j - 1][1] = j;
+			visited[i][j - 1] = 1;
 		}
 	}//end of bfs
 	if (visited[rowSize - 2][lineSize - 2] == 0)
