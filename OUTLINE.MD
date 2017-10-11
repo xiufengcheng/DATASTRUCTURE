@@ -37,7 +37,7 @@
 ### [第七章 树和二叉树(Tree)](./CHAPTER06/README.MD)
 1. 树(Tree)
 2. 二叉树(Binary Tree)
-3. 哈夫曼树(Haffman Tree)
+3. 哈夫曼树(Huffman Tree)
 4. 树、森林(Forest)和二叉树的转换
 5. 树的应用举例
 
