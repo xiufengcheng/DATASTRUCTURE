@@ -38,21 +38,25 @@
 
 ---
 ## 编程工具
-- 一般：[CFree5.0](http://www.programarts.com/)
+- 一般：[CFree5.0](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/tools_download/C-Free%205%20CJY%E7%89%88.zip)
     - CFree是自带C/C++编译器MingGW的
 - 高级：[Visual Studio Code](https://code.visualstudio.com/)
     - 推荐用VSCode编辑Python,C#,JavaScript，Java等程序的数据结构
 - 可视化工具：[Graphviz](http://www.graphviz.org/)
+- 所有工具均可在[这里下载](https://github.com/xiufengcheng/DATASTRUCTURE/blob/master/tools_download/)
 ---
 ## 网络知识点链接(持续更新，有待同学们一起发现)
-
+- [如何使用Github](/tools_download/GitHub%20教程/)
 ---
 ## 可视化
 - [经典算法flash](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_01_Introduction/Demo)
-- [可视化演示(JS)](http://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+- [旧金山大学David Galles可视化演示(JS)](http://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 - [很酷的排序演示](http://sorting.at/)
 - [很有创意的舞蹈演示](http://top.jobbole.com/1539/)
-
+- [Sorting Algorithm Animations](https://www.toptal.com/developers/sorting-algorithms/)
+- [Python可视化显示](https://coolshell.cn/articles/536.html)
+- [一个日本的可视化排序](http://jsdo.it/norahiko/oxIy/fullscreen)
+- [Wiki排序算法比较](https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms)
 ---
 ## 课堂形式
 ### 课堂上

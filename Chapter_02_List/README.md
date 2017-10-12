@@ -162,11 +162,48 @@ bool ListInsert_Sq(SqList &L, int i, ElemType e)
 -----------------------------
 #### 顺序表后插
 在顺序表L的第i个元素之**后**插入新的元素e，若表中当前容量不足，则按预定义的增量扩容
-
+```C
+[in SqList.h]
+bool ListInsert_Sq(SqList &L, int i, ElemType e)
+{   
+    int j;
+        if(i<0||i>L.length)  return false;  // i值不合法
+        if(L.length>=L.listsize)           // 当前存储空间已满，增补空间
+        {                   
+            L.elem=(ElemType *)realloc(L.elem,(L.listsize+L.incrementsize)*sizeof(ElemType));
+            if(!L.elem) exit(1);                   // 存储分配失败
+            L.listsize+=L.incrementsize;           // 当前存储容量增加
+        }
+    int target=i+1;
+    for(j=L.length;j>target;j--)                // 被插入元素之后的元素左移
+        L.elem[j]=L.elem[j-1];             
+        
+    L.elem[target]=e;                           // 插入元素e
+    L.length++;                            // 表长增1
+    return true;   
+}// ListInsert_Sq
+```
 -----------------------------
 
 #### 顺序表尾插
 在顺序表L的最后一个元素之**后**插入新的元素e，若表中当前容量不足，则按预定义的增量扩容
+```C
+[in SqList.h]
+bool ListInsert_Sq(SqList &L, int i, ElemType e)
+{   
+    int j;
+        if(i<0||i>L.length)  return false;  // i值不合法
+        if(L.length>=L.listsize)           // 当前存储空间已满，增补空间
+        {                   
+            L.elem=(ElemType *)realloc(L.elem,(L.listsize+L.incrementsize)*sizeof(ElemType));
+            if(!L.elem) exit(1);                   // 存储分配失败
+            L.listsize+=L.incrementsize;           // 当前存储容量增加
+        }           
+    L.elem[L.length]=e;                           // 插入元素e
+    L.length++;                            // 表长增1
+    return true;   
+}// ListInsert_Sq
+```
 
 -----------------------------
 
@@ -349,13 +386,14 @@ int main()
 - 链表：按照链式存储结构存储的线性表。
 - 单链表：各元素只有一个指针域的链表（只含有一个指针域）
 
-#### 逻辑图示
+#### 逻辑图示(带头结点的单链表)
 <img width="600"  src="/Chapter_02_List/img/2.jpg"/>
 
-- **头结点**：单链表中第一个结点(上图中的a1之前的结点a0)
-- **表头指针**：存放单链表中第一个结点的地址的指针。(指向a0的指针)
-- **开始结点**：存放单链表的第一个元素的结点。(a1)
-- **表尾结点**：单链表中最后一个结点，表尾结点的指针域指针为空。(an)
+- **表头指针**：存放单链表中第一个结点的地址的指针。【指向a0(带头结点时)或指向a1(不带头结点时)的指针，上图中的L】
+- **头结点**：带头结点的单链表中L【上图中的a1之前的结点a0】
+- **开始结点**：，又称首节点，存放单链表的第一个存放元素的结点。【a1】
+- **表尾结点**：单链表中最后一个结点，表尾结点的指针域指针为空。【an】
+
 -----------------------------
 
 #### 数学表示
@@ -372,7 +410,8 @@ int main()
 #### 注意事项
 - 链表的元素一般称为“结点”。
 - 头结点在链表中并不是必须的，仅仅是为了操作上的方便。 
-- 结点ai指其数据域为ai的结点，而p结点则指指针p所指向的结点(即其存储位置存在放在p中的结点)
+- 结点ai指其数据域为ai的结点，而p则是指向ai的指针，俗称"p结点"。
+- **链表有带头结点的链表和不带头结点的链表之分，带头结点的链表第一个元素为头结点a0，L指向a0; 不带头结点的链表第一个元素为头结点a1，L指向a1。**
 - 单链表的操作
 
 <img width="800"  src="/Chapter_02_List/img/3.jpg"/>
@@ -431,7 +470,7 @@ LNode *LocateElem_L( LinkList L,ElemType e)
 ```C++
 [in LinkList.h]
 int LocateElem_L_2( LinkList L,ElemType e) 
-	{  ，否则返回-1
+	{  
  		 int i=-1;
          LinkList  p;                           
  		 p=L->next;                             // p指向链表中的第一个结点
@@ -457,6 +496,19 @@ bool ListInsert_L( LinkList &L, int i, ElemType e)
   		return true;
  	}// ListInsert_L
 ```
+<img width="600"  src="/Chapter_02_List/img/insert.png"/>
+
+#### 注意. while(p)和while(p->next)的区别：
+我们在操作链表的时候通常会用到
+```
+while(p)
+{p=p->next;}
+和
+while(p->next)
+{p=p->next;}
+```
+**前者是让工作指针p访问完整个链表，循环结束时，p并没有指向最后一个元素an，而是超出了控制范围，后者是让工作指针p访问完除最后一个元素之外的所有元素，循环结束时，p指向最后一个元素an。**
+
 -----------------------------
 
 #### 单链表删除元素操作
@@ -475,6 +527,8 @@ bool ListDelete_L( LinkList &L, int i, ElemType &e)
   		return true;
  	}// ListDelete_L
 ```
+<img width="600"  src="/Chapter_02_List/img/delete.png"/>
+
 -----------------------------
 #### 单链表取元素操作
 取出单链表L中第i个元素，并用e返回其值
@@ -535,7 +589,7 @@ void CreateList_L_Front(LinkList &L,ElemType a[],int n )
  void ListTraverse_L(LinkList L)
 	{
 		 LinkList p=L->next;
- 		 while(p)
+ 		 while(p)               //遍历完整个单链表
   	  {  cout<< setw(6)<<p->data;
          p=p->next;
       }
@@ -550,7 +604,7 @@ void DestroyList_L(LinkList &L )
 	{
   		LinkList p,p1;
  		 p=L;
-  		while(p) 
+  		while(p)           //遍历完整个单链表
   		{   p1=p;
     		p=p->next;
     		free(p1);
@@ -728,14 +782,20 @@ int ListLength_Dul(DuLinkList L )
 在dL所指的双链表中查找第一个值和e相等的结点，若存在，则返回其指针；
 ```C++
 [in DuLinkList.h]
-int LocateElem_DL( LinkList DL,ElemType e) 
+int LocateElem_DL(DuLinkList L,ElemType e) 
 {
-
-    
+    DuLinkList  p;
+    int k=0;
+    p=L->next;
+    while(p&&e!=p->data)
+    {k++;p=p->next;}
+    return p;
 }
 ```
 -----------------------------
 #### 双链表插入元素操作
+<img width="600" src="/Chapter_02_List/img/duinsert.png"/>
+
 在带头结点的双向链表DL中第i个结点之前插入元素e
  ```C++
 [in DuLinkList.h]
@@ -766,9 +826,11 @@ bool ListInsert_DuL(DuLinkList &L,int i,ElemType e)
    return true;
 }
 ```
+* 注意，这里的语句4不能换到语句1之前，另外还要区分是不是插到末尾。
 -----------------------------
 #### 双链表删除元素操作
 删除带有头结点的双向链表DL中的第i个结点，并让e返回其值
+<img width="600" src="/Chapter_02_List/img/dudelete.png"/>
  ```C++
 [in DuLinkList.h]
 bool ListDelete_Du(DuLinkList &L, int i, ElemType &e)
@@ -789,10 +851,16 @@ bool ListDelete_Du(DuLinkList &L, int i, ElemType &e)
 取出双链表DL中第i个元素，并用e返回其值
  ```C++
 [in DuLinkList.h]
-bool GetElem_DL(LinkList DL,int i, ElemType &e)
+bool GetElem_DL(DuLinkList L,int i, ElemType &e)
 {
-
-    
+        DuLinkList p;
+  		int j;
+  		p=L;  j=0;
+		while(p->next&&j<i){ p=p->next; j++; }  
+// 寻找第i个结点,并让p指向此结点
+ 		 if(j!=i)   return false;                      // i的位置不合理
+  		 e=p->data;                                     // 被取元素的值赋给e
+ 		 return true;
 }
 ```
 -----------------------------
@@ -834,7 +902,7 @@ void ListTraverse_Du(LinkList DL)
 void DestroyList_Du(LinkList &DL )
 {
 
-
+     
 }
 ```
 -----------------------------
@@ -877,9 +945,12 @@ int main()
 
 #### 双向循环链表的数据结构
 同双向链表
+
 -----------------------------
 #### 双向循环链表初始化
+
 初始化双向循环链表DL
+```
 [in DuLinkList_C.h]
 void InitList_DuL_C(DuLinkList &L)
 {  
@@ -888,7 +959,9 @@ void InitList_DuL_C(DuLinkList &L)
   L->next=L;                               // 表头结点作为表头结点的后继
   L->prior=L;                              // 表头结点作为表头结点的前驱
 }
+```
 -----------------------------
+
 #### 双向循环链表的长度
 // DL为带头结点的链表的头指针，函数返回L所指链表的长度
 ```C++
@@ -1025,4 +1098,6 @@ int main()
 -----------------------------
 
 
+
 ## [源代码下载](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_02_List/sourcecode)
+

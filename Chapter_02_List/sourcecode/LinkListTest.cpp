@@ -22,7 +22,9 @@ int  main()
       if(j!=-1&&GetElem_L(mylist,1,temp)) 
 	  cout<<"找到了，它是第"<<j+2<<"个元素（其中，"<<temp<<"是第一个元素）====>"<<endl;
       else cout<<"没找到这个元素！"<<endl;
-      
+	  //如果你想使用另外一个函数：
+      //LinkList q = LocateElem_L(mylist,forLocate);
+	  //cout<<q->data<<endl;
       
       cout<<endl<<"<====现在执行取元素操作,您要找第几个元素？"<<endl;
       cout<<"请输入：";

@@ -1,0 +1,6 @@
+1  C-Free 5 CJY版
+2  flashplayer19_sa_win_32
+3  GraphViz-Data-Structure-0.19.tar
+4  VSCodeSetup-x64-1.15.1
+
+以上适合win7操作系统，其它操作系统可能有些工具不兼容

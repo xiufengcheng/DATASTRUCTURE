@@ -26,7 +26,7 @@
 
 ### [第五章 串(String)](./CHAPTER04/README.MD)
 1. 串(String)
-2. 串的应用举例
+2. 串的应用举例举例
 
 ### [第六章 数组和广义表(Arrary)](./CHAPTER05/README.MD)
 1. 数组(Array)
@@ -76,4 +76,4 @@
 5. BA无标度网络模型构造算法 
 6. 分词算法
 7. ER随机图构造算法
-8. NP问题
+8. NP问题A
