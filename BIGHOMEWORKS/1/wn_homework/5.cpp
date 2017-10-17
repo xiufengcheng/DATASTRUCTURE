@@ -1,11 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <iomanip>
-#include <iostream>
-using namespace std;
-typedef int ElemType;
-#include "SqQueue.h"
-
 #define QUENU_INIT_SIZE 100
 #define QUENUINCREMENT 10
 typedef struct
@@ -27,12 +19,6 @@ void InitQueue_Sq(SqQueue &Q,int maxsize=QUENU_INIT_SIZE,int incresize=QUENUINCR
     Q.front=Q.rear=Q.Count=0;
     Q.queuesize=maxsize;
     Q.incrementsize=incresize;
-}
-
-//求队列的长度
-int QueueLength_Sq(SqQueue Q)
-{
-    return (Q.rear-Q.front+Q.queuesize)%Q.queuesize;
 }
 
 //进队操作
@@ -72,21 +58,4 @@ bool DeQueue_Sq(SqQueue &Q,ElemType &e)
     Q.front=(Q.front+1)%Q.queuesize;
     Q.Count--;
     return true;
-}
-
-
-int main()
-{
-    SqQueue myqueue;
-    InitQueue_Sq(myqueue,5,5);
-    ElemType a[10]={1,2,3,4,5,6,7};
-    for(int i=0;i<6;i++){
-        EnQueue_Sq(myqueue,a[i]);
-    }
-    while(!QueueEmpty_Sq(myqueue)){
-        ElemType e;
-        DeQueue_Sq(myqueue,e);
-        cout<<setw(4)<<e;
-    }
-    return 0;
 }
