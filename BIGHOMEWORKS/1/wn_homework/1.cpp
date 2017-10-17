@@ -6,17 +6,25 @@ using namespace std;
 typedef int ElemType;
 #include "LinKList.h"
 
-bool Intersect_L(LinkList &La,LinkList Lb){
+bool Intersect_Arr(SqList &La,SqList Lb) //用顺序表实现
+{
+   ElemType temp;
+    while(!ListEmpty_Sq(La))     //La表的元素尚未处未处理完
+    {
+        GetElem_Sq(La,0,temp);    //从La中删除第一个数据元素赋值给temp
+        if(LocateElem_Sq(Lb,temp)==-1)     //若Lb中不存在值和temp相等的数据元素
+              ListDelete_Sq(La,0,e);     //则将它插入在La中最后一个数据元素之后
+    }
+    DestroyList_Sq(Lb);               //撤销线性表 
+}
+
+bool Intersect_L(LinkList &La,LinkList Lb){   //用链表实现
     ElemType temp;
     LinkList p,q;
     p=La->next;
     q=La;
     while(p){
-        //cout<<p->data;
         if(LocateElem_L_2(Lb,p->data)==-1){
-            //cout<<p->data<<endl;
-            //cout<<LocateElem_L_2(Lb,p->data)<<endl;
-            //cout<<LocateElem_L_2(La,p->data)<<endl;
             ListDelete_L(La,LocateElem_L_2(La,p->data)+1,temp);
             //ListTraverse_L(La);
             p=La->next;
