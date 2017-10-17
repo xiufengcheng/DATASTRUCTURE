@@ -5,6 +5,7 @@
 using namespace std;
 typedef int ElemType;
 #include "LinkList.h"
+
 void iListTraverse_L(LinkList L)
 {
     LinkList p=L;
