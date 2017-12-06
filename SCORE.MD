@@ -4,21 +4,21 @@
 |    姓名   | 记分1  | 记分2  | 记分3  | 记分4  | 记分5  | 记分6  | 记分7  | 记分8  | 记分9   | 记分10   |
 | :---: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | ---- |
 |   格桑拉姆  |    |      |      |      |      |      |      |      |      |      |
-|         王妞妞          |      |      |      |      |      |  :broken_heart:    |      |      |      |      |
+|         王妞妞          |      |      |      |      |      |      |      |      |      |      |
 |         陈亚楠          |      |      |      |      |      |  :broken_heart:    |      |      |      |      |
 |         周枫然          |      |      |      |      |      |      |      |      |      |      |
 |         游雨梦          |      |      |      |      |      |  :broken_heart:    |      |      |      |      |
 |         王君卉          |      |      |      |      |      |      |      |      |      |      |
-|         张绍燚          |      |      |      |      |      |      |      |      |      |      |
+|         张绍燚          |      |      |      |      |      |      |  :broken_heart:    |      |      |      |
 |          钱豪          |      |      |      |      |      |      |      |      |      |      |
 |         朱家圆          |      |      |      |      |      |      |      |      |      |      |
 |          张驰          |      |      |      |      |      |      |      |      |      |      |
-|          李裕          |      |      |   :broken_heart:   |  :broken_heart:    |  :broken_heart:    |  :broken_heart:    |      |      |      |      |
+|          李裕          |      |      |   :broken_heart:   |  :broken_heart:    |  :broken_heart:    |  :broken_heart:    |  :broken_heart:    |      |      |      |
 |         阳全源          |      |      |      |      |      |      |      |      |      |      |
-|         李锴林          |      |      |  :broken_heart:    |      |  :broken_heart:    |      |      |      |      |      |
+|         李锴林          |      |      |  :broken_heart:    |      |  :broken_heart:    |      |  :broken_heart:    |      |      |      |
 |         杨瑞雪          |      |      |      |  :broken_heart:    |  :broken_heart:    |  :broken_heart:    |      |      |      |      |
 |          陈琦          |      |      |      |      |      |      |      |      |      |      |
-|         方宇瑶          |      |      |  :broken_heart:    |      |      |      |      |      |      |      |
+|         方宇瑶          |      |      |  :broken_heart:    |      |      |      |  :broken_heart:    |      |      |      |
 |         徐美春          |      |      |      |      |      |      |      |      |      |      |
 |          张苹          |      |      |      |      |      |      |      |      |      |      |
 |         李梓同          |      |      |      |      |      |      |      |      |      |      |
@@ -26,7 +26,7 @@
 |         冉玉鑫          |      |      |      |      |      |      |      |      |      |      |
 |          李敏          |      |      |      |      |      |      |      |      |      |      |
 |         邓才佳          |      |      |      |      |      |      |      |      |      |      |
-|          胡媛          |      |      |      |      |      |      |      |      |      |      |
+|          胡媛          |      |      |      |      |      |      |   :broken_heart:    |      |      |      |
 |         吴祎璠          |      |      |      |      |      |      |      |      |      |      |
 |          商怿          |      |      |      |      |  :broken_heart:    |      |      |      |      |      |
 |          王林          |      |      |      |      |      |      |      |      |      |      |
@@ -38,13 +38,11 @@
 |         兰栋枢          |      |      |      |      |      |      |      |      |      |      |
 |          姚玲          |      |      |      |      |      |      |      |      |      |      |
 |         余佳琪          |      |      |      |      |      |      |      |      |      |      |
-|         袁成成          |      |      |      |      |  :broken_heart:    |      |      |      |      |      |
+|         袁成成          |      |      |      |      |  :broken_heart:    |      |   :broken_heart:    |      |      |      |
 |         刘雪纯          |      |      |      |      |      |      |      |      |      |      |
-|         陈忠启          |      | :broken_heart:     |  :broken_heart:    |  :broken_heart:    |  :broken_heart:    |  :broken_heart:    |      |      |      |      |
 |         黄梅铃          |      |      |      |  :broken_heart:    |      |      |      |      |      |      |
-|          石莹          |      |      |      |  :broken_heart:    |  :broken_heart:    |  :broken_heart:    |      |      |      |      |
-|         张祉凝          |      |   :broken_heart:   |  :broken_heart:    |      |  :broken_heart:    |  :broken_heart:    |      |      |      |      |
-|         陈玺羽          |      |  :broken_heart:    |  :broken_heart:    |  :broken_heart:    |  :broken_heart:    |   :broken_heart:   |      |      |      |      |
+|          石莹          |      |      |      |  :broken_heart:    |  :broken_heart:    |  :broken_heart:    |   :broken_heart:    |      |      |      |
+|         张祉凝          |      |   :broken_heart:   |  :broken_heart:    |      |  :broken_heart:    |  :broken_heart:    |   :broken_heart:    |      |      |      |
 |         谢鼎革          |      |      |      |      |      |      |      |      |      |      |
 | RATSIMBA, HARIMALALA |      |  :broken_heart:    |      |      |      |      |      |      |      |      |
 |          周京          |      |      |      |      |      |      |      |      |      |      |
@@ -63,7 +61,7 @@
 | 黄晓捷  |      |      |      |      |      |      |      |      |      |      |
 | 衷梓芮  |      |      |      |      |      |      |      |      |      |      |
 | 李欣雨  |      |      |      |      |      |      |      |      |      |      |
-| 余晶晶  |      |      |      |   :broken_heart:   |      |      |      |      |      |      |
+| 余晶晶  |      |      |      |   :broken_heart:   |      |      |   :broken_heart:    |      |      |      |
 | 李珺瑶  |      |      |      |      |      |      |      |      |      |      |
 | 解飞扬  |      |      |      |      |      |      |      |      |      |      |
 | 简昕格  |      |      |      |      |      |      |      |      |      |      |
@@ -75,9 +73,9 @@
 | 孙苗苗  |      |      |      |   :broken_heart:   |      |      |      |      |      |      |
 | 王璐璇  |      |      |      |      |      |      |      |      |      |      |
 | 赵雨君  |      |      |      |      |      |      |      |      |      |      |
-|  马颖  |      |      |  :broken_heart:    |      |  :broken_heart:    |      |      |      |      |      |
+|  马颖  |      |      |  :broken_heart:    |      |  :broken_heart:    |      |   :broken_heart:    |      |      |      |
 |  张漫  |      |      |      |      |      |      |      |      |      |      |
-| 江雪玲  |   :broken_heart:   |  :broken_heart:    |      |      |  :broken_heart:    |  :broken_heart:    |      |      |      |      |
+| 江雪玲  |   :broken_heart:   |  :broken_heart:    |      |      |  :broken_heart:    |  :broken_heart:    |   :broken_heart:    |      |      |      |
 | 胡婧岚  |      |      |      |      |      |      |      |      |      |      |
 |  张昱  |      |      |      |      |      |      |      |      |      |      |
 | 刘顺娥  |      |      |      |      |      |      |      |      |      |      |
