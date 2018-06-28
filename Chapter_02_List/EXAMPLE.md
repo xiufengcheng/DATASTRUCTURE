@@ -82,9 +82,10 @@ bool Isequal(List La, List Lb)
         if(i==0) found = false; //La中不存在和该数据元素相同的元素
         else ListDelete(Lc,i,e); //从Lc中删除该数据元素
     }
-    if(found&&ListEmpty(Lc))   return true;
-    else return false;
+    int k = ListEmpty(Lc);
     DestroyList(Lc);
+    if(found&&k==0) return true;
+    else return false;
    }
 }//isequal
 ```
