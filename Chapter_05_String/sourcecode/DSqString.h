@@ -1,35 +1,35 @@
 typedef struct {
-  char  *str;                // ´æ·Å·Ç¿Õ´®µÄÊ×µØÖ·
-  int length;               // ´æ·Å´®µÄµ±Ç°³¤¶È
-}DSqString;               // ¶¯Ì¬Ë³Ğò´®ÀàĞÍ
+  char  *str;                // å­˜æ”¾éç©ºä¸²çš„é¦–åœ°å€
+  int length;               // å­˜æ”¾ä¸²çš„å½“å‰é•¿åº¦
+}DSqString;               // åŠ¨æ€é¡ºåºä¸²ç±»å‹
 
 bool StrAssign_Sq(DSqString &S,char *chars)
-  {  // ½«×Ö·û´®chars¸³Öµ¸øË³Ğò´®S
+  {  // å°†å­—ç¬¦ä¸²charsèµ‹å€¼ç»™é¡ºåºä¸²S
     int i,j;
 	char *c;
-   	for(i=0,c=chars;*c;i++,c++);           // ÇócharsµÄ³¤¶È
-	if(!i) { S.str=NULL;  S.length=0; }    // SÖÃÎª¿Õ´®
+   	for(i=0,c=chars;*c;i++,c++);           // æ±‚charsçš„é•¿åº¦
+	if(!i) { S.str=NULL;  S.length=0; }    // Sç½®ä¸ºç©ºä¸²
 	else {
-		if(!(S.str=(char *)malloc(i*sizeof(char))))  // ¸ø´®SÉêÇë¿Õ¼ä 
+		if(!(S.str=(char *)malloc(i*sizeof(char))))  // ç»™ä¸²Sç”³è¯·ç©ºé—´ 
 			return false;                
-		for(j=0;j<i;j++)                  // ½«Êı×éÖĞµÄ×Ö·û¸´ÖÆµ½´®SÖĞ
+		for(j=0;j<i;j++)                  // å°†æ•°ç»„ä¸­çš„å­—ç¬¦å¤åˆ¶åˆ°ä¸²Sä¸­
 		S.str[j]=chars[j];
-		S.length=i;                       // ´®SµÄ´®³¤Îªi
+		S.length=i;                       // ä¸²Sçš„ä¸²é•¿ä¸ºi
 	}
 	return true;
 }// StrAssign_Sq
 
 bool StrCopy_Sq(DSqString &S,DSqString T)
-{   // ½«Ë³Ğò´®T¸´ÖÆµ½ÁíÒ»¸öË³Ğò´®SÖĞ£¬²¢·µ»Ø¸´ÖÆºóµÄË³Ğò´®S
+{   // å°†é¡ºåºä¸²Tå¤åˆ¶åˆ°å¦ä¸€ä¸ªé¡ºåºä¸²Sä¸­ï¼Œå¹¶è¿”å›å¤åˆ¶åçš„é¡ºåºä¸²S
 	int i;
-	if(S.str) free(S.str);                       // ÊÍ·ÅSÔ­ÓĞ¿Õ¼ä
-	if(!T.length) { S.str=NULL;  S.length=0;  }   // SÖÃÎª¿Õ´®
+	if(S.str) free(S.str);                       // é‡Šæ”¾SåŸæœ‰ç©ºé—´
+	if(!T.length) { S.str=NULL;  S.length=0;  }   // Sç½®ä¸ºç©ºä¸²
 	else {
-		if(!(S.str=(char *)malloc(T.length*sizeof(char)))) // ¸ø´®SÉêÇë¿Õ¼ä 
+		if(!(S.str=(char *)malloc(T.length*sizeof(char)))) // ç»™ä¸²Sç”³è¯·ç©ºé—´ 
 			return false;                 
-		for(i=0;i<T.length;i++)                  // ½«´®TÖĞµÄ×Ö·û¸´ÖÆµ½´®SÖĞ
+		for(i=0;i<T.length;i++)                  // å°†ä¸²Tä¸­çš„å­—ç¬¦å¤åˆ¶åˆ°ä¸²Sä¸­
 		S.str[i]=T.str[i];
-		S.length=T.length;                       // ´®SµÄ´®³¤ÎªT.length
+		S.length=T.length;                       // ä¸²Sçš„ä¸²é•¿ä¸ºT.length
 	} 
 	return true;
 }// StrCopy_Sq
@@ -40,9 +40,9 @@ int StrLength_Sq(DSqString S)
 }// StrLength_Sq
 
 int StrCompare_Sq(DSqString S,DSqString T)
-{     // ±È½ÏË³Ğò´®SºÍË³Ğò´®TµÄ´óĞ¡
+{     // æ¯”è¾ƒé¡ºåºä¸²Så’Œé¡ºåºä¸²Tçš„å¤§å°
 	int i=0;
-	while(i<S.length&&i<T.length)            // ´®SºÍ´®T¶ÔÓ¦×Ö·û½øĞĞ±È½Ï
+	while(i<S.length&&i<T.length)            // ä¸²Så’Œä¸²Tå¯¹åº”å­—ç¬¦è¿›è¡Œæ¯”è¾ƒ
 	{
 		if(S.str[i]>T.str[i]) return 1;
 		else if(S.str[i]<T.str[i]) return -1;
@@ -57,40 +57,40 @@ bool StrConcat_Sq(DSqString &S,DSqString T)
 {
    int i;
    if(T.length) {
-	if(!(S.str=(char *)realloc(S.str,(S.length+T.length)*sizeof(char))))  // ¸ø´®Ôö²¹¿Õ¼ä
+	if(!(S.str=(char *)realloc(S.str,(S.length+T.length)*sizeof(char))))  // ç»™ä¸²å¢è¡¥ç©ºé—´
 			return false;
-		for(i=0;i<T.length;i++)           // ½«´®TÖĞµÄ×Ö·ûÁ¬½ÓÔÚ´®SµÄºóÃæ
+		for(i=0;i<T.length;i++)           // å°†ä¸²Tä¸­çš„å­—ç¬¦è¿æ¥åœ¨ä¸²Sçš„åé¢
 		 S.str[S.length+i]=T.str[i];
-		S.length+=T.length;                // ´®SµÄ´®³¤Ôö¼ÓT.length
+		S.length+=T.length;                // ä¸²Sçš„ä¸²é•¿å¢åŠ T.length
      }
 	return true;
 }// StrConcat_Sq
 
 bool SubString_Sq(DSqString S,DSqString &Sub,int pos,int len)
-{    // ÔÚË³Ğò´®SÖĞ´ÓµÚpos¸öÎ»ÖÃ¿ªÊ¼£¬È¡³¤¶ÈÎªlenµÄ×Ó´®Sub£¬²¢·µ»ØSubµÄÖµ
+{    // åœ¨é¡ºåºä¸²Sä¸­ä»ç¬¬posä¸ªä½ç½®å¼€å§‹ï¼Œå–é•¿åº¦ä¸ºlençš„å­ä¸²Subï¼Œå¹¶è¿”å›Subçš„å€¼
 	int i;
 	if(pos<0||pos>S.length-1||len<0||len>S.length-pos)  
-		return false;                  // È¡×Ó´®µÄÎ»ÖÃ»ò×Ó´®µÄ³¤¶È²»ºÏÀí
-	if(Sub.str)   free(Sub.str);         // ÊÍ·ÅSubÔ­ÓĞ¿Õ¼ä
-	if(!len) { Sub.str=NULL; Sub.length=0; }   // ÖÃSubÎª¿Õ×Ó´®
+		return false;                  // å–å­ä¸²çš„ä½ç½®æˆ–å­ä¸²çš„é•¿åº¦ä¸åˆç†
+	if(Sub.str)   free(Sub.str);         // é‡Šæ”¾SubåŸæœ‰ç©ºé—´
+	if(!len) { Sub.str=NULL; Sub.length=0; }   // ç½®Subä¸ºç©ºå­ä¸²
 	else {
 		if(!(Sub.str=(char *)malloc(len*sizeof(char))))
 			return false;
-		for(i=0;i<len;i++)            // ½«´®SÖĞµÄlen¸ö×Ö·û¸´ÖÆµ½SubÖĞ
+		for(i=0;i<len;i++)            // å°†ä¸²Sä¸­çš„lenä¸ªå­—ç¬¦å¤åˆ¶åˆ°Subä¸­
 			Sub.str[i]=S.str[pos+i];
-		Sub.length=len;                // ×Ó´®SubµÄ´®³¤Îªlen
+		Sub.length=len;                // å­ä¸²Subçš„ä¸²é•¿ä¸ºlen
 	}
 	return true; 
 }// SubString_Sq
 
-bool Index_Sq(DSqString S,DSqString T,int i,int &pos)
-{  // ÔÚÖ÷´®SÖĞ²éÕÒÊÇ·ñ´æÔÚ×Ó´®T£¬Èô´æÔÚ£¬ÔòÓÉpos·µ»ØÆäÎ»ÖÃ
-   int j=0;                       // iºÍj·Ö±ğÉ¨ÃèÖ÷´®SºÍ×Ó´®T
+bool Index_Sq(DSqString S,DSqString T,int &pos)
+{  // åœ¨ä¸»ä¸²Sä¸­æŸ¥æ‰¾æ˜¯å¦å­˜åœ¨å­ä¸²Tï¼Œè‹¥å­˜åœ¨ï¼Œåˆ™ç”±posè¿”å›å…¶ä½ç½®
+   int i=0,j=0;                       // iå’Œjåˆ†åˆ«æ‰«æä¸»ä¸²Så’Œå­ä¸²T
    while(i<S.length&&j<T.length)      
-   { if(S.str[i]==T.str[j])          // ¶ÔÓ¦×Ö·ûÏàÍ¬£¬¼ÌĞø±È½ÏÏÂÒ»¸ö×Ö·û
+   { if(S.str[i]==T.str[j])          // å¯¹åº”å­—ç¬¦ç›¸åŒï¼Œç»§ç»­æ¯”è¾ƒä¸‹ä¸€ä¸ªå­—ç¬¦
       { i++;    j++;
       }
-      else                           // Ö÷´®Ö¸Õë»ØËİÖØĞÂ¿ªÊ¼ÏÂÒ»´ÎÆ¥Åä
+      else                           // ä¸»ä¸²æŒ‡é’ˆå›æº¯é‡æ–°å¼€å§‹ä¸‹ä¸€æ¬¡åŒ¹é…
       { i=i-j+1;
         j=0;
       }
@@ -100,39 +100,39 @@ bool Index_Sq(DSqString S,DSqString T,int i,int &pos)
 }// Index_Sq
 
 bool StrInsert_Sq(DSqString &S,int pos,DSqString T)
-    {   // ÔÚË³Ğò´®SµÄµÚpos¸ö×Ö·ûÖ®Ç°²åÈë×Ó´®T£¬²¢·µ»Ø²åÈëºóµÄË³Ğò´®S
+    {   // åœ¨é¡ºåºä¸²Sçš„ç¬¬posä¸ªå­—ç¬¦ä¹‹å‰æ’å…¥å­ä¸²Tï¼Œå¹¶è¿”å›æ’å…¥åçš„é¡ºåºä¸²S
      int i;
-     if(pos<0||pos>S.length)  return false;    // pos²»ºÏÀí
+     if(pos<0||pos>S.length)  return false;    // posä¸åˆç†
      if(T.str) {
 	   if(!(S.str=(char *)realloc(S.str,(S.length+T.length)*sizeof(char))))  
-// ¸ø´®SÔö²¹¿Õ¼ä 
+// ç»™ä¸²Så¢è¡¥ç©ºé—´ 
 			return false;                 
-       for(i=S.length-1;i>=pos;i--)            // Îª²åÈë´®T¶øÌÚ³öÎ»ÖÃ
+       for(i=S.length-1;i>=pos;i--)            // ä¸ºæ’å…¥ä¸²Tè€Œè…¾å‡ºä½ç½®
         S.str[i+T.length]=S.str[i];
-       for(i=0;i<T.length;i++)                  // ²åÈë´®T
+       for(i=0;i<T.length;i++)                  // æ’å…¥ä¸²T
         S.str[pos+i]=T.str[i];
-       S.length=S.length+T.length;             // ´®S³¤¶ÈÔö¼ÓT.length
+       S.length=S.length+T.length;             // ä¸²Sé•¿åº¦å¢åŠ T.length
       }
     return true;
 }// StrInsert_Sq
 
 bool StrDelete_Sq(DSqString &S,int pos,int len)
-    {  // ´ÓË³Ğò´®SµÄµÚpos¸ö×Ö·û×Ö·û¿ªÊ¼É¾³ı³¤¶ÈÎªlenµÄ×Ó´®£¬²¢·µ»ØÉ¾³ıºóµÄ´®S
+    {  // ä»é¡ºåºä¸²Sçš„ç¬¬posä¸ªå­—ç¬¦å­—ç¬¦å¼€å§‹åˆ é™¤é•¿åº¦ä¸ºlençš„å­ä¸²ï¼Œå¹¶è¿”å›åˆ é™¤åçš„ä¸²S
       int i;
-      if(pos<0||pos>S.length-1||len<0||pos+len>S.length)  return false;  // posºÍlen²»ºÏÀí
-      for(i=pos+len;i<S.length;i++)           // ÔªËØÇ°ÒÆ£¬É¾³ı×Ó´®
+      if(pos<0||pos>S.length-1||len<0||pos+len>S.length)  return false;  // poså’Œlenä¸åˆç†
+      for(i=pos+len;i<S.length;i++)           // å…ƒç´ å‰ç§»ï¼Œåˆ é™¤å­ä¸²
         S.str[i-len]=S.str[i];
-      S.str=(char *)realloc(S.str,(S.length-len)*sizeof(char)); // ´®S¿Õ¼ä¼õÉÙlen
-      S.length=S.length-len;                  // ´®S³¤¶È¼õÉÙlen
+      S.str=(char *)realloc(S.str,(S.length-len)*sizeof(char)); // ä¸²Sç©ºé—´å‡å°‘len
+      S.length=S.length-len;                  // ä¸²Sé•¿åº¦å‡å°‘len
       return true;
 }// StrDelete_Sq
 
 void StrReplace_Sq(DSqString &S, DSqString T,DSqString V)
-{  // ÓÃ´®VÖÃ»»Ö÷´®SÖĞ³öÏÖµÄËùÓĞÓëTÏàµÈµÄ²»ÖØµş×Ó´®£¬²¢·µ»ØÖÃ»»ºóµÄ´®S
+{  // ç”¨ä¸²Vç½®æ¢ä¸»ä¸²Sä¸­å‡ºç°çš„æ‰€æœ‰ä¸Tç›¸ç­‰çš„ä¸é‡å å­ä¸²ï¼Œå¹¶è¿”å›ç½®æ¢åçš„ä¸²S
       int  i=0,pos;
-      while(Index_Sq(S,T,i,pos))                    // ÅĞ¶ÏTÊÇ·ñÊÇSµÄ×Ó´®
-      { StrDelete_Sq(S,pos,T.length);             // É¾³ı×Ó´®T
-	    StrInsert_Sq(S,pos,V);                    // ²åÈë×Ó´®V
+      while(Index_Sq(S,T,pos))                    // åˆ¤æ–­Tæ˜¯å¦æ˜¯Sçš„å­ä¸²
+      { StrDelete_Sq(S,pos,T.length);             // åˆ é™¤å­ä¸²T
+	    StrInsert_Sq(S,pos,V);                    // æ’å…¥å­ä¸²V
 		i=i+StrLength_Sq(V);
       }
 }// StrReplace_Sq
@@ -148,6 +148,6 @@ void StrTraveres_Sq(DSqString S)
 void DestroyString_Sq(DSqString &S)
 {
 	free(S.str);
-	S.str=NULL;        // S.strÖÃ¿Õ
+	S.str=NULL;        // S.strç½®ç©º
    S.length=0;
 }// DestroyString_Sq
