@@ -82,7 +82,7 @@ ADT Queue{
 - **假溢出**的判断条件是： rear >= maxsize && front > 0。
 - **假溢出**是队满时候的一种情况，另一种是真溢出。
 - **假溢出**只存在于**非循环顺序队列**中。
-<img width="300"  src="/Chapter_04_Queue/img/3.png"/>
+<img width="200"  src="/Chapter_04_Queue/img/3.png"/>
 
 #### 解决方法
 1. 修改**出队**算法（事先避免假溢出），使每次出队列后都把队列中剩余的元素向front方向移动一个位置。O(n)
