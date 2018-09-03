@@ -125,26 +125,7 @@ ADT List
 - 数据结构影响算的选择和实现效率
 ------------------
 ## 典型数据结构与算法介绍
-- 顺序表
-![](Chapter_01_Introduction/imgs/1.jpg)
-- 链表
-![](Chapter_01_Introduction/imgs/2.jpg)
-- 堆栈
-![](Chapter_03_Stack/img/1.jpg)
-- 队列
-![](Chapter04_Queue/img/2.png)
-- 串
-![](Chapter_05_String/img/1.png)
-- 数组和广义表
-![](Chapter_06_Array/img/2.png)
-- 二叉树
-![](Chapter_07_Tree/img/1.png)
-- 图
-![](Chapter_08_Graph/img/1.jpg)
-- 查找
-![](Chapter_09_Indexing/img/1.jpg)
-- 排序
-![](Chapter_10_Sorting/img/1.jpg)
+- [我们看一个网页即可](https://github.com/xiufengcheng/DATASTRUCTURE/tree/master/Chapter_01_Introduction/Demo)
 ------------------
 ## 从C到C++
 - 头文件.h 中，通常包含数据结构与ADT的定义
