@@ -130,17 +130,17 @@ ADT List
 >* <font size = 7 color = blue >链表</font>
 <img src="../Chapter_02_List/img/2.jpg"  width="495">
 >* <font size = 7 color = blue >堆栈</font>
-<img src="../Chapter_03_Stack/img/1.png"  width="200">
+<img src="../Chapter_03_Stack/img/1.png"  width="150">
 >* <font size = 7 color = blue >队列</font>
-<img src="../Chapter_04_Queue/img/2.png"  width="200">
+<img src="../Chapter_04_Queue/img/2.png"  width="150">
 >* <font size = 7 color = blue >串</font>
 <img src="../Chapter_05_String/img/1.png"  width="495">
 >* <font size = 7 color = blue >数组和广义表</font>
-<img src="../Chapter_06_Array/img/3.png"  width="500">
+<img src="../Chapter_06_Array/img/3.png"  width="400">
 >* <font size = 7 color = blue >二叉树</font>
-<img src="../Chapter_07_Tree/img/1.png"  width="495">
+<img src="../Chapter_07_Tree/img/1.png"  width="400">
 >* <font size = 7 color = blue >图</font>
-<img src="../Chapter_08_Graph/img/1.png"  width="495">
+<img src="../Chapter_08_Graph/img/1.png"  width="450">
 >* <font size = 7 color = blue >查找</font>
 <img src="../Chapter_09_Indexing/img/1.jpg"  width="250">
 >* <font size = 7 color = blue >排序</font>
