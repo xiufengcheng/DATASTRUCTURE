@@ -1,8 +1,8 @@
 # <p align ="center">数据结构（C/C++）</p>
 ## <p align ="center">Data Structure(C/C++)</p>
-## <p align ="center">2017年秋</p>
+## <p align ="center">2018年秋</p>
 ### <p align ="center">课程号：21710017</p>
-### <p align ="center">人数：大班44人+小班28人</p>
+### <p align ="center">人数：32人</p>
 ---
 
 ### 主讲人：[程秀峰](http://imd.ccnu.edu.cn/info/1038/2825.htm):cn::school::tired_face:
@@ -10,7 +10,7 @@
 ### Email: 32472889@qq.com
 ### 手机：15071337806
 ### 网站(建设中)：
-### 群号: 542805699
+### 群号: 873758546
 ### [<font color = red>课程大纲</font>](./OUTLINE.MD)
 ### [<font color = red>学生考勤分数记录</font>](./SCORE.MD)
 
