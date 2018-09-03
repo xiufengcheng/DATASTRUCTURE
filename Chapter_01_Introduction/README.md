@@ -125,26 +125,26 @@ ADT List
 - 数据结构影响算的选择和实现效率
 ------------------
 ## 典型数据结构与算法介绍
->* <font size = 5 color = blue >顺序表</font>
+>* <font size = 7 color = blue >顺序表</font>
 <img src="../Chapter_02_List/img/1.jpg"  width="495">
-- 链表
+>* <font size = 7 color = blue >链表</font>
 <img src="../Chapter_02_List/img/2.jpg"  width="495">
-- 堆栈
-<img src="../Chapter_03_Stack/img/1.jpg"  width="495">
-- 队列
-<img src="../Chapter04_Queue/img/2.png"  width="495">
-- 串
+>* <font size = 7 color = blue >堆栈</font>
+<img src="../Chapter_03_Stack/img/1.png"  width="200">
+>* <font size = 7 color = blue >队列</font>
+<img src="../Chapter_04_Queue/img/2.png"  width="200">
+>* <font size = 7 color = blue >串</font>
 <img src="../Chapter_05_String/img/1.png"  width="495">
-- 数组和广义表
-<img src="../Chapter_06_Array/img/2.png"  width="495">
-- 二叉树
+>* <font size = 7 color = blue >数组和广义表</font>
+<img src="../Chapter_06_Array/img/3.png"  width="500">
+>* <font size = 7 color = blue >二叉树</font>
 <img src="../Chapter_07_Tree/img/1.png"  width="495">
-- 图
+>* <font size = 7 color = blue >图</font>
 <img src="../Chapter_08_Graph/img/1.png"  width="495">
-- 查找
-<img src="../Chapter_09_Indexing/img/1.jpg"  width="495">
-- 排序
-<img src="../Chapter_10_Sorting/img/1.jpg"  width="495">
+>* <font size = 7 color = blue >查找</font>
+<img src="../Chapter_09_Indexing/img/1.jpg"  width="250">
+>* <font size = 7 color = blue >排序</font>
+<img src="../Chapter_10_Sorting/img/1.jpg"  width="300">
 
 ------------------
 ## 从C到C++
