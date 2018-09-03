@@ -125,7 +125,7 @@ ADT List
 - 数据结构影响算的选择和实现效率
 ------------------
 ## 典型数据结构与算法介绍
-- 顺序表
+>* <font size = 5 color = blue >顺序表</font>
 <img src="../Chapter_02_List/img/1.jpg"  width="495">
 - 链表
 <img src="../Chapter_02_List/img/2.jpg"  width="495">
@@ -140,7 +140,7 @@ ADT List
 - 二叉树
 <img src="../Chapter_07_Tree/img/1.png"  width="495">
 - 图
-<img src="../Chapter_08_Graph/img/1.jpg"  width="495">
+<img src="../Chapter_08_Graph/img/1.png"  width="495">
 - 查找
 <img src="../Chapter_09_Indexing/img/1.jpg"  width="495">
 - 排序
