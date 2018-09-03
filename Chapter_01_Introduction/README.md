@@ -10,7 +10,7 @@
 
 -----------------------------
 
-## 一些定义d
+## 一些定义
 
 ### **数据(Data)**
 - 是客观事物的符号表示，在计算机科学中指输入到计算机中被计算机程序加工处理的符号的总称。
@@ -128,23 +128,24 @@ ADT List
 - 顺序表
 <img src="../Chapter_02_List/img/1.jpg"  width="495">
 - 链表
-![](Chapter_02_List/img/2.jpg)
+<img src="../Chapter_02_List/img/2.jpg"  width="495">
 - 堆栈
-![](Chapter_03_Stack/img/1.jpg)
+<img src="../Chapter_03_Stack/img/1.jpg"  width="495">
 - 队列
-![](Chapter04_Queue/img/2.png)
+<img src="../Chapter04_Queue/img/2.png"  width="495">
 - 串
-![](Chapter_05_String/img/1.png)
+<img src="../Chapter_05_String/img/1.png"  width="495">
 - 数组和广义表
-![](Chapter_06_Array/img/2.png)
+<img src="../Chapter_06_Array/img/2.png"  width="495">
 - 二叉树
-![](Chapter_07_Tree/img/1.png)
+<img src="../Chapter_07_Tree/img/1.png"  width="495">
 - 图
-![](Chapter_08_Graph/img/1.jpg)
+<img src="../Chapter_08_Graph/img/1.jpg"  width="495">
 - 查找
-![](Chapter_09_Indexing/img/1.jpg)
+<img src="../Chapter_09_Indexing/img/1.jpg"  width="495">
 - 排序
-![](Chapter_10_Sorting/img/1.jpg)
+<img src="../Chapter_10_Sorting/img/1.jpg"  width="495">
+
 ------------------
 ## 从C到C++
 - 头文件.h 中，通常包含数据结构与ADT的定义
