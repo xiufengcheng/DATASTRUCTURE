@@ -126,7 +126,7 @@ ADT List
 ------------------
 ## 典型数据结构与算法介绍
 - 顺序表
-![](./Chapter_02_List/img/1.jpg)
+![](../Chapter_02_List/img/1.jpg)
 - 链表
 ![](Chapter_02_List/img/2.jpg)
 - 堆栈
