@@ -212,18 +212,18 @@ void main( )
 # include "stdio.h"
 public class student        //定义类
 {
-   private:
+   private:      //表示以下为私有成员
    int num;
    char name[10];
    char sex;
-   public:
-   student()
+   public:       //表示以下为公有成员
+   student() //构造函数
    {
        num =10010;
        strcyp(name,"wanglin");
        sex = 'F';
    }
-   ~student()
+   ~student()//析构函数
    {}
 
    void display()       //定义函数
@@ -234,20 +234,34 @@ public class student        //定义类
    }
 }
 ```
+### 类的访问权限
+```c++
+private: 私有 -- 例如你的卧室，只有你能用
+protected: 保护  --例如你家的厨房，你可以用，你家人（派生类）也可以用
+public: 公有  --例如你家的客厅，所有人都可以用
+
+```
+### 继承与派生
+```c++
+class underg_student: public student   // 前面的子类由后面的派生类继承而来
+
+```
+
 ### 变量的引用类型
 ```c++
 # include "stdio.h"
-void swap(int &p1,int &p2)
-{int temp;
-temp=p1;
-p1=p2;
-p2=temp;}
+void swap(int &p1,int &p2)  
+{  
+    int temp;
+    temp=p1;
+    p1=p2;
+    p2=temp;}
 
 void main( )
 {
- int a=5,b=9;
-  if(a<b) swap(a,b);
-printf("\na=%d,b=%d\n",a,b);
+    int a=5,b=9;
+    if(a<b) swap(a,b);
+    printf("\na=%d,b=%d\n",a,b);
 }
 `````````
 
@@ -255,40 +269,45 @@ printf("\na=%d,b=%d\n",a,b);
 
 ```c++
 # include "iostream.h"                 // 该文件包含标准输入输出流cout和cin
-struct complex {
-int real;
-int imag;
-  complex&operator+(complex &s)   //重载"+"，函数直接写在结构体内！
+struct complex 
 {
-    complex c;
-    c.real=real+s.real;
-    c.imag=imag+s.imag;
-    return c;
-   }
-complex&operator+=(complex &s); //重载"+="，函数在结构体外部！
-friend ostream&operator<<(ostream &output,complex &s); //以友元函数方式重载
+    int real;
+    int imag;
+    complex&operator+(complex &s)   //重载"+"，函数直接写在结构体内！
+    {
+        complex c;
+        c.real=real+s.real;
+        c.imag=imag+s.imag;
+        return c;
+    }
+    complex&operator+=(complex &s); //重载"+="，函数在结构体外部！
+
+    friend ostream&operator<<(ostream &output,complex &s); //以友元函数方式重载
 };
+
 complex &complex::operator+=(complex &s)
 {
-real+=s.real;
-imag+=s.imag;
-return *this;
+    real+=s.real;
+    imag+=s.imag;
+    return *this;
 }
 ostream&operator<<(ostream &output,complex &s)
 {
-output<<" a.real="<<s.real<<"  a.imag="<<s.imag<<endl;
-return output;
+    output<<" a.real="<<s.real<<"  a.imag="<<s.imag<<endl;
+    return output;
 }
+
 void main()
 {
-complex c={0,0},a,b={1,5};
-a=b+b;
-c+=b;
-cout<<a;
-cout<<" c.real="<<c.real<<"  c.imag="<<c.imag<<endl;
-cout<<" b.real="<<b.real<<"  b.imag="<<b.imag<<endl;
+    complex c={0,0},a,b={1,5};
+    a=b+b;
+    c+=b;
+    cout<<a;
+    cout<<" c.real="<<c.real<<"  c.imag="<<c.imag<<endl;
+    cout<<" b.real="<<b.real<<"  b.imag="<<b.imag<<endl;
 }
 ```
+
 ### 友元
 ```c++
 class A
@@ -300,12 +319,10 @@ class A
        };
 
 ```
-
-### 作用域分辨符号
-参考'Homework8'中的完整c++代码
+## 生产力工具介绍
 ------------------
 
-<img width="600"  src="/Chapter_01_Introduction/img/3.jpg"/>
+<img width="400"  src="/Chapter_01_Introduction/img/3.jpg"/>
 
 ------------------
 ## 生产力工具之CFree
