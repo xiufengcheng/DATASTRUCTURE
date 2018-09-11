@@ -346,13 +346,12 @@ class A
 ------------------
 
 ## 其它语言描述数据结构
-- [这些语言的coding都可以在vscode中搞定](https://code.visualstudio.com/docs)
-- Java环境配置(jdk)
-- VScode中编写java
-- Python配置(pycharm)
-- VSCode中编写Python
-- VSCode中编写C#
-- VsCode中编写Js
+- [这些语言的coding都可以在vscode中编写（前提是装好各自语言的编译器）](https://code.visualstudio.com/docs)
+- Java(jdk)
+- Python(python2.0,3.0)
+- C++(GCC,MingW,MS..)
+- C#(.netcore, .netframework)
+
 
 ## 作业
 1. 注册github账号，并fork我的[本门课程的仓库](https://github.com/xiufengcheng/DATASTRUCTURE)
