@@ -1,7 +1,7 @@
 typedef int ElemType;    // 顺序表中元素类型为int
 
 # include "stdlib.h"     // 该文件包含malloc()、realloc()和free()等函数
-# include "iomanip.h"    // 该文件包含标准输入输出流cout和cin及控制符setw()等函数 
+# include "iomanip.h"    // 该文件包含标准输入输出流cout和cin及控制符setw()等函数,visual studio中可能不需要写.h
 //# include "iostream"   //visual studio中可能要用到
 # include "SqList.h"     // 该文件中包含链表数据对象的描述及相关操作
 
