@@ -1,4 +1,4 @@
-/****在visual studio中可能需要这两句
+/****在visual studio中可能需要这两句，并且文件名改成小写sqlist,相关引用也要改
 	# include "iostream";
 	using namespace std;  
 ******/
